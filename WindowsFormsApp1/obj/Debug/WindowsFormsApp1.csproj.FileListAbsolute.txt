@@ -1,0 +1,11 @@
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddItem.resources
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkTypeManage.resources
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TypeWork.resources
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
