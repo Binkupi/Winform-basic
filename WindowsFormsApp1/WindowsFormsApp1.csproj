@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=6.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.0.4\lib\net452\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.0.0\lib\net452\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.0.0\lib\net452\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,19 +62,33 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.1.1\lib\net47\WebDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItem.cs">
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="Model\WorkInfoModel.cs" />
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkManage\AddWorkItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.cs">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <Compile Include="WorkManage\AddWorkItem.Designer.cs">
+      <DependentUpon>AddWorkItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkManage\UserControl1.cs">
+    <Compile Include="ElipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WorkManage\WorkItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WorkManage\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="WorkManage\WorkItem.Designer.cs">
+      <DependentUpon>WorkItem.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkManage\WorkManagePage.cs">
       <SubType>Form</SubType>
@@ -64,31 +96,40 @@
     <Compile Include="WorkManage\WorkManagePage.Designer.cs">
       <DependentUpon>WorkManagePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkTypeManage.cs">
-      <SubType>Form</SubType>
+    <Compile Include="WorkTypeManage\WorkTypeAdd.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WorkTypeManage.Designer.cs">
-      <DependentUpon>WorkTypeManage.cs</DependentUpon>
+    <Compile Include="WorkTypeManage\WorkTypeAdd.Designer.cs">
+      <DependentUpon>WorkTypeAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeWork.cs">
+    <Compile Include="WorkTypeManage\TypeWork.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TypeWork.Designer.cs">
+    <Compile Include="WorkTypeManage\TypeWork.Designer.cs">
       <DependentUpon>TypeWork.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItem.resx">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <Compile Include="WorkTypeManage\WorkTypeManagePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkTypeManage\WorkTypeManagePage.Designer.cs">
+      <DependentUpon>WorkTypeManagePage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkManage\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="WorkManage\AddWorkItem.resx">
+      <DependentUpon>AddWorkItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManage\WorkItem.resx">
+      <DependentUpon>WorkItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkManage\WorkManagePage.resx">
       <DependentUpon>WorkManagePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkTypeManage.resx">
-      <DependentUpon>WorkTypeManage.cs</DependentUpon>
+    <EmbeddedResource Include="WorkTypeManage\WorkTypeAdd.resx">
+      <DependentUpon>WorkTypeAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,10 +139,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TypeWork.resx">
+    <EmbeddedResource Include="WorkTypeManage\TypeWork.resx">
       <DependentUpon>TypeWork.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WorkTypeManage\WorkTypeManagePage.resx">
+      <DependentUpon>WorkTypeManagePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,5 +161,33 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3844425_can_trash_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8725775_edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4781840_+_add_circle_create_expand_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4781840_+_add_circle_create_expand_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1564526_add_arrow_download_save_guardar_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2849798_upload_multimedia_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\172516_paper_clip_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.101.0.4951.4100\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.101.0.4951.4100\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.101.0.4951.4100\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.101.0.4951.4100\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
 </Project>
