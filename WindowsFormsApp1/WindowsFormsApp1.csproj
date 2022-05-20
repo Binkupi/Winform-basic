@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +53,29 @@
     <Compile Include="AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkManage\UserControl1.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="AddTypeWork.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkManage\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="AddTypeWork.Designer.cs">
+      <DependentUpon>AddTypeWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWork.Designer.cs">
+      <DependentUpon>AddWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestConnectDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestConnectDatabase.Designer.cs">
+      <DependentUpon>TestConnectDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkManage\WorkManagePage.cs">
       <SubType>Form</SubType>
@@ -81,8 +100,17 @@
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkManage\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="AddTypeWork.resx">
+      <DependentUpon>AddTypeWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWork.resx">
+      <DependentUpon>AddWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestConnectDatabase.resx">
+      <DependentUpon>TestConnectDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkManage\WorkManagePage.resx">
       <DependentUpon>WorkManagePage.cs</DependentUpon>
