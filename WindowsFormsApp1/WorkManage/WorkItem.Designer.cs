@@ -59,6 +59,7 @@ namespace WindowsFormsApp1.WorkManage
             this.txtDate.Size = new System.Drawing.Size(76, 19);
             this.txtDate.TabIndex = 3;
             this.txtDate.Text = "Ngày giờ";
+            this.txtDate.Click += new System.EventHandler(this.txtDate_Click);
             // 
             // btnEdit
             // 
@@ -95,6 +96,7 @@ namespace WindowsFormsApp1.WorkManage
             this.background.Name = "background";
             this.background.Size = new System.Drawing.Size(150, 150);
             this.background.TabIndex = 4;
+            this.background.Paint += new System.Windows.Forms.PaintEventHandler(this.background_Paint);
             // 
             // workItem
             // 

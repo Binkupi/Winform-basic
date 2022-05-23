@@ -72,10 +72,23 @@ namespace WindowsFormsApp1.WorkManage
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            AddWork addWork = new AddWork(WorkId, true );
+            addWork.Show();
         }
 
         private void txtName_Click(object sender, EventArgs e)
+        {
+            AddWork addWork = new AddWork(WorkId);
+            addWork.Show();
+        }
+
+        private void txtDate_Click(object sender, EventArgs e)
+        {
+            AddWork addWork = new AddWork(WorkId);
+            addWork.Show();
+        }
+
+        private void background_Paint(object sender, PaintEventArgs e)
         {
 
         }

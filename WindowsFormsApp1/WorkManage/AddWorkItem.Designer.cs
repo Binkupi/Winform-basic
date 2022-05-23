@@ -58,6 +58,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.btnAdd);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "AddWorkItem";
+            this.Load += new System.EventHandler(this.AddWorkItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
 

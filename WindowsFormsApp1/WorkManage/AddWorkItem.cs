@@ -11,18 +11,19 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class AddWorkItem : UserControl
-    {
+    {   
         public AddWorkItem()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            AddWork addWork = new AddWork();
+            addWork.Show();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void AddWorkItem_Load(object sender, EventArgs e)
         {
 
         }
