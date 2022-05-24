@@ -71,7 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\TypeWork.cs" />
+    <Compile Include="Model\ModelTypeWork.cs" />
     <Compile Include="Model\Work.cs" />
     <Compile Include="WorkManage\WorkItem.cs">
       <SubType>UserControl</SubType>
