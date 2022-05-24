@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp1.WorkManage
+namespace WindowsFormsApp1
 {
     partial class WorkManagePage
     {

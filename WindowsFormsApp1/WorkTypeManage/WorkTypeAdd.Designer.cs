@@ -37,12 +37,14 @@ namespace WindowsFormsApp1.WorkTypeManage
             // btnAdd
             // 
             this.btnAdd.Image = global::WindowsFormsApp1.Properties.Resources._4781840___add_circle_create_expand_icon__1_;
-            this.btnAdd.Location = new System.Drawing.Point(23, 22);
+            this.btnAdd.Location = new System.Drawing.Point(17, 19);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(160, 161);
+            this.btnAdd.Size = new System.Drawing.Size(120, 141);
             this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnAdd.TabIndex = 0;
             this.btnAdd.TabStop = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // elipseControl1
             // 
@@ -51,13 +53,14 @@ namespace WindowsFormsApp1.WorkTypeManage
             // 
             // WorkTypeAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "WorkTypeAdd";
-            this.Size = new System.Drawing.Size(200, 200);
+            this.Size = new System.Drawing.Size(150, 175);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
 

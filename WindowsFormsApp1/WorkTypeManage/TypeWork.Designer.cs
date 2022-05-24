@@ -30,14 +30,14 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.backgroundcolor = new System.Windows.Forms.Panel();
-            this.btnEdit = new System.Windows.Forms.PictureBox();
-            this.btnRemove = new System.Windows.Forms.PictureBox();
-            this.txtDescription = new System.Windows.Forms.Label();
             this.txtWorkTypeName = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.PictureBox();
+            this.btnEdit = new System.Windows.Forms.PictureBox();
             this.elipseControl1 = new WindowsFormsApp1.ElipseControl();
             this.backgroundcolor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundcolor
@@ -48,53 +48,57 @@ namespace WindowsFormsApp1
             this.backgroundcolor.Controls.Add(this.btnRemove);
             this.backgroundcolor.Controls.Add(this.btnEdit);
             this.backgroundcolor.Location = new System.Drawing.Point(0, 0);
+            this.backgroundcolor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.backgroundcolor.Name = "backgroundcolor";
-            this.backgroundcolor.Size = new System.Drawing.Size(200, 200);
+            this.backgroundcolor.Size = new System.Drawing.Size(150, 175);
             this.backgroundcolor.TabIndex = 4;
             this.backgroundcolor.Click += new System.EventHandler(this.backgroundcolor_Click);
             this.backgroundcolor.Paint += new System.Windows.Forms.PaintEventHandler(this.backgroundcolor_Paint);
             // 
-            // btnEdit
+            // txtWorkTypeName
             // 
-            this.btnEdit.Image = global::WindowsFormsApp1.Properties.Resources._8725775_edit_icon;
-            this.btnEdit.Location = new System.Drawing.Point(100, 144);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(39, 42);
-            this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.TabStop = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
+            this.txtWorkTypeName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtWorkTypeName.Location = new System.Drawing.Point(6, 11);
+            this.txtWorkTypeName.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.txtWorkTypeName.Name = "txtWorkTypeName";
+            this.txtWorkTypeName.Size = new System.Drawing.Size(142, 31);
+            this.txtWorkTypeName.TabIndex = 3;
+            this.txtWorkTypeName.Text = "Tên loại công việc";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDescription.Location = new System.Drawing.Point(9, 55);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(128, 68);
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.Text = "Mô tả công việc";
+            this.txtDescription.Click += new System.EventHandler(this.txtDescription_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.Image = global::WindowsFormsApp1.Properties.Resources._3844425_can_trash_icon;
-            this.btnRemove.Location = new System.Drawing.Point(154, 144);
+            this.btnRemove.Location = new System.Drawing.Point(116, 126);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(43, 42);
+            this.btnRemove.Size = new System.Drawing.Size(32, 37);
             this.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRemove.TabIndex = 1;
             this.btnRemove.TabStop = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // txtDescription
+            // btnEdit
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtDescription.Location = new System.Drawing.Point(12, 63);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(171, 78);
-            this.txtDescription.TabIndex = 2;
-            this.txtDescription.Text = "Mô tả công việc";
-            this.txtDescription.Click += new System.EventHandler(this.txtDescription_Click);
-            // 
-            // txtWorkTypeName
-            // 
-            this.txtWorkTypeName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.txtWorkTypeName.Location = new System.Drawing.Point(8, 13);
-            this.txtWorkTypeName.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.txtWorkTypeName.Name = "txtWorkTypeName";
-            this.txtWorkTypeName.Size = new System.Drawing.Size(189, 35);
-            this.txtWorkTypeName.TabIndex = 3;
-            this.txtWorkTypeName.Text = "Tên loại công việc";
+            this.btnEdit.Image = global::WindowsFormsApp1.Properties.Resources._8725775_edit_icon;
+            this.btnEdit.Location = new System.Drawing.Point(75, 126);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(29, 37);
+            this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnEdit.TabIndex = 0;
+            this.btnEdit.TabStop = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // elipseControl1
             // 
@@ -103,16 +107,17 @@ namespace WindowsFormsApp1
             // 
             // TypeWork
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.backgroundcolor);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "TypeWork";
-            this.Size = new System.Drawing.Size(200, 200);
+            this.Size = new System.Drawing.Size(150, 175);
             this.Load += new System.EventHandler(this.TypeWork_Load);
             this.backgroundcolor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             this.ResumeLayout(false);
 
         }

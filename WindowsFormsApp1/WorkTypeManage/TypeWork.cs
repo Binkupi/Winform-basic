@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.WorkManage;
+using WindowsFormsApp1;
 
 namespace WindowsFormsApp1
 {
@@ -67,16 +67,19 @@ namespace WindowsFormsApp1
             }
 
         }
+        public string TypeWorkId { get; set; }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void btnEdit_Click_1(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            AddTypeWork addTypeWork = new AddTypeWork(TypeWorkId);
+            addTypeWork.Show();
         }
+
+
 
         private void backgroundcolor_Paint(object sender, PaintEventArgs e)
         {
@@ -93,5 +96,7 @@ namespace WindowsFormsApp1
             WorkManagePage work = new WorkManagePage();
             work.Show();
         }
+
+        
     }
 }
