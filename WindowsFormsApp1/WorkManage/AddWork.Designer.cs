@@ -52,6 +52,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtColor = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -228,6 +229,7 @@
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.Controls.Add(this.txtColor);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.btnChooseColor);
@@ -252,7 +254,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F);
-            this.label8.Location = new System.Drawing.Point(566, 21);
+            this.label8.Location = new System.Drawing.Point(499, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(205, 23);
             this.label8.TabIndex = 4;
@@ -260,9 +262,9 @@
             // 
             // btnChooseColor
             // 
-            this.btnChooseColor.Location = new System.Drawing.Point(55, 53);
+            this.btnChooseColor.Location = new System.Drawing.Point(324, 53);
             this.btnChooseColor.Name = "btnChooseColor";
-            this.btnChooseColor.Size = new System.Drawing.Size(252, 37);
+            this.btnChooseColor.Size = new System.Drawing.Size(106, 37);
             this.btnChooseColor.TabIndex = 3;
             this.btnChooseColor.Text = "Chọn màu";
             this.btnChooseColor.UseVisualStyleBackColor = true;
@@ -272,7 +274,7 @@
             // 
             this.chkIsFinish.AutoSize = true;
             this.chkIsFinish.Font = new System.Drawing.Font("Arial", 12F);
-            this.chkIsFinish.Location = new System.Drawing.Point(691, 56);
+            this.chkIsFinish.Location = new System.Drawing.Point(561, 56);
             this.chkIsFinish.Name = "chkIsFinish";
             this.chkIsFinish.Size = new System.Drawing.Size(158, 27);
             this.chkIsFinish.TabIndex = 2;
@@ -359,6 +361,13 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Deadline *:";
             // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(58, 61);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(229, 22);
+            this.txtColor.TabIndex = 6;
+            // 
             // AddWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -413,5 +422,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtColor;
     }
 }

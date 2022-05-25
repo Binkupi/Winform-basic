@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1.WorkManage
 {
@@ -28,26 +29,73 @@ namespace WindowsFormsApp1.WorkManage
         }
         private void loadData()
         {
+            DataTable lstWork = new DataTable();
+            DateTime today = DateTime.Now;
+            var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<double>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline"))==1);
+            var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<double>("IsFinished") == 1 );
+            var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<double>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == 0);
+            List<Work> lstUndoneWork = new List<Work>();
+            List<Work> lstDoneWork = new List<Work>();
+            List<Work> lstLatedWork = new List<Work>();
+            if (drUndoneWork.Any())
+            {
+                lstUndoneWork = Helper.Helper.ConvertToList<Work>(drUndoneWork.CopyToDataTable());
+            }
+            if (drDoneWork.Any())
+            {
+                lstDoneWork = Helper.Helper.ConvertToList<Work>(drDoneWork.CopyToDataTable());
+            }
+            if (lstLatedWork.Any())
+            {
+                lstLatedWork = Helper.Helper.ConvertToList<Work>(drLatedWork.CopyToDataTable());
+            }
             undoneWorkLayout.Controls.Clear();
-            workItem workItem = new workItem();
-            workItem workItem2 = new workItem();
-            workItem workItem3 = new workItem();
-            workItem workItem4 = new workItem();
-            AddWorkItem addItem = new AddWorkItem();
-            undoneWorkLayout.Controls.Add(workItem);
-            undoneWorkLayout.Controls.Add(workItem2);
-            undoneWorkLayout.Controls.Add(addItem);
+            var listUndoneItems = new workItem[100];
+            int i = 0;
+            foreach (Work undoneWork in lstUndoneWork)
+            {
+                listUndoneItems[i] = new workItem();
+                listUndoneItems[i].WorkId = undoneWork.IdWork;
+                listUndoneItems[i].strName = undoneWork.Name;
+                listUndoneItems[i].strDate = undoneWork.Deadline.ToString();
+                listUndoneItems[i].Margin = new Padding(10);
+                undoneWorkLayout.Controls.Add(listUndoneItems[i]);
+                i++;
+            }
+            AddWorkItem addWorkItem = new AddWorkItem();
+            undoneWorkLayout.Controls.Add(addWorkItem);
             doneWorkLayout.Controls.Clear();
-            doneWorkLayout.Controls.Add(workItem3);
+            var listDoneItems = new workItem[100];
+            i = 0;
+            foreach (Work doneWork in lstDoneWork)
+            {
+                listDoneItems[i] = new workItem();
+                listDoneItems[i].WorkId = doneWork.IdWork;
+                listDoneItems[i].strName = doneWork.Name;
+                listDoneItems[i].strDate = doneWork.Deadline.ToString();
+                listDoneItems[i].Margin = new Padding(10);
+                doneWorkLayout.Controls.Add(listDoneItems[i]);
+                i++;
+            }
             latedWorkLayout.Controls.Clear();
-            latedWorkLayout.Controls.Add(workItem4);
+            AddWorkItem addUndoneItem = new AddWorkItem();
+            var listLatedItems = new workItem[100];
+            i = 0;
+            foreach (Work doneWork in lstDoneWork)
+            {
+                listLatedItems[i] = new workItem();
+                listLatedItems[i].WorkId = doneWork.IdWork;
+                listLatedItems[i].strName = doneWork.Name;
+                listLatedItems[i].strDate = doneWork.Deadline.ToString();
+                listLatedItems[i].Margin = new Padding(10);
+                latedWorkLayout.Controls.Add(listLatedItems[i]);
+                i++;
+            }
         }
 
         private void undoneWorkLayout_MouseDown(object sender, MouseEventArgs e)
         {
-            //var control = sender as Control;
-            //this.DoDragDrop(control.Name, DragDropEffects.Move);
-            //this._mouseLocation = e.Location;
+
         }
 
         private void undoneWorkLayout_MouseMove(object sender, MouseEventArgs e)
@@ -79,7 +127,6 @@ namespace WindowsFormsApp1.WorkManage
 
         private void undoneWorkLayout_DragDrop(object sender, DragEventArgs e)
         {
-            MessageBox.Show("có");
         }
 
         private void undoneWorkLayout_MouseEnter(object sender, EventArgs e)

@@ -28,7 +28,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             loadDataShow(workID);
         }
-        private string backgroundColor = "";
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -63,11 +62,9 @@ namespace WindowsFormsApp1
         {
             ColorDialog dlg = new ColorDialog(); //Khởi tạo đối tượng ColorDialog 
 
-            if (dlg.ShowDialog() == DialogResult.OK) //Nếu nhấp vào nút OK trên hộp thoại
-            {
-                backgroundColor = dlg.Color.Name; //Trả lại tên của màu đã lựa chọn
-                MessageBox.Show(backgroundColor); //Hiển thị lên MessageBox
-                MessageBox.Show(dateStart.Value.ToString());
+            if (dlg.ShowDialog() == DialogResult.OK){ //Nếu nhấp vào nút OK trên hộp thoại
+
+                txtColor.Text = dlg.Color.Name.ToString();
             }
         }
         private void loadDataCreate()

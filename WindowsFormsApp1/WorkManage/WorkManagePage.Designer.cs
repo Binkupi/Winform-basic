@@ -30,26 +30,26 @@ namespace WindowsFormsApp1.WorkManage
         private void InitializeComponent()
         {
             this.panelUndoneWork = new System.Windows.Forms.Panel();
-            this.btnDefaultExport = new System.Windows.Forms.PictureBox();
-            this.btnDownload = new System.Windows.Forms.PictureBox();
-            this.btnUpload = new System.Windows.Forms.PictureBox();
             this.undoneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.txtUndoneWorkTitle = new System.Windows.Forms.Label();
+            this.panelTool = new System.Windows.Forms.Panel();
+            this.btnUpload = new System.Windows.Forms.PictureBox();
+            this.btnDefaultExport = new System.Windows.Forms.PictureBox();
+            this.btnDownload = new System.Windows.Forms.PictureBox();
             this.panelDoneWork = new System.Windows.Forms.Panel();
             this.doneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelLatedWork = new System.Windows.Forms.Panel();
+            this.latedWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.titleLatedWork = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.latedWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelTool = new System.Windows.Forms.Panel();
             this.panelUndoneWork.SuspendLayout();
+            this.panelTool.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDefaultExport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDownload)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             this.panelDoneWork.SuspendLayout();
             this.panelLatedWork.SuspendLayout();
-            this.panelTool.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelUndoneWork
@@ -65,6 +65,58 @@ namespace WindowsFormsApp1.WorkManage
             this.panelUndoneWork.Size = new System.Drawing.Size(676, 368);
             this.panelUndoneWork.TabIndex = 0;
             this.panelUndoneWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // undoneWorkLayout
+            // 
+            this.undoneWorkLayout.AllowDrop = true;
+            this.undoneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.undoneWorkLayout.AutoSize = true;
+            this.undoneWorkLayout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.undoneWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.undoneWorkLayout.Location = new System.Drawing.Point(2, 53);
+            this.undoneWorkLayout.Name = "undoneWorkLayout";
+            this.undoneWorkLayout.Size = new System.Drawing.Size(673, 318);
+            this.undoneWorkLayout.TabIndex = 1;
+            this.undoneWorkLayout.DragDrop += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragDrop);
+            this.undoneWorkLayout.DragEnter += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragEnter);
+            this.undoneWorkLayout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseDown);
+            this.undoneWorkLayout.MouseEnter += new System.EventHandler(this.undoneWorkLayout_MouseEnter);
+            this.undoneWorkLayout.MouseMove += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseMove);
+            this.undoneWorkLayout.MouseUp += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseUp);
+            // 
+            // txtUndoneWorkTitle
+            // 
+            this.txtUndoneWorkTitle.AutoSize = true;
+            this.txtUndoneWorkTitle.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUndoneWorkTitle.Location = new System.Drawing.Point(3, 9);
+            this.txtUndoneWorkTitle.Name = "txtUndoneWorkTitle";
+            this.txtUndoneWorkTitle.Size = new System.Drawing.Size(250, 30);
+            this.txtUndoneWorkTitle.TabIndex = 0;
+            this.txtUndoneWorkTitle.Text = "Công việc chưa làm";
+            // 
+            // panelTool
+            // 
+            this.panelTool.AutoSize = true;
+            this.panelTool.Controls.Add(this.btnUpload);
+            this.panelTool.Controls.Add(this.btnDefaultExport);
+            this.panelTool.Controls.Add(this.btnDownload);
+            this.panelTool.Location = new System.Drawing.Point(447, 3);
+            this.panelTool.Name = "panelTool";
+            this.panelTool.Size = new System.Drawing.Size(221, 48);
+            this.panelTool.TabIndex = 5;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Image = global::WindowsFormsApp1.Properties.Resources._2849798_upload_multimedia_icon;
+            this.btnUpload.Location = new System.Drawing.Point(50, 4);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(41, 40);
+            this.btnUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnUpload.TabIndex = 2;
+            this.btnUpload.TabStop = false;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // btnDefaultExport
             // 
@@ -87,47 +139,6 @@ namespace WindowsFormsApp1.WorkManage
             this.btnDownload.TabIndex = 3;
             this.btnDownload.TabStop = false;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.Image = global::WindowsFormsApp1.Properties.Resources._2849798_upload_multimedia_icon;
-            this.btnUpload.Location = new System.Drawing.Point(50, 4);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(41, 40);
-            this.btnUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnUpload.TabIndex = 2;
-            this.btnUpload.TabStop = false;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // undoneWorkLayout
-            // 
-            this.undoneWorkLayout.AllowDrop = true;
-            this.undoneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.undoneWorkLayout.AutoSize = true;
-            this.undoneWorkLayout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.undoneWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.undoneWorkLayout.Location = new System.Drawing.Point(2, 53);
-            this.undoneWorkLayout.Name = "undoneWorkLayout";
-            this.undoneWorkLayout.Size = new System.Drawing.Size(673, 310);
-            this.undoneWorkLayout.TabIndex = 1;
-            this.undoneWorkLayout.DragDrop += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragDrop);
-            this.undoneWorkLayout.DragEnter += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragEnter);
-            this.undoneWorkLayout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseDown);
-            this.undoneWorkLayout.MouseEnter += new System.EventHandler(this.undoneWorkLayout_MouseEnter);
-            this.undoneWorkLayout.MouseMove += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseMove);
-            this.undoneWorkLayout.MouseUp += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseUp);
-            // 
-            // txtUndoneWorkTitle
-            // 
-            this.txtUndoneWorkTitle.AutoSize = true;
-            this.txtUndoneWorkTitle.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUndoneWorkTitle.Location = new System.Drawing.Point(3, 9);
-            this.txtUndoneWorkTitle.Name = "txtUndoneWorkTitle";
-            this.txtUndoneWorkTitle.Size = new System.Drawing.Size(250, 30);
-            this.txtUndoneWorkTitle.TabIndex = 0;
-            this.txtUndoneWorkTitle.Text = "Công việc chưa làm";
             // 
             // panelDoneWork
             // 
@@ -172,24 +183,6 @@ namespace WindowsFormsApp1.WorkManage
             this.panelLatedWork.Size = new System.Drawing.Size(1332, 308);
             this.panelLatedWork.TabIndex = 2;
             // 
-            // titleLatedWork
-            // 
-            this.titleLatedWork.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.titleLatedWork.Location = new System.Drawing.Point(541, 21);
-            this.titleLatedWork.Name = "titleLatedWork";
-            this.titleLatedWork.Size = new System.Drawing.Size(259, 30);
-            this.titleLatedWork.TabIndex = 0;
-            this.titleLatedWork.Text = "Công việc đã trễ hạn";
-            this.titleLatedWork.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(351, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 17);
-            this.label4.TabIndex = 6;
-            // 
             // latedWorkLayout
             // 
             this.latedWorkLayout.AllowDrop = true;
@@ -204,16 +197,22 @@ namespace WindowsFormsApp1.WorkManage
             this.latedWorkLayout.Size = new System.Drawing.Size(1320, 239);
             this.latedWorkLayout.TabIndex = 2;
             // 
-            // panelTool
+            // titleLatedWork
             // 
-            this.panelTool.AutoSize = true;
-            this.panelTool.Controls.Add(this.btnUpload);
-            this.panelTool.Controls.Add(this.btnDefaultExport);
-            this.panelTool.Controls.Add(this.btnDownload);
-            this.panelTool.Location = new System.Drawing.Point(447, 3);
-            this.panelTool.Name = "panelTool";
-            this.panelTool.Size = new System.Drawing.Size(221, 48);
-            this.panelTool.TabIndex = 5;
+            this.titleLatedWork.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.titleLatedWork.Location = new System.Drawing.Point(541, 21);
+            this.titleLatedWork.Name = "titleLatedWork";
+            this.titleLatedWork.Size = new System.Drawing.Size(259, 30);
+            this.titleLatedWork.TabIndex = 0;
+            this.titleLatedWork.Text = "Công việc đã trễ hạn";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(351, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 17);
+            this.label4.TabIndex = 6;
             // 
             // WorkManagePage
             // 
@@ -231,14 +230,14 @@ namespace WindowsFormsApp1.WorkManage
             this.Resize += new System.EventHandler(this.WorkManagePage_Resize);
             this.panelUndoneWork.ResumeLayout(false);
             this.panelUndoneWork.PerformLayout();
+            this.panelTool.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDefaultExport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDownload)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             this.panelDoneWork.ResumeLayout(false);
             this.panelDoneWork.PerformLayout();
             this.panelLatedWork.ResumeLayout(false);
             this.panelLatedWork.PerformLayout();
-            this.panelTool.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
