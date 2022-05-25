@@ -16,5 +16,12 @@ namespace WindowsFormsApp1.WorkTypeManage
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            AddTypeWork addTypeWork = new AddTypeWork();
+            addTypeWork.Show();
+        }
     }
 }

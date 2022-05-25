@@ -8,7 +8,16 @@ namespace WindowsFormsApp1.Model
 {
     class Work
     {
-        Work()
+        private string idWork;
+        private string name;
+        private string idWorkType;
+        private DateTime startDate;
+        private DateTime deadline;
+        private string description;
+        private string backgroundColor;
+        private int isFinished;
+        private
+            Work()
         {
 
         }

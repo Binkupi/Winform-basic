@@ -32,21 +32,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_ListTypeWork = new System.Windows.Forms.Label();
-            this.lbl_ListWork = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panelDoneWork = new System.Windows.Forms.Panel();
-            this.doneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelUndoneWork = new System.Windows.Forms.Panel();
             this.undoneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.txtUndoneWorkTitle = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panelDoneWork = new System.Windows.Forms.Panel();
+            this.doneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panelDoneWork.SuspendLayout();
             this.panelUndoneWork.SuspendLayout();
+            this.panelDoneWork.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,8 +58,8 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lbl_ListTypeWork);
-            this.panel1.Controls.Add(this.lbl_ListWork);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 62);
@@ -92,27 +92,25 @@
             this.panel2.Size = new System.Drawing.Size(801, 100);
             this.panel2.TabIndex = 1;
             // 
-            // lbl_ListTypeWork
+            // label2
             // 
-            this.lbl_ListTypeWork.AutoSize = true;
-            this.lbl_ListTypeWork.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ListTypeWork.Location = new System.Drawing.Point(216, 20);
-            this.lbl_ListTypeWork.Name = "lbl_ListTypeWork";
-            this.lbl_ListTypeWork.Size = new System.Drawing.Size(219, 22);
-            this.lbl_ListTypeWork.TabIndex = 1;
-            this.lbl_ListTypeWork.Text = "Danh sách loại công việc";
-            this.lbl_ListTypeWork.DoubleClick += new System.EventHandler(this.lbl_ListTypeWork_DoubleClick);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(216, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(219, 22);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Danh sách loại công việc";
             // 
-            // lbl_ListWork
+            // label1
             // 
-            this.lbl_ListWork.AutoSize = true;
-            this.lbl_ListWork.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ListWork.Location = new System.Drawing.Point(11, 20);
-            this.lbl_ListWork.Name = "lbl_ListWork";
-            this.lbl_ListWork.Size = new System.Drawing.Size(185, 22);
-            this.lbl_ListWork.TabIndex = 0;
-            this.lbl_ListWork.Text = "Danh sách công việc";
-            this.lbl_ListWork.DoubleClick += new System.EventHandler(this.lbl_ListWork_DoubleClick);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Danh sách công việc";
             // 
             // panel3
             // 
@@ -127,44 +125,16 @@
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // panelDoneWork
+            // label3
             // 
-            this.panelDoneWork.AllowDrop = true;
-            this.panelDoneWork.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelDoneWork.Controls.Add(this.doneWorkLayout);
-            this.panelDoneWork.Controls.Add(this.label4);
-            this.panelDoneWork.Location = new System.Drawing.Point(513, 8);
-            this.panelDoneWork.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panelDoneWork.Name = "panelDoneWork";
-            this.panelDoneWork.Size = new System.Drawing.Size(488, 452);
-            this.panelDoneWork.TabIndex = 9;
-            // 
-            // doneWorkLayout
-            // 
-            this.doneWorkLayout.AllowDrop = true;
-            this.doneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.doneWorkLayout.AutoSize = true;
-            this.doneWorkLayout.Location = new System.Drawing.Point(2, 43);
-            this.doneWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.doneWorkLayout.Name = "doneWorkLayout";
-            this.doneWorkLayout.Size = new System.Drawing.Size(487, 406);
-            this.doneWorkLayout.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(2, 8);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Công việc đã làm";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(394, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(209, 22);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "CÔNG VIỆC HÔM NAY";
             // 
             // panelUndoneWork
             // 
@@ -208,16 +178,44 @@
             this.txtUndoneWorkTitle.TabIndex = 0;
             this.txtUndoneWorkTitle.Text = "Công việc chưa làm";
             // 
-            // label3
+            // panelDoneWork
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(394, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 22);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "CÔNG VIỆC HÔM NAY";
+            this.panelDoneWork.AllowDrop = true;
+            this.panelDoneWork.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelDoneWork.Controls.Add(this.doneWorkLayout);
+            this.panelDoneWork.Controls.Add(this.label4);
+            this.panelDoneWork.Location = new System.Drawing.Point(513, 8);
+            this.panelDoneWork.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelDoneWork.Name = "panelDoneWork";
+            this.panelDoneWork.Size = new System.Drawing.Size(488, 452);
+            this.panelDoneWork.TabIndex = 9;
+            // 
+            // doneWorkLayout
+            // 
+            this.doneWorkLayout.AllowDrop = true;
+            this.doneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.doneWorkLayout.AutoSize = true;
+            this.doneWorkLayout.Location = new System.Drawing.Point(2, 43);
+            this.doneWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.doneWorkLayout.Name = "doneWorkLayout";
+            this.doneWorkLayout.Size = new System.Drawing.Size(487, 406);
+            this.doneWorkLayout.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(2, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Công việc đã làm";
             // 
             // panel4
             // 
@@ -243,10 +241,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panelDoneWork.ResumeLayout(false);
-            this.panelDoneWork.PerformLayout();
             this.panelUndoneWork.ResumeLayout(false);
             this.panelUndoneWork.PerformLayout();
+            this.panelDoneWork.ResumeLayout(false);
+            this.panelDoneWork.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -256,9 +254,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_ListWork;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbl_ListTypeWork;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;

@@ -20,23 +20,18 @@ namespace WindowsFormsApp1
 
         private void loadData()
         {
-
-            undoneWorkLayout.Controls.Clear();
-            workItem workItem1 = new workItem();
-            workItem workItem2 = new workItem();
-            workItem workItem3 = new workItem();
-            workItem workItem4 = new workItem();
-            AddWorkItem addItem = new AddWorkItem();
-            undoneWorkLayout.Controls.Add(workItem1);
-            undoneWorkLayout.Controls.Add(workItem2);
-            undoneWorkLayout.Controls.Add(workItem3);
-            doneWorkLayout.Controls.Clear();
-            doneWorkLayout.Controls.Add(workItem4);
-
-
-
-
-
+            //undoneWorkLayout.Controls.Clear();
+            //workItem workItem = new workItem();
+            //workItem workItem2 = new workItem();
+            //workItem workItem3 = new workItem();
+            //workItem workItem4 = new workItem();
+            //AddWorkItem addItem = new AddWorkItem();
+            //undoneWorkLayout.Controls.Add(workItem);
+            //undoneWorkLayout.Controls.Add(workItem2);
+            //undoneWorkLayout.Controls.Add(addItem);
+            //doneWorkLayout.Controls.Clear();
+            //doneWorkLayout.Controls.Add(workItem3);
+          
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -80,16 +75,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void lbl_ListWork_DoubleClick(object sender, EventArgs e)
-        {
-            WorkManagePage  workManagePage = new WorkManagePage();
-            workManagePage.Show();
-        }
-
-        private void lbl_ListTypeWork_DoubleClick(object sender, EventArgs e)
-        {
-            WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage();
-            workTypeManagePage.Show();
-        }
+      
     }
 }
