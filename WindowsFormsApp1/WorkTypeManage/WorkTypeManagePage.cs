@@ -57,8 +57,8 @@ namespace WindowsFormsApp1
                         string temp = reader.GetString(0) + "-" + reader.GetString(1) + "-" + reader.GetString(2) + "-" + reader.GetString(3);
                         Console.WriteLine(temp);
                         //showQuerry.Items.Add(temp);
-                        typeWorkItem.IdTypeWork = reader.GetString(0);
-                        typeWorkItem.NameTypeWork = reader.GetString(1);
+                        typeWorkItem.Id = reader.GetString(0);
+                        typeWorkItem.Name = reader.GetString(1);
                         typeWorkItem.Description = reader.GetString(2);
                         typeWorkItem.BackgroundColor = reader.GetString(3);
                         
@@ -146,7 +146,7 @@ namespace WindowsFormsApp1
             for (int i =0; i<listTypeWorkItem.Count;i++)
             {
                 listItems[i] = new TypeWork();
-                listItems[i].WorkTypeName = listTypeWorkItem[i].NameTypeWork;
+                listItems[i].WorkTypeName = listTypeWorkItem[i].Name;
                 listItems[i].WorkTypeDescription = listTypeWorkItem[i].Description;
                 listItems[i].Margin = new Padding(30);
                 listItems[i].Click += new System.EventHandler(this.item_Clicked);
@@ -215,6 +215,11 @@ namespace WindowsFormsApp1
             row["Loại công việc"] = "1";
             row["Tên công việc"] = "Quoooooooc";
             Helper.Helper.ExportDefaultExcel(dtWork);
+        }
+
+        private void flPanel_layout_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

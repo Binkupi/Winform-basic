@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
 
 //namespace WindowsFormsApp1.WorkManage
 namespace WindowsFormsApp1
@@ -70,6 +71,10 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(WorkId);
+            //WorkDao workDao = new WorkDao();
+            //workDao.delete(WorkId);
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

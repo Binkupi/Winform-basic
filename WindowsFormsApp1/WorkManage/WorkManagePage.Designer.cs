@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
             this.panelUndoneWork.Controls.Add(this.panelTool);
             this.panelUndoneWork.Location = new System.Drawing.Point(0, 4);
             this.panelUndoneWork.Name = "panelUndoneWork";
-            this.panelUndoneWork.Size = new System.Drawing.Size(676, 368);
+            this.panelUndoneWork.Size = new System.Drawing.Size(916, 368);
             this.panelUndoneWork.TabIndex = 0;
             this.panelUndoneWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
             this.undoneWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undoneWorkLayout.Location = new System.Drawing.Point(2, 53);
             this.undoneWorkLayout.Name = "undoneWorkLayout";
-            this.undoneWorkLayout.Size = new System.Drawing.Size(673, 318);
+            this.undoneWorkLayout.Size = new System.Drawing.Size(913, 318);
             this.undoneWorkLayout.TabIndex = 1;
             this.undoneWorkLayout.DragDrop += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragDrop);
             this.undoneWorkLayout.DragEnter += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragEnter);
@@ -145,9 +145,9 @@ namespace WindowsFormsApp1
             this.panelDoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelDoneWork.Controls.Add(this.doneWorkLayout);
             this.panelDoneWork.Controls.Add(this.label2);
-            this.panelDoneWork.Location = new System.Drawing.Point(681, 4);
+            this.panelDoneWork.Location = new System.Drawing.Point(922, 4);
             this.panelDoneWork.Name = "panelDoneWork";
-            this.panelDoneWork.Size = new System.Drawing.Size(654, 371);
+            this.panelDoneWork.Size = new System.Drawing.Size(899, 371);
             this.panelDoneWork.TabIndex = 1;
             // 
             // doneWorkLayout
@@ -158,7 +158,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.doneWorkLayout.Location = new System.Drawing.Point(2, 49);
             this.doneWorkLayout.Name = "doneWorkLayout";
-            this.doneWorkLayout.Size = new System.Drawing.Size(652, 319);
+            this.doneWorkLayout.Size = new System.Drawing.Size(897, 319);
             this.doneWorkLayout.TabIndex = 1;
             // 
             // label2
@@ -180,7 +180,7 @@ namespace WindowsFormsApp1
             this.panelLatedWork.Controls.Add(this.titleLatedWork);
             this.panelLatedWork.Location = new System.Drawing.Point(3, 379);
             this.panelLatedWork.Name = "panelLatedWork";
-            this.panelLatedWork.Size = new System.Drawing.Size(1332, 308);
+            this.panelLatedWork.Size = new System.Drawing.Size(1818, 308);
             this.panelLatedWork.TabIndex = 2;
             // 
             // latedWorkLayout
@@ -194,7 +194,7 @@ namespace WindowsFormsApp1
             this.latedWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.latedWorkLayout.Location = new System.Drawing.Point(9, 66);
             this.latedWorkLayout.Name = "latedWorkLayout";
-            this.latedWorkLayout.Size = new System.Drawing.Size(1320, 239);
+            this.latedWorkLayout.Size = new System.Drawing.Size(1371, 239);
             this.latedWorkLayout.TabIndex = 2;
             // 
             // titleLatedWork
@@ -218,7 +218,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1347, 699);
+            this.ClientSize = new System.Drawing.Size(1833, 699);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelLatedWork);
             this.Controls.Add(this.panelDoneWork);

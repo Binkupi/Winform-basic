@@ -8,10 +8,6 @@ namespace WindowsFormsApp1.Model
 {
     public class ModelTypeWork
     {
-        private string idTypeWork;
-        private string nameTypeWork;
-        private string description;
-        private string backgroundColor;
 
 
         public ModelTypeWork()
@@ -21,26 +17,22 @@ namespace WindowsFormsApp1.Model
 
         public ModelTypeWork(string nameTypeWork, string description, string backgroundColor)
         {
-            NameTypeWork = nameTypeWork;
+            Name = nameTypeWork;
             Description = description;
             BackgroundColor = backgroundColor;
         }
         public ModelTypeWork(string idTypeWork, string nameTypeWork, string description, string backgroundColor)
         {
-            IdTypeWork = idTypeWork;
-            NameTypeWork = nameTypeWork;
+            Id = idTypeWork;
+            Name = nameTypeWork;
             Description = description;
             BackgroundColor = backgroundColor;
         }
 
 
-        public string IdTypeWork { get => idTypeWork; set => idTypeWork = value; }
-        public string NameTypeWork { get => nameTypeWork; set => nameTypeWork = value; }
-        public string Description { get => description; set => description = value; }
-        public string BackgroundColor { get => backgroundColor; set => backgroundColor = value; }
-        //public string IdTypeWork { get; set; }
-        //public string NameTypeWork { get; set; }
-        //public string Description { get; set; }
-        //string BackgroundColor { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string BackgroundColor { get; set; }
     }
 }

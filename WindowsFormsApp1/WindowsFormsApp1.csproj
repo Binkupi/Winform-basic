@@ -71,6 +71,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Sql.cs" />
+    <Compile Include="DAO\WorkDao.cs" />
+    <Compile Include="DAO\WorkTypeDao.cs" />
     <Compile Include="Model\ModelTypeWork.cs" />
     <Compile Include="Model\Work.cs" />
     <Compile Include="WorkManage\WorkItem.cs">
@@ -148,6 +151,7 @@
     <Compile Include="WorkTypeManage\WorkTypeManagePage.Designer.cs">
       <DependentUpon>WorkTypeManagePage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HomeItem.resx" />
     <EmbeddedResource Include="WorkManage\WorkItem.resx">
       <DependentUpon>WorkItem.cs</DependentUpon>
     </EmbeddedResource>

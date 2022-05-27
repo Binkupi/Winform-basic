@@ -6,27 +6,18 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Model
 {
-    class Work
+    public class Work
     {
-        private string idWork;
-        private string name;
-        private string idWorkType;
-        private DateTime startDate;
-        private DateTime deadline;
-        private string description;
-        private string backgroundColor;
-        private int isFinished;
-        private
-            Work()
+        public Work()
         {
 
         }
 
-        Work(string idWork, string name, string idWorkType, DateTime startDate, DateTime deadline, string description, string backgroundColor, int isFinished)
+        public Work(string id, string name, string idWorkType, DateTime startDate, DateTime deadline, string description, string backgroundColor, int isFinished)
         {
-            IdWork = idWork;
+            Id = id;
             Name = name;
-            IdWorkType = idWorkType;
+            WorkType = idWorkType;
             StartDate = startDate;
             Deadline = deadline;
             Description = description;
@@ -35,9 +26,9 @@ namespace WindowsFormsApp1.Model
 
         }
 
-        public string IdWork { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string IdWorkType { get; set; }
+        public string WorkType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime Deadline { get; set; }
         public string Description { get; set; }

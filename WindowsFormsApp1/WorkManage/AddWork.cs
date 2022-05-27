@@ -7,26 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
     public partial class AddWork : Form
-    {
+    {   
+        private string workID = "";
+        private WorkDao workDao = new WorkDao();
+        private WorkTypeDao workTypeDao = new WorkTypeDao();
+        private List<ModelTypeWork> lstWorkType = new List<ModelTypeWork>();
         public AddWork()
         {
             InitializeComponent();
-
+            loadListWorkType();
             loadDataCreate();
         }
         public AddWork(string workID, bool edit)
         {
             InitializeComponent();
+            loadListWorkType();
             loadDataEdit(workID);
         }
         public AddWork(string workID)
         {
             InitializeComponent();
+            loadListWorkType();
             loadDataShow(workID);
+        }
+        private void loadListWorkType()
+        {
+            DataTable dtWorkType = workTypeDao.getListWorkType();
+            lstWorkType = Helper.Helper.ConvertToList<ModelTypeWork>(dtWorkType);
+            foreach (DataRow row in dtWorkType.Rows)
+            {
+                cbLoaiCV.Items.Add(row["name"]);
+            }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -34,11 +51,6 @@ namespace WindowsFormsApp1
         }
 
         private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -84,7 +96,7 @@ namespace WindowsFormsApp1
             cbLoaiCV.Enabled = false;
             dateStart.Enabled = false;
             dateEnd.Enabled = false;
-            txtNote.Enabled = false;
+            txtDescription.Enabled = false;
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
@@ -175,6 +187,45 @@ namespace WindowsFormsApp1
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrEmpty(txtName.Text)){
+                MessageBox.Show("Bạn cần nhập tên công việc!");
+                txtName.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(cbLoaiCV.Text)){
+                MessageBox.Show("Bạn cần nhập loại công việc!");
+                cbLoaiCV.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txtDescription.Text))
+            {
+                MessageBox.Show("Bạn cần nhập mô tả công việc!");
+                txtDescription.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txtColor.Text))
+            {
+                MessageBox.Show("Bạn cần nhập màu nền!");
+                txtColor.Focus();
+                return;
+            }
+            if (dateEnd.Value.CompareTo(dateStart.Value) == -1)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!");
+                txtColor.Focus();
+                return;
+            }
+            workID = Helper.Helper.RandomID(10);
+            int isFinished = chkIsFinish.Checked ? 1 : 0;
+            Work work = new Work(workID, txtName.Text, cbLoaiCV.Text,dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+
+            workDao.insert(work);
+            this.Hide();
         }
     }
 }
