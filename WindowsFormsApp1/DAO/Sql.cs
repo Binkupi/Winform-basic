@@ -43,7 +43,7 @@ namespace WindowsFormsApp1.DAO
             }
             return dTable;
         }
-        public void insert(string query)
+        public bool insert(string query)
         {
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
@@ -57,11 +57,13 @@ namespace WindowsFormsApp1.DAO
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
                 commandDatabase.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 // Show any error message.
                 MessageBox.Show(ex.Message);
+                return false;
             }
             finally
             {
@@ -70,8 +72,9 @@ namespace WindowsFormsApp1.DAO
                 if (databaseConnection != null)
                     databaseConnection.Close();
             }
+           
         }
-        public void update(string query)
+        public bool update(string query)
         {
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
@@ -85,11 +88,12 @@ namespace WindowsFormsApp1.DAO
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
                 commandDatabase.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
-                // Show any error message.
                 MessageBox.Show(ex.Message);
+                return false;
             }
             finally
             {
@@ -98,8 +102,9 @@ namespace WindowsFormsApp1.DAO
                 if (databaseConnection != null)
                     databaseConnection.Close();
             }
+            
         }
-        public void delete(string query)
+        public bool delete(string query)
         {
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
@@ -114,11 +119,13 @@ namespace WindowsFormsApp1.DAO
                 commandDatabase.CommandTimeout = 60;
                 DataSet ds = new DataSet();
                 commandDatabase.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 // Show any error message.
                 MessageBox.Show(ex.Message);
+                return false;
             }
             finally
             {

@@ -24,22 +24,16 @@ namespace WindowsFormsApp1
             InitializeComponent();
             loadData();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
-            
-        }
-        private void loadData()
+        public void loadData()
         {
             try
             {
                 DataTable lstWork = new DataTable();
-                lstWork = workDao.getData();
+                lstWork = workDao.getListWork();
                 DateTime today = DateTime.Now;
-                var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == 1);
+                var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
-                var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
+                var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == 1);
                 List<Work> lstUndoneWork = new List<Work>();
                 List<Work> lstDoneWork = new List<Work>();
                 List<Work> lstLatedWork = new List<Work>();
@@ -61,7 +55,7 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem();
+                    listUndoneItems[i] = new workItem(this);
                     listUndoneItems[i].WorkId = undoneWork.Id;
                     listUndoneItems[i].strName = undoneWork.Name;
                     listUndoneItems[i].strDate = undoneWork.Deadline.ToString();
@@ -69,14 +63,14 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem();
+                AddWorkItem addWorkItem = new AddWorkItem(this);
                 undoneWorkLayout.Controls.Add(addWorkItem);
                 doneWorkLayout.Controls.Clear();
                 var listDoneItems = new workItem[100];
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem();
+                    listDoneItems[i] = new workItem(this);
                     listDoneItems[i].WorkId = doneWork.Id;
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString();
@@ -85,7 +79,7 @@ namespace WindowsFormsApp1
                     i++;
                 }
                 latedWorkLayout.Controls.Clear();
-                AddWorkItem addUndoneItem = new AddWorkItem();
+                AddWorkItem addUndoneItem = new AddWorkItem(this);
                 var listLatedItems = new workItem[100];
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)

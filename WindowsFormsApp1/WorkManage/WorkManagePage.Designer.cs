@@ -64,7 +64,6 @@ namespace WindowsFormsApp1
             this.panelUndoneWork.Name = "panelUndoneWork";
             this.panelUndoneWork.Size = new System.Drawing.Size(916, 368);
             this.panelUndoneWork.TabIndex = 0;
-            this.panelUndoneWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // undoneWorkLayout
             // 

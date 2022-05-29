@@ -96,7 +96,6 @@ namespace WindowsFormsApp1
             this.background.Name = "background";
             this.background.Size = new System.Drawing.Size(204, 180);
             this.background.TabIndex = 4;
-            this.background.Paint += new System.Windows.Forms.PaintEventHandler(this.background_Paint);
             // 
             // elipseControl1
             // 

@@ -15,9 +15,16 @@ namespace WindowsFormsApp1
 {
     public partial class workItem : UserControl
     {
+        private WorkManagePage ReferenceForm;
         public workItem()
         {
             InitializeComponent();
+        }
+
+        public workItem(WorkManagePage form1)
+        {
+            InitializeComponent();
+            this.ReferenceForm = form1;
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -71,42 +78,42 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(WorkId);
-            //WorkDao workDao = new WorkDao();
-            //workDao.delete(WorkId);
-
+            string message = "Bạn có muốn xóa công việc này không?";
+            string title = "Thông báo";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                WorkDao workDao = new WorkDao();
+                workDao.delete(WorkId);
+                ReferenceForm.loadData();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(WorkId, true );
-            addWork.Show();
+            string message = "Bạn có muốn sửa công việc này không?";
+            string title = "Thông báo";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                AddWork addWork = new AddWork(WorkId, this.ReferenceForm);
+                addWork.Show();
+            }
         }
 
         private void txtName_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(WorkId);
+            AddWork addWork = new AddWork(WorkId, this.ReferenceForm, true);
             addWork.Show();
         }
 
         private void txtDate_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(WorkId);
+            AddWork addWork = new AddWork(WorkId, this.ReferenceForm, true);
             addWork.Show();
         }
-
-        private void background_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        //public string Inventory
-        //{
-        //    get => txtInventory.Text;
-        //    set
-        //    {
-        //        txtInventory.Text = value;
-        //    }
-        //}
 
     }
 }

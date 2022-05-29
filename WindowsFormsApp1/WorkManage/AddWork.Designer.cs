@@ -75,7 +75,6 @@
             this.label1.Size = new System.Drawing.Size(334, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin công việc";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -89,7 +88,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1003, 73);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtName
             // 
@@ -101,7 +99,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(877, 22);
             this.txtName.TabIndex = 2;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label3
             // 
@@ -116,7 +113,6 @@
             this.label3.Size = new System.Drawing.Size(63, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tên *:";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // panel3
             // 
@@ -130,7 +126,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1003, 89);
             this.panel3.TabIndex = 3;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // cbLoaiCV
             // 
@@ -142,7 +137,6 @@
             this.cbLoaiCV.Name = "cbLoaiCV";
             this.cbLoaiCV.Size = new System.Drawing.Size(879, 24);
             this.cbLoaiCV.TabIndex = 2;
-            this.cbLoaiCV.SelectedIndexChanged += new System.EventHandler(this.cbLoaiCV_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -157,7 +151,6 @@
             this.label2.Size = new System.Drawing.Size(135, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Loại công việc";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel5
             // 
@@ -171,7 +164,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1003, 186);
             this.panel5.TabIndex = 4;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // txtDescription
             // 
@@ -184,7 +176,6 @@
             this.txtDescription.Size = new System.Drawing.Size(879, 127);
             this.txtDescription.TabIndex = 2;
             this.txtDescription.Text = "";
-            this.txtDescription.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label5
             // 
@@ -199,7 +190,6 @@
             this.label5.Size = new System.Drawing.Size(97, 23);
             this.label5.TabIndex = 1;
             this.label5.Text = "Ghi chú *:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnSubmit
             // 
@@ -230,7 +220,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 746);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel7
             // 
@@ -247,7 +236,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1003, 109);
             this.panel7.TabIndex = 11;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // txtColor
             // 
@@ -265,7 +253,6 @@
             this.label9.Size = new System.Drawing.Size(1, 90);
             this.label9.TabIndex = 5;
             this.label9.Text = "label9";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -276,7 +263,6 @@
             this.label8.Size = new System.Drawing.Size(205, 23);
             this.label8.TabIndex = 4;
             this.label8.Text = "Trạng thái công việc *:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // btnChooseColor
             // 
@@ -298,7 +284,6 @@
             this.chkIsFinish.TabIndex = 2;
             this.chkIsFinish.Text = "Đã hoàn thành";
             this.chkIsFinish.UseVisualStyleBackColor = true;
-            this.chkIsFinish.CheckedChanged += new System.EventHandler(this.chkIsFinish_CheckedChanged);
             // 
             // label4
             // 
@@ -309,7 +294,6 @@
             this.label4.Size = new System.Drawing.Size(185, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "Chọn màu hiển thị *:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel4
             // 
@@ -322,7 +306,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1003, 115);
             this.panel4.TabIndex = 10;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // dateStart
             // 
@@ -333,7 +316,6 @@
             this.dateStart.Name = "dateStart";
             this.dateStart.Size = new System.Drawing.Size(877, 22);
             this.dateStart.TabIndex = 10;
-            this.dateStart.ValueChanged += new System.EventHandler(this.dateStart_ValueChanged);
             // 
             // label7
             // 
@@ -344,7 +326,6 @@
             this.label7.Size = new System.Drawing.Size(147, 23);
             this.label7.TabIndex = 9;
             this.label7.Text = "Ngày bắt đầu *:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // panel6
             // 
@@ -358,7 +339,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1003, 77);
             this.panel6.TabIndex = 9;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // dateEnd
             // 
@@ -369,7 +349,6 @@
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Size = new System.Drawing.Size(879, 22);
             this.dateEnd.TabIndex = 5;
-            this.dateEnd.ValueChanged += new System.EventHandler(this.dateEnd_ValueChanged);
             // 
             // label6
             // 
@@ -384,7 +363,6 @@
             this.label6.Size = new System.Drawing.Size(106, 23);
             this.label6.TabIndex = 1;
             this.label6.Text = "Deadline *:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // AddWork
             // 

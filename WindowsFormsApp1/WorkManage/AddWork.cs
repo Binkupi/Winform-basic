@@ -14,27 +14,43 @@ namespace WindowsFormsApp1
 {
     public partial class AddWork : Form
     {   
-        private string workID = "";
+        private string selectedWorkID = "";
         private WorkDao workDao = new WorkDao();
         private WorkTypeDao workTypeDao = new WorkTypeDao();
         private List<ModelTypeWork> lstWorkType = new List<ModelTypeWork>();
+        private WorkManagePage referenceForm;
         public AddWork()
         {
             InitializeComponent();
             loadListWorkType();
             loadDataCreate();
         }
-        public AddWork(string workID, bool edit)
+        public AddWork(WorkManagePage form1)
+        {
+            InitializeComponent();
+            loadListWorkType();
+            loadDataCreate();
+            this.referenceForm = form1;
+        }
+        public AddWork(string workID, WorkManagePage form1, bool seen =false )
         {
             InitializeComponent();
             loadListWorkType();
             loadDataEdit(workID);
+            this.referenceForm = form1;
+            if (seen)
+            {
+                loadDataShow(workID);
+            }
+            
         }
-        public AddWork(string workID)
+        public AddWork(string workID, WorkManagePage form1)
         {
             InitializeComponent();
             loadListWorkType();
-            loadDataShow(workID);
+            
+            loadDataEdit(workID);
+            this.referenceForm = form1;
         }
         private void loadListWorkType()
         {
@@ -44,30 +60,6 @@ namespace WindowsFormsApp1
             {
                 cbLoaiCV.Items.Add(row["name"]);
             }
-        }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkIsFinish_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnChooseColor_Click(object sender, EventArgs e)
@@ -86,8 +78,20 @@ namespace WindowsFormsApp1
         private void loadDataEdit(string workID)
         {
             chkIsFinish.Enabled = true;
-
-
+            selectedWorkID = workID;
+            DataTable data= workDao.getWorkByWorkID(selectedWorkID);
+            if(data.Rows!=null&& data.Rows.Count > 0)
+            {
+                txtName.Text = data.Rows[0]["name"].ToString();
+                txtDescription.Text = data.Rows[0]["description"].ToString();
+                txtColor.Text = data.Rows[0]["backgroundColor"].ToString();
+                cbLoaiCV.Text= data.Rows[0]["name"].ToString();
+                cbLoaiCV.SelectedItem = data.Rows[0]["name"].ToString();
+                dateStart.Value = DateTime.Parse(data.Rows[0]["startDate"].ToString());
+                dateEnd.Value = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
+                chkIsFinish.Checked = int.Parse(data.Rows[0]["isFinished"].ToString())==1?true:false;
+            }
+            
         }
         private void loadDataShow(string workID)
         {
@@ -99,105 +103,16 @@ namespace WindowsFormsApp1
             txtDescription.Enabled = false;
         }
 
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cbLoaiCV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dateStart_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dateEnd_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            if (string.IsNullOrEmpty(txtName.Text)){
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
                 MessageBox.Show("Bạn cần nhập tên công việc!");
                 txtName.Focus();
                 return;
             }
-            if (string.IsNullOrEmpty(cbLoaiCV.Text)){
+            if (string.IsNullOrEmpty(cbLoaiCV.Text))
+            {
                 MessageBox.Show("Bạn cần nhập loại công việc!");
                 cbLoaiCV.Focus();
                 return;
@@ -220,11 +135,24 @@ namespace WindowsFormsApp1
                 txtColor.Focus();
                 return;
             }
-            workID = Helper.Helper.RandomID(10);
             int isFinished = chkIsFinish.Checked ? 1 : 0;
-            Work work = new Work(workID, txtName.Text, cbLoaiCV.Text,dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+            if (string.IsNullOrEmpty(selectedWorkID))
+            {
+                selectedWorkID = Helper.Helper.RandomID(10);
+                
+                Work work = new Work(selectedWorkID, txtName.Text, cbLoaiCV.Text, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
 
-            workDao.insert(work);
+                workDao.insert(work);
+            }
+            else
+            {
+                //update
+                
+                Work work = new Work(selectedWorkID, txtName.Text, cbLoaiCV.Text, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+
+                workDao.update(work);
+            }
+            this.referenceForm.loadData();
             this.Hide();
         }
     }

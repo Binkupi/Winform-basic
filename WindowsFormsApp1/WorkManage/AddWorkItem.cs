@@ -11,15 +11,21 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class AddWorkItem : UserControl
-    {   
+    {
+        private WorkManagePage referenceForm;
         public AddWorkItem()
         {
             InitializeComponent();
         }
+        public AddWorkItem(WorkManagePage form1)
+        {
+            InitializeComponent();
+            this.referenceForm = form1;
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork();
+            AddWork addWork = new AddWork(referenceForm);
             addWork.Show();
         }
 
