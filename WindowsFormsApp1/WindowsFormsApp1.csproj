@@ -35,6 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EPPlus, Version=6.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.6.0.4\lib\net452\EPPlus.dll</HintPath>
     </Reference>
@@ -74,6 +76,11 @@
     <Compile Include="DAO\Sql.cs" />
     <Compile Include="DAO\WorkDao.cs" />
     <Compile Include="DAO\WorkTypeDao.cs" />
+    <Compile Include="HomeItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeItem.resx</DependentUpon>
+    </Compile>
     <Compile Include="Model\ModelTypeWork.cs" />
     <Compile Include="Model\Work.cs" />
     <Compile Include="WorkManage\WorkItem.cs">
@@ -151,7 +158,10 @@
     <Compile Include="WorkTypeManage\WorkTypeManagePage.Designer.cs">
       <DependentUpon>WorkTypeManagePage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="HomeItem.resx" />
+    <EmbeddedResource Include="HomeItem.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeItem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkManage\WorkItem.resx">
       <DependentUpon>WorkItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +286,15 @@
     <Content Include="obj\Debug\WindowsFormsApp1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WindowsFormsApp1.exe" />
     <Content Include="obj\Debug\WindowsFormsApp1.pdb" />
+    <None Include="Resources\58a27ee24edec.png" />
+    <None Include="Resources\6827792_delete_multimedia_remove_trash_ui_icon.png" />
+    <None Include="Resources\511562_trash can_delete_trash_wastebin_icon.png" />
+    <None Include="Resources\2530835_compose_create_edit_edit file_office_icon.png" />
+    <None Include="Resources\hinh-nen-powerpoint-don-gian-4.jpg" />
+    <None Include="Resources\hinh-nen-powerpoint-don-gian-ma-dep-2.jpg" />
+    <None Include="Resources\anh-dep-cho-dien-thoai.jpg" />
+    <None Include="Resources\d935a2efbaece193171d084b8b765296.jpg" />
+    <None Include="Resources\cartoon-styles-ppt-backgrounds-powerpoint.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

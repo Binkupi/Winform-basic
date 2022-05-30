@@ -83,6 +83,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2530835_compose_create_edit_edit_file_office_icon {
+            get {
+                object obj = ResourceManager.GetObject("2530835_compose_create_edit_edit file_office_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2849798_upload_multimedia_icon {
             get {
                 object obj = ResourceManager.GetObject("2849798_upload_multimedia_icon", resourceCulture);
@@ -123,9 +133,89 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _511562_trash_can_delete_trash_wastebin_icon {
+            get {
+                object obj = ResourceManager.GetObject("511562_trash can_delete_trash_wastebin_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _58a27ee24edec {
+            get {
+                object obj = ResourceManager.GetObject("58a27ee24edec", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _6827792_delete_multimedia_remove_trash_ui_icon {
+            get {
+                object obj = ResourceManager.GetObject("6827792_delete_multimedia_remove_trash_ui_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _8725775_edit_icon {
             get {
                 object obj = ResourceManager.GetObject("8725775_edit_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anh_dep_cho_dien_thoai {
+            get {
+                object obj = ResourceManager.GetObject("anh-dep-cho-dien-thoai", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cartoon_styles_ppt_backgrounds_powerpoint {
+            get {
+                object obj = ResourceManager.GetObject("cartoon-styles-ppt-backgrounds-powerpoint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap d935a2efbaece193171d084b8b765296 {
+            get {
+                object obj = ResourceManager.GetObject("d935a2efbaece193171d084b8b765296", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hinh_nen_powerpoint_don_gian_4 {
+            get {
+                object obj = ResourceManager.GetObject("hinh-nen-powerpoint-don-gian-4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hinh_nen_powerpoint_don_gian_ma_dep_2 {
+            get {
+                object obj = ResourceManager.GetObject("hinh-nen-powerpoint-don-gian-ma-dep-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

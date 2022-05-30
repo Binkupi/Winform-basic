@@ -135,12 +135,25 @@ namespace WindowsFormsApp1
                 txtColor.Focus();
                 return;
             }
+            var selectTypeWork = lstWorkType.Where(item => item.Name.Equals(cbLoaiCV.Text));
+            ModelTypeWork strWorkType = new ModelTypeWork();
+            if (selectTypeWork.Any())
+            {
+                strWorkType = selectTypeWork.First(item => item.Name.Equals(cbLoaiCV.Text));
+            }
+            else
+            {
+                MessageBox.Show("Loại công việc không tồn tại vui lòng nhập lại!");
+                cbLoaiCV.Focus();
+                return;
+            }
+
             int isFinished = chkIsFinish.Checked ? 1 : 0;
             if (string.IsNullOrEmpty(selectedWorkID))
             {
                 selectedWorkID = Helper.Helper.RandomID(10);
                 
-                Work work = new Work(selectedWorkID, txtName.Text, cbLoaiCV.Text, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
 
                 workDao.insert(work);
             }
@@ -148,7 +161,7 @@ namespace WindowsFormsApp1
             {
                 //update
                 
-                Work work = new Work(selectedWorkID, txtName.Text, cbLoaiCV.Text, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
 
                 workDao.update(work);
             }

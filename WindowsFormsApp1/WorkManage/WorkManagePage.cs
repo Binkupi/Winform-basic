@@ -30,6 +30,7 @@ namespace WindowsFormsApp1
             {
                 DataTable lstWork = new DataTable();
                 lstWork = workDao.getListWork();
+                lstWork = workDao.getListWorkByWorkType("test");
                 DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
@@ -58,12 +59,17 @@ namespace WindowsFormsApp1
                     listUndoneItems[i] = new workItem(this);
                     listUndoneItems[i].WorkId = undoneWork.Id;
                     listUndoneItems[i].strName = undoneWork.Name;
-                    listUndoneItems[i].strDate = undoneWork.Deadline.ToString();
+                    listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
+                    listUndoneItems[i].strTime = undoneWork.Deadline.ToString("HH: mm");
+                    listUndoneItems[i].gbColor = System.Drawing.ColorTranslator.FromHtml(undoneWork.BackgroundColor);
+
+
                     listUndoneItems[i].Margin = new Padding(10);
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
                 AddWorkItem addWorkItem = new AddWorkItem(this);
+                addWorkItem.Margin = new Padding(10);
                 undoneWorkLayout.Controls.Add(addWorkItem);
                 doneWorkLayout.Controls.Clear();
                 var listDoneItems = new workItem[100];
@@ -73,7 +79,8 @@ namespace WindowsFormsApp1
                     listDoneItems[i] = new workItem(this);
                     listDoneItems[i].WorkId = doneWork.Id;
                     listDoneItems[i].strName = doneWork.Name;
-                    listDoneItems[i].strDate = doneWork.Deadline.ToString();
+                    listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
+                    listDoneItems[i].strTime = doneWork.Deadline.ToString("HH: mm");
                     listDoneItems[i].Margin = new Padding(10);
                     doneWorkLayout.Controls.Add(listDoneItems[i]);
                     i++;
@@ -87,7 +94,8 @@ namespace WindowsFormsApp1
                     listLatedItems[i] = new workItem();
                     listLatedItems[i].WorkId = latedWork.Id;
                     listLatedItems[i].strName = latedWork.Name;
-                    listLatedItems[i].strDate = latedWork.Deadline.ToString();
+                    listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");
+                    listLatedItems[i].strTime = latedWork.Deadline.ToString("HH: mm");
                     listLatedItems[i].Margin = new Padding(10);
                     latedWorkLayout.Controls.Add(listLatedItems[i]);
                     i++;

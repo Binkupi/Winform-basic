@@ -29,6 +29,22 @@ namespace WindowsFormsApp1.DAO
             
 
         }
+        public DataTable getListWorkByWorkType(string workType)
+        {
+            DataTable dTable = new DataTable();
+            try
+            {
+                dTable = sql.get("SELECT * FROM work where workType = '"+workType+"'");
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+            }
+            return dTable;
+
+
+        }
         public DataTable getWorkByWorkID(string id)
         {
             DataTable dTable = new DataTable();

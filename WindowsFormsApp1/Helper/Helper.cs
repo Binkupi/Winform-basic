@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1.Helper
 {
@@ -126,6 +127,12 @@ namespace WindowsFormsApp1.Helper
                 MessageBox.Show(ex.Message);
             }
         }
+
+        internal static object ConvertToList<T>(IEnumerable<ModelTypeWork> selectTypeWork)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void ExportDefaultExcel(DataTable data)
         {
             string filePath = "";

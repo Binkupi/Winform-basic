@@ -33,5 +33,11 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void panelAdd_Click(object sender, EventArgs e)
+        {
+            AddWork addWork = new AddWork(referenceForm);
+            addWork.Show();
+        }
     }
 }

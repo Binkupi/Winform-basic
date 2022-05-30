@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
             {
                 // trim if title is too long
                 string txt = string.Copy(value);
-                if (strName.Length != 0)
+                if (txt.Length != 0)
                 {
                     int i = txt.Length;
                     while (TextRenderer.MeasureText(txt + "...", txtName.Font).Width > txtName.Width - 6)
@@ -63,6 +63,15 @@ namespace WindowsFormsApp1
             set
             {
                 txtDate.Text = value;
+            }
+
+        }
+        public string strTime
+        {
+            get => txtTime.Text;
+            set
+            {
+                txtTime.Text = value;
             }
 
         }

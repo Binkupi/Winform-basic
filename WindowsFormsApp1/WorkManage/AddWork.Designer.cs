@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWork));
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -68,11 +69,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(16, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 40);
+            this.label1.Size = new System.Drawing.Size(370, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin công việc";
             // 
@@ -94,10 +96,11 @@
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtName.Location = new System.Drawing.Point(55, 37);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(877, 22);
+            this.txtName.Size = new System.Drawing.Size(877, 26);
             this.txtName.TabIndex = 2;
             // 
             // label3
@@ -132,10 +135,11 @@
             this.cbLoaiCV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLoaiCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbLoaiCV.FormattingEnabled = true;
             this.cbLoaiCV.Location = new System.Drawing.Point(53, 43);
             this.cbLoaiCV.Name = "cbLoaiCV";
-            this.cbLoaiCV.Size = new System.Drawing.Size(879, 24);
+            this.cbLoaiCV.Size = new System.Drawing.Size(879, 28);
             this.cbLoaiCV.TabIndex = 2;
             // 
             // label2
@@ -170,6 +174,7 @@
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtDescription.Location = new System.Drawing.Point(53, 41);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDescription.Name = "txtDescription";
@@ -208,6 +213,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel6);
@@ -239,10 +245,11 @@
             // 
             // txtColor
             // 
+            this.txtColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtColor.Location = new System.Drawing.Point(228, 63);
             this.txtColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(153, 22);
+            this.txtColor.Size = new System.Drawing.Size(153, 26);
             this.txtColor.TabIndex = 6;
             // 
             // label9
@@ -312,9 +319,10 @@
             this.dateStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dateStart.Location = new System.Drawing.Point(53, 57);
             this.dateStart.Name = "dateStart";
-            this.dateStart.Size = new System.Drawing.Size(877, 22);
+            this.dateStart.Size = new System.Drawing.Size(877, 26);
             this.dateStart.TabIndex = 10;
             // 
             // label7
@@ -345,9 +353,10 @@
             this.dateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dateEnd.Location = new System.Drawing.Point(53, 39);
             this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(879, 22);
+            this.dateEnd.Size = new System.Drawing.Size(879, 26);
             this.dateEnd.TabIndex = 5;
             // 
             // label6
@@ -368,9 +377,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources._58a27ee24edec;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 805);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AddWork";
             this.Text = "Thêm công việc";

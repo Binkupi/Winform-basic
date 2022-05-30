@@ -31,13 +31,14 @@ namespace WindowsFormsApp1
         {
             this.btnAdd = new System.Windows.Forms.PictureBox();
             this.elipseControl1 = new WindowsFormsApp1.ElipseControl();
+            this.panelAdd = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
             this.btnAdd.Image = global::WindowsFormsApp1.Properties.Resources._4781840___add_circle_create_expand_icon__1_;
-            this.btnAdd.Location = new System.Drawing.Point(23, 23);
+            this.btnAdd.Location = new System.Drawing.Point(32, 33);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 105);
             this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -50,14 +51,24 @@ namespace WindowsFormsApp1
             this.elipseControl1.CornerRadius = 20;
             this.elipseControl1.TargetControl = this;
             // 
+            // panelAdd
+            // 
+            this.panelAdd.Location = new System.Drawing.Point(0, -1);
+            this.panelAdd.Name = "panelAdd";
+            this.panelAdd.Size = new System.Drawing.Size(170, 170);
+            this.panelAdd.TabIndex = 1;
+            this.panelAdd.Click += new System.EventHandler(this.panelAdd_Click);
+            // 
             // AddWorkItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.panelAdd);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "AddWorkItem";
+            this.Size = new System.Drawing.Size(170, 170);
             this.Load += new System.EventHandler(this.AddWorkItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
@@ -68,5 +79,6 @@ namespace WindowsFormsApp1
 
         private System.Windows.Forms.PictureBox btnAdd;
         private ElipseControl elipseControl1;
+        private System.Windows.Forms.Panel panelAdd;
     }
 }
