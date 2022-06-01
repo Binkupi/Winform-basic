@@ -19,18 +19,24 @@ namespace WindowsFormsApp1
     {
         private Point? _mouseLocation;
         private WorkDao workDao = new WorkDao();
+     
         public WorkManagePage()
         {
             InitializeComponent();
             loadData();
         }
+
+        
         public void loadData()
         {
             try
             {
+               
+
                 DataTable lstWork = new DataTable();
                 lstWork = workDao.getListWork();
-                lstWork = workDao.getListWorkByWorkType("test");
+                //lstWork = workDao.getListWorkByWorkType("test");
+                lstWork = workDao.getListWorkByWorkType("Test");
                 DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);

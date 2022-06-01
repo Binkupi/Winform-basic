@@ -8,14 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
+using WindowsFormsApp1.DAO;
+
 
 namespace WindowsFormsApp1
 {
     public partial class TypeWork : UserControl
     {
+        private WorkTypeManagePage ReferenceForm;
         public TypeWork()
         {
             InitializeComponent();
+        }
+        public TypeWork(WorkTypeManagePage form1)
+        {
+            InitializeComponent();
+            this.ReferenceForm = form1;
         }
 
         private void TypeWork_Load(object sender, EventArgs e)
@@ -67,15 +75,29 @@ namespace WindowsFormsApp1
             }
 
         }
-        public string TypeWorkId { get; set; }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
+            string message = "Bạn có muốn xóa công việc này không?";
+            string title = "Thông báo";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                WorkTypeDao workTypeDao = new WorkTypeDao();
+                workTypeDao.delete(WorkTypeID);
+                ReferenceForm.loadData();
+            }
+
+
+
+
+
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            AddTypeWork addTypeWork = new AddTypeWork(TypeWorkId);
+            AddTypeWork addTypeWork = new AddTypeWork(WorkTypeID, ReferenceForm);
             addTypeWork.Show();
         }
 
@@ -93,6 +115,7 @@ namespace WindowsFormsApp1
 
         private void backgroundcolor_Click(object sender, EventArgs e)
         {
+
             WorkManagePage work = new WorkManagePage();
             work.Show();
         }

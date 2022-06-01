@@ -128,7 +128,7 @@ namespace WindowsFormsApp1.Helper
             }
         }
 
-        internal static object ConvertToList<T>(IEnumerable<ModelTypeWork> selectTypeWork)
+        internal static object ConvertToList<T>(IEnumerable<WorkType> selectTypeWork)
         {
             throw new NotImplementedException();
         }

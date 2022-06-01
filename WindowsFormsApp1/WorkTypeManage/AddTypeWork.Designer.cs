@@ -31,16 +31,17 @@
             this.btnChooseColor = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtColor = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnSubmitWorkType = new System.Windows.Forms.Button();
+            this.btnCancelWorkType = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtNote = new System.Windows.Forms.RichTextBox();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -74,6 +75,7 @@
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.Controls.Add(this.txtColor);
             this.panel7.Controls.Add(this.btnChooseColor);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(33, 69);
@@ -82,13 +84,21 @@
             this.panel7.Size = new System.Drawing.Size(892, 50);
             this.panel7.TabIndex = 11;
             // 
+            // txtColor
+            // 
+            this.txtColor.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtColor.Location = new System.Drawing.Point(405, 17);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(89, 23);
+            this.txtColor.TabIndex = 7;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSubmitWorkType);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.btnSubmit);
+            this.panel1.Controls.Add(this.btnCancelWorkType);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-29, 57);
@@ -96,39 +106,53 @@
             this.panel1.Size = new System.Drawing.Size(940, 344);
             this.panel1.TabIndex = 3;
             // 
-            // btnSubmit
+            // btnSubmitWorkType
             // 
-            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(628, 290);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(115, 32);
-            this.btnSubmit.TabIndex = 5;
-            this.btnSubmit.Text = "Hủy";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmitWorkType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubmitWorkType.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSubmitWorkType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitWorkType.Location = new System.Drawing.Point(767, 290);
+            this.btnSubmitWorkType.Name = "btnSubmitWorkType";
+            this.btnSubmitWorkType.Size = new System.Drawing.Size(115, 32);
+            this.btnSubmitWorkType.TabIndex = 12;
+            this.btnSubmitWorkType.Text = "Lưu";
+            this.btnSubmitWorkType.UseVisualStyleBackColor = true;
+            this.btnSubmitWorkType.Click += new System.EventHandler(this.btnSubmitWorkType_Click);
+            // 
+            // btnCancelWorkType
+            // 
+            this.btnCancelWorkType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelWorkType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelWorkType.Location = new System.Drawing.Point(628, 290);
+            this.btnCancelWorkType.Name = "btnCancelWorkType";
+            this.btnCancelWorkType.Size = new System.Drawing.Size(115, 32);
+            this.btnCancelWorkType.TabIndex = 5;
+            this.btnCancelWorkType.Text = "Hủy";
+            this.btnCancelWorkType.UseVisualStyleBackColor = true;
+            this.btnCancelWorkType.Click += new System.EventHandler(this.btnCancelWorkType_Click);
             // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.Controls.Add(this.txtNote);
+            this.panel5.Controls.Add(this.txtDescription);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(33, 129);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(892, 146);
             this.panel5.TabIndex = 4;
             // 
-            // txtNote
+            // txtDescription
             // 
-            this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(40, 36);
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(800, 95);
-            this.txtNote.TabIndex = 2;
-            this.txtNote.Text = "";
+            this.txtDescription.Location = new System.Drawing.Point(40, 36);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(800, 95);
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.Text = "";
             // 
             // label5
             // 
@@ -191,18 +215,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Thông tin loại công việc";
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(767, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 32);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Lưu";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // AddTypeWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -212,7 +224,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddTypeWork";
             this.Text = "Thêm loại công việc";
-            this.Load += new System.EventHandler(this.AddTypeWork_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -231,14 +242,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnSubmitWorkType;
+        private System.Windows.Forms.Button btnCancelWorkType;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RichTextBox txtNote;
+        private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtColor;
     }
 }

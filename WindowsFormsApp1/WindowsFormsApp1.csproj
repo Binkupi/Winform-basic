@@ -81,8 +81,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeItem.resx</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModelTypeWork.cs" />
     <Compile Include="Model\Work.cs" />
+    <Compile Include="Model\WorkType.cs" />
     <Compile Include="WorkManage\WorkItem.cs">
       <SubType>UserControl</SubType>
       <CustomToolNamespace>WindowsFormsApp1</CustomToolNamespace>

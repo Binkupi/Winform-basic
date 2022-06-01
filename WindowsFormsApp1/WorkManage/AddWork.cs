@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         private string selectedWorkID = "";
         private WorkDao workDao = new WorkDao();
         private WorkTypeDao workTypeDao = new WorkTypeDao();
-        private List<ModelTypeWork> lstWorkType = new List<ModelTypeWork>();
+        private List<WorkType> lstWorkType = new List<WorkType>();
         private WorkManagePage referenceForm;
         public AddWork()
         {
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
         private void loadListWorkType()
         {
             DataTable dtWorkType = workTypeDao.getListWorkType();
-            lstWorkType = Helper.Helper.ConvertToList<ModelTypeWork>(dtWorkType);
+            lstWorkType = Helper.Helper.ConvertToList<WorkType>(dtWorkType);
             foreach (DataRow row in dtWorkType.Rows)
             {
                 cbLoaiCV.Items.Add(row["name"]);
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
 
             if (dlg.ShowDialog() == DialogResult.OK){ //Nếu nhấp vào nút OK trên hộp thoại
 
-                txtColor.Text = dlg.Color.Name.ToString();
+                txtColor.Text = "#" + dlg.Color.Name.ToString();
             }
         }
         private void loadDataCreate()
@@ -136,7 +136,7 @@ namespace WindowsFormsApp1
                 return;
             }
             var selectTypeWork = lstWorkType.Where(item => item.Name.Equals(cbLoaiCV.Text));
-            ModelTypeWork strWorkType = new ModelTypeWork();
+            WorkType strWorkType = new WorkType();
             if (selectTypeWork.Any())
             {
                 strWorkType = selectTypeWork.First(item => item.Name.Equals(cbLoaiCV.Text));

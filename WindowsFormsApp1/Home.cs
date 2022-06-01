@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -56,7 +50,7 @@ namespace WindowsFormsApp1
             //panelTool.Location = new Point(panelTool.Parent.Width - panelTool.Width - 5, 0);
             panelDoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 10, (panelUndoneWork.Parent.Height / 1) - 10);
             panelDoneWork.Location = new Point((panelUndoneWork.Parent.Width / 2) + 5, 0);
-          
+
         }
 
         private void Home_SizeChanged(object sender, EventArgs e)
@@ -82,7 +76,7 @@ namespace WindowsFormsApp1
 
         private void lbl_ListWork_DoubleClick(object sender, EventArgs e)
         {
-            WorkManagePage  workManagePage = new WorkManagePage();
+            WorkManagePage workManagePage = new WorkManagePage();
             workManagePage.Show();
         }
 

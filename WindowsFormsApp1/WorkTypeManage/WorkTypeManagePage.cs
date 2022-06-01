@@ -11,137 +11,80 @@ using System.Windows.Forms;
 using WindowsFormsApp1;
 using WindowsFormsApp1.WorkTypeManage;
 using MySql.Data.MySqlClient;
+using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 
 namespace WindowsFormsApp1
 {
     public partial class WorkTypeManagePage : Form
     {
-        List<ModelTypeWork> listTypeWorkItem = new List<ModelTypeWork>();
-     
+        List<WorkType> listTypeWorkItem = new List<WorkType>();
+        private WorkTypeDao workTypeDao = new WorkTypeDao();
+
         public WorkTypeManagePage()
         {
             InitializeComponent();
             loadData();
-            LoadList();
+           // LoadList();
             
         }
 
 
        
-        private void loadData()
+        public void loadData()
         {
-
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
-            string query = "SELECT * FROM add_type_work";
-
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
+            workTypeLayout.Controls.Clear();
 
             try
             {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
-              
-                
+                DataTable lstWorkType = new DataTable();
+                lstWorkType = workTypeDao.getListWorkType();
+                var lstWorkTypeAll = lstWorkType.AsEnumerable(); ;
+                List<WorkType> workTypeList = new List<WorkType>();
 
-                if (reader.HasRows)
+
+
+                if (lstWorkTypeAll.Any())
                 {
-                    while (reader.Read())
-                    {
-                        ModelTypeWork typeWorkItem = new ModelTypeWork();
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3) };
-                        //Console.WriteLine(reader.GetString(0) +"-"+ reader.GetString(1) + "-" + reader.GetString(2) + "-" + reader.GetString(3));
-                        string temp = reader.GetString(0) + "-" + reader.GetString(1) + "-" + reader.GetString(2) + "-" + reader.GetString(3);
-                        Console.WriteLine(temp);
-                        //showQuerry.Items.Add(temp);
-                        typeWorkItem.Id = reader.GetString(0);
-                        typeWorkItem.Name = reader.GetString(1);
-                        typeWorkItem.Description = reader.GetString(2);
-                        typeWorkItem.BackgroundColor = reader.GetString(3);
-                        
-                        listTypeWorkItem.Add(typeWorkItem);
-
-                        
-                    }
-
+                    workTypeList = Helper.Helper.ConvertToList<WorkType>(lstWorkTypeAll.CopyToDataTable());
                 }
-                else
+       
+                var listWorkTypeItems = new TypeWork[100];
+                int i = 0;
+                foreach (WorkType workType in workTypeList)
                 {
-                    Console.WriteLine("No rows found.");
+                    listWorkTypeItems[i] = new TypeWork(this);
+                    listWorkTypeItems[i].WorkTypeID = workType.Id;
+                    listWorkTypeItems[i].WorkTypeName = workType.Name;
+
+                    listWorkTypeItems[i].bgColor = System.Drawing.ColorTranslator.FromHtml(workType.BackgroundColor);
+
+
+                    listWorkTypeItems[i].Margin = new Padding(10);
+                    workTypeLayout.Controls.Add(listWorkTypeItems[i]);
+                    i++;
                 }
+                WorkTypeAdd addWorkTypeItem = new WorkTypeAdd(this);
+                addWorkTypeItem.Margin = new Padding(10);
+                workTypeLayout.Controls.Add(addWorkTypeItem);
+             
+               
 
-
-                databaseConnection.Close();
             }
             catch (Exception ex)
             {
-                // Show any error message.
                 MessageBox.Show(ex.Message);
             }
+            
         }
 
 
         private void LoadList()
         {
-            flPanel_layout.Controls.Clear();
+            workTypeLayout.Controls.Clear();
             var listItems = new TypeWork[listTypeWorkItem.Count];
-            //var listItems = new TypeWork[100];
-
-            //int i = 0;
-
-            //listItems[i] = new TypeWork();
-
-
-            //listItems[i].WorkTypeName = listTypeWorkItem[1].NameTypeWork;
-            //listItems[i].WorkTypeDescription = listTypeWorkItem[1].Description;
-            //listItems[i].Margin = new Padding(30);
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-
-            //i = 1;
-            //listItems[i] = new TypeWork();
-            //listItems[i].WorkTypeName = "test1";
-            //listItems[i].WorkTypeDescription = "mô tả 1";
-            //listItems[i].Margin = new Padding(30);
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-
-            //i = 3;
-            //listItems[i] = new TypeWork();
-            //listItems[i].WorkTypeName = "test1";
-            //listItems[i].WorkTypeDescription = "mô tả 1";
-            //listItems[i].Margin = new Padding(30);
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-
-            //i = 4;
-            //listItems[i] = new TypeWork();
-            //listItems[i].WorkTypeName = "test1";
-            //listItems[i].WorkTypeDescription = "mô tả 1";
-            //listItems[i].Margin = new Padding(30);
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-
-            //i = 5;
-            //listItems[i] = new TypeWork();
-            //listItems[i].WorkTypeName = "test1";
-            //listItems[i].WorkTypeDescription = "mô tả 1";
-            //listItems[i].Margin = new Padding(30);
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-
-
-            //listItems[i].Click += new System.EventHandler(this.item_Clicked);
-            //flPanel_layout.Controls.Add(listItems[i]);
-            //var data = new WorkTypeAdd();
-            //data.Margin = new Padding(30);
-            //data.Click += new System.EventHandler(this.item_Add);
-            //flPanel_layout.Controls.Add(data);
-
-            //TypeWork item = new TypeWork();
+            
 
             for (int i =0; i<listTypeWorkItem.Count;i++)
             {
@@ -150,21 +93,16 @@ namespace WindowsFormsApp1
                 listItems[i].WorkTypeDescription = listTypeWorkItem[i].Description;
                 listItems[i].Margin = new Padding(30);
                 listItems[i].Click += new System.EventHandler(this.item_Clicked);
-                flPanel_layout.Controls.Add(listItems[i]);
+                workTypeLayout.Controls.Add(listItems[i]);
 
 
-                //item.WorkTypeName = listTypeWorkItem[i].NameTypeWork;
-                //item.WorkTypeDescription = listTypeWorkItem[i].Description;
-                //item.Margin = new Padding(30);
-                //item.Click += new System.EventHandler(this.item_Clicked);
-                //flPanel_layout.Controls.Add(item);
             }
 
 
             var data = new WorkTypeAdd();
             data.Margin = new Padding(30);
             data.Click += new System.EventHandler(this.item_Add);
-            flPanel_layout.Controls.Add(data);
+            workTypeLayout.Controls.Add(data);
 
             
         }
@@ -178,7 +116,7 @@ namespace WindowsFormsApp1
         }
         private void item_Add(object sender, EventArgs e)
         {
-            //var item = (AddWorkItem)sender;
+           
             var item = (WorkTypeAdd)sender;
             MessageBox.Show("Add");
         }

@@ -93,8 +93,8 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                WorkDao workDao = new WorkDao();
-                workDao.delete(WorkId);
+                WorkTypeDao workTypeDao = new WorkTypeDao();
+                workTypeDao.delete(WorkId);
                 ReferenceForm.loadData();
             }
         }

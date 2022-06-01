@@ -7,60 +7,154 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
     public partial class AddTypeWork : Form
     {
+        private string selectedWorkTypeID = "";
+      //  private WorkDao workDao = new WorkDao();
+        private WorkTypeDao workTypeDao = new WorkTypeDao();
+        private List<WorkType> lstWorkType = new List<WorkType>();
+        private WorkTypeManagePage referenceForm;
         public AddTypeWork()
         {
             InitializeComponent();
+            loadDataEdit(selectedWorkTypeID);
         }
-        
-        public AddTypeWork(string workID)
+        public AddTypeWork(string workTypeID)
         {
             InitializeComponent();
-            loadDataShow(workID);
+            loadDataEdit(workTypeID);
+
+
         }
+        public AddTypeWork(WorkTypeManagePage form1)
+        {
+            InitializeComponent();
+            loadDataEdit(selectedWorkTypeID);
+            this.referenceForm = form1;
+        }
+        public AddTypeWork(string workTypeID, WorkTypeManagePage form1, bool seen = false)
+        {
+            InitializeComponent();
+
+            this.referenceForm = form1;
+            if (seen)
+            {
+                loadDataShow(workTypeID);
+            }
+
+        }
+
+        public AddTypeWork(string workTypeID, WorkTypeManagePage form1)
+        {
+            InitializeComponent();
+            loadDataEdit(workTypeID);
+            this.referenceForm = form1;
+        }
+      
+       
+
+        private void loadDataEdit(string workTypeID)
+        {
+            
+            selectedWorkTypeID = workTypeID;
+            DataTable data = workTypeDao.getWorkTypeByWorkTypeID(selectedWorkTypeID);
+            if (data.Rows != null && data.Rows.Count > 0)
+            {
+                txtName.Text = data.Rows[0]["name"].ToString();
+                txtDescription.Text = data.Rows[0]["description"].ToString();
+                txtColor.Text = data.Rows[0]["backgroundColor"].ToString();
+                //cbLoaiCV.Text = data.Rows[0]["name"].ToString();
+                //cbLoaiCV.SelectedItem = data.Rows[0]["name"].ToString();
+                //dateStart.Value = DateTime.Parse(data.Rows[0]["startDate"].ToString());
+                //dateEnd.Value = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
+                //chkIsFinish.Checked = int.Parse(data.Rows[0]["isFinished"].ToString()) == 1 ? true : false;
+            }
+
+        }
+
         
-        private void loadDataShow(string workID)
+        private void loadDataShow(string workTypeID)
         {
           
             txtName.Enabled = false;
           
-            txtNote.Enabled = false;
+            txtDescription.Enabled = false;
         }
+       
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+   
 
-        }
+   
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddTypeWork_Load(object sender, EventArgs e)
-        {
-
-        }
         private string backgroundColor = "";
         private void btnChooseColor_Click(object sender, EventArgs e)
         {
             ColorDialog dlg = new ColorDialog(); //Khởi tạo đối tượng ColorDialog 
 
-            if (dlg.ShowDialog() == DialogResult.OK) //Nếu nhấp vào nút OK trên hộp thoại
-            {
-                backgroundColor = dlg.Color.Name; //Trả lại tên của màu đã lựa chọn
-                MessageBox.Show(backgroundColor); //Hiển thị lên MessageBox
-               
+            if (dlg.ShowDialog() == DialogResult.OK)
+            { //Nếu nhấp vào nút OK trên hộp thoại
+
+               // txtColor.Text = dlg.Color.Name.ToString();
+                txtColor.Text = "#" + dlg.Color.Name.ToString();
             }
+        }
+
+        private void btnSubmitWorkType_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                MessageBox.Show("Bạn cần nhập tên công việc!");
+                txtName.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txtDescription.Text))
+            {
+                MessageBox.Show("Bạn cần nhập mô tả loại công việc!");
+                txtDescription.Focus();
+                return;
+            }
+           
+            if (string.IsNullOrEmpty(txtColor.Text))
+            {
+                MessageBox.Show("Bạn cần nhập màu nền!");
+                txtColor.Focus();
+                return;
+            }
+           
+          
+
+          
+            if (string.IsNullOrEmpty(selectedWorkTypeID))
+            {
+                selectedWorkTypeID = Helper.Helper.RandomID(10);
+
+                WorkType workType = new WorkType(selectedWorkTypeID, txtName.Text, txtDescription.Text, txtColor.Text);
+
+                workTypeDao.insert(workType);
+            }
+            else
+            {
+                //update
+
+
+                WorkType workType = new WorkType(selectedWorkTypeID, txtName.Text, txtDescription.Text, txtColor.Text);
+
+                workTypeDao.update(workType);
+            }
+            this.referenceForm.loadData();
+            this.Hide();
+        }
+
+        private void btnCancelWorkType_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -54,3 +54,4 @@ C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.workItem.resources
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkManagePage.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.HomeItem.resources

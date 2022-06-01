@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Model
 {
-    public class ModelTypeWork
+    public class WorkType
     {
 
 
-        public ModelTypeWork()
+        public WorkType()
         {
 
         }
 
-        public ModelTypeWork(string nameTypeWork, string description, string backgroundColor)
+        public WorkType(string nameTypeWork, string description, string backgroundColor)
         {
             Name = nameTypeWork;
             Description = description;
             BackgroundColor = backgroundColor;
         }
-        public ModelTypeWork(string idTypeWork, string nameTypeWork, string description, string backgroundColor)
+        public WorkType(string idTypeWork, string nameTypeWork, string description, string backgroundColor)
         {
             Id = idTypeWork;
             Name = nameTypeWork;
