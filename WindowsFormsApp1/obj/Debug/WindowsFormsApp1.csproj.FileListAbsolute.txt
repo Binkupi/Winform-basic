@@ -22,39 +22,6 @@ D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\Wi
 D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 D:\Hoc-tap\Ngon-ngu-c#\final-project\WorkManageApp\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Test.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddWorkItem.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddTypeWork.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddWork.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Home.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Test.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TestConnectDatabase.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkTypeManage.WorkTypeAdd.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TypeWork.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkTypeManagePage.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Google.Protobuf.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\ZstdNet.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Compression.LZ4.Streams.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\System.Memory.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\System.Buffers.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Compression.LZ4.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Hash.xxHash.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.workItem.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkManagePage.resources
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.HomeItem.resources
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
@@ -88,3 +55,36 @@ C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFor
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\Documents\VSCode\DA C#\C# 04062022\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Google.Protobuf.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\ZstdNet.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\System.Memory.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\System.Buffers.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.HomeItem.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.workItem.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddWorkItem.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddTypeWork.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddWork.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Home.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Test.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TestConnectDatabase.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkManagePage.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkTypeManage.WorkTypeAdd.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TypeWork.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.WorkTypeManagePage.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

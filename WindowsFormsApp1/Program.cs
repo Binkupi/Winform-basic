@@ -17,10 +17,13 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           DateTime today = DateTime.Now;
-           DateTime value = DateTime.Parse(today.ToString());
 
-            Console.WriteLine(value);
+            DateTimePicker today = new DateTimePicker();
+            today.Value = DateTime.Now;
+
+
+
+            Console.WriteLine(today);
 
             Application.Run(new Home());
         }
