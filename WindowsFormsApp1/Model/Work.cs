@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.Model
 
         }
 
-        public Work(string id, string name, string idWorkType, DateTime startDate, DateTime deadline, string description, string backgroundColor, int isFinished)
+        public Work(string id, string name, string idWorkType, DateTime startDate, DateTime deadline, string description, DateTime alarmDate, int isFinished)
         {
             Id = id;
             Name = name;
@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.Model
             StartDate = startDate;
             Deadline = deadline;
             Description = description;
-            BackgroundColor = backgroundColor;
+            AlarmDate = alarmDate;
             IsFinished = isFinished;
 
         }
@@ -32,7 +32,7 @@ namespace WindowsFormsApp1.Model
         public DateTime StartDate { get; set; }
         public DateTime Deadline { get; set; }
         public string Description { get; set; }
-        public string BackgroundColor { get; set; }
+        public DateTime AlarmDate { get; set; }
         public int IsFinished { get; set; }
     }
 }

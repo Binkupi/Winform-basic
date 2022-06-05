@@ -17,6 +17,10 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+           DateTime today = DateTime.Now;
+           DateTime value = DateTime.Parse(today.ToString());
+
+            Console.WriteLine(value);
 
             Application.Run(new Home());
         }

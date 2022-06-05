@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_ListTypeWork = new System.Windows.Forms.Label();
-            this.lbl_ListWork = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelDoneWork = new System.Windows.Forms.Panel();
             this.doneWorkLayout = new System.Windows.Forms.FlowLayoutPanel();
@@ -43,76 +37,12 @@
             this.txtUndoneWorkTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.lbl_ListTypeWork = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panelDoneWork.SuspendLayout();
             this.panelUndoneWork.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lbl_ListTypeWork);
-            this.panel1.Controls.Add(this.lbl_ListWork);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 62);
-            this.panel1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(443, -9);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(1, 79);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(204, -8);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1, 79);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(801, 100);
-            this.panel2.TabIndex = 1;
-            // 
-            // lbl_ListTypeWork
-            // 
-            this.lbl_ListTypeWork.AutoSize = true;
-            this.lbl_ListTypeWork.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ListTypeWork.Location = new System.Drawing.Point(216, 20);
-            this.lbl_ListTypeWork.Name = "lbl_ListTypeWork";
-            this.lbl_ListTypeWork.Size = new System.Drawing.Size(219, 22);
-            this.lbl_ListTypeWork.TabIndex = 1;
-            this.lbl_ListTypeWork.Text = "Danh sách loại công việc";
-            this.lbl_ListTypeWork.DoubleClick += new System.EventHandler(this.lbl_ListTypeWork_DoubleClick);
-            // 
-            // lbl_ListWork
-            // 
-            this.lbl_ListWork.AutoSize = true;
-            this.lbl_ListWork.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ListWork.Location = new System.Drawing.Point(11, 20);
-            this.lbl_ListWork.Name = "lbl_ListWork";
-            this.lbl_ListWork.Size = new System.Drawing.Size(185, 22);
-            this.lbl_ListWork.TabIndex = 0;
-            this.lbl_ListWork.Text = "Danh sách công việc";
-            this.lbl_ListWork.DoubleClick += new System.EventHandler(this.lbl_ListWork_DoubleClick);
             // 
             // panel3
             // 
@@ -144,11 +74,10 @@
             // 
             // doneWorkLayout
             // 
-            this.doneWorkLayout.AllowDrop = true;
             this.doneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.doneWorkLayout.AutoSize = true;
+            this.doneWorkLayout.AutoScroll = true;
             this.doneWorkLayout.Location = new System.Drawing.Point(2, 43);
             this.doneWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.doneWorkLayout.Name = "doneWorkLayout";
@@ -184,11 +113,10 @@
             // 
             // undoneWorkLayout
             // 
-            this.undoneWorkLayout.AllowDrop = true;
             this.undoneWorkLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.undoneWorkLayout.AutoSize = true;
+            this.undoneWorkLayout.AutoScroll = true;
             this.undoneWorkLayout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.undoneWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undoneWorkLayout.Location = new System.Drawing.Point(2, 46);
@@ -228,20 +156,29 @@
             this.panel4.Size = new System.Drawing.Size(1006, 53);
             this.panel4.TabIndex = 2;
             // 
+            // lbl_ListTypeWork
+            // 
+            this.lbl_ListTypeWork.AutoSize = true;
+            this.lbl_ListTypeWork.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ListTypeWork.Location = new System.Drawing.Point(9, 18);
+            this.lbl_ListTypeWork.Name = "lbl_ListTypeWork";
+            this.lbl_ListTypeWork.Size = new System.Drawing.Size(219, 22);
+            this.lbl_ListTypeWork.TabIndex = 3;
+            this.lbl_ListTypeWork.Text = "Danh sách loại công việc";
+            this.lbl_ListTypeWork.Click += new System.EventHandler(this.lbl_ListTypeWork_DoubleClick);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 586);
+            this.Controls.Add(this.lbl_ListTypeWork);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Name = "Home";
             this.Text = "Trang chủ";
             this.Load += new System.EventHandler(this.Home_Load);
             this.SizeChanged += new System.EventHandler(this.Home_SizeChanged);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panelDoneWork.ResumeLayout(false);
             this.panelDoneWork.PerformLayout();
@@ -250,19 +187,13 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_ListWork;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbl_ListTypeWork;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelUndoneWork;
         private System.Windows.Forms.FlowLayoutPanel undoneWorkLayout;
         private System.Windows.Forms.Label txtUndoneWorkTitle;
@@ -270,5 +201,6 @@
         private System.Windows.Forms.FlowLayoutPanel doneWorkLayout;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lbl_ListTypeWork;
     }
 }

@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.DAO
             DataTable dTable = new DataTable();
             try
             {
-                string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
+                string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;convert zero datetime=True;";
                 DataTable result = new DataTable();
                 databaseConnection = new MySqlConnection(connectionString);
                 databaseConnection.Open();
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.DAO
         public bool insert(string query)
         {
 
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;convert zero datetime=True;";
             //string query = "SELECT * FROM add_type_work";
             MySqlConnection databaseConnection = null;
             MySqlDataReader reader = null;
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1.DAO
         public bool update(string query)
         {
 
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;convert zero datetime=True;";
             //string query = "SELECT * FROM add_type_work";
             MySqlConnection databaseConnection = null;
             MySqlDataReader reader = null;
@@ -107,7 +107,7 @@ namespace WindowsFormsApp1.DAO
         public bool delete(string query)
         {
 
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;";
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=work_manage_app;convert zero datetime=True;";
             //string query = "SELECT * FROM add_type_work";
             MySqlConnection databaseConnection = null;
             MySqlDataReader reader = null;

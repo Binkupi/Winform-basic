@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
     public partial class Home : Form
     {
+        private WorkDao workDao = new WorkDao();
         public Home()
         {
             InitializeComponent();
@@ -76,8 +79,8 @@ namespace WindowsFormsApp1
 
         private void lbl_ListWork_DoubleClick(object sender, EventArgs e)
         {
-            WorkManagePage workManagePage = new WorkManagePage();
-            workManagePage.Show();
+            //WorkManagePage workManagePage = new WorkManagePage();
+            //workManagePage.Show();
         }
 
         private void lbl_ListTypeWork_DoubleClick(object sender, EventArgs e)

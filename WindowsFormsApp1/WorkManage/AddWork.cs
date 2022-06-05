@@ -32,18 +32,33 @@ namespace WindowsFormsApp1
             loadDataCreate();
             this.referenceForm = form1;
         }
-        public AddWork(string workID, WorkManagePage form1, bool seen =false )
+        public AddWork(string workID, WorkManagePage form1, bool seen )
         {
-            InitializeComponent();
+
+            InitializeComponent();            
             loadListWorkType();
             loadDataEdit(workID);
             this.referenceForm = form1;
-            if (seen)
+            if (seen == true)
             {
+              
+                
+                //btnSubmit.Text = "Cập nhật";
+                btnSubmit.Visible = false;
                 loadDataShow(workID);
+            } else
+            {
+                lblStateWork.Visible = true;
+                chkIsFinish.Visible = true;
+                chkIsFinish.Enabled = true;
+                btnSubmit.Text = "Cập nhật";
             }
-            
+           
+
+
         }
+
+
         public AddWork(string workID, WorkManagePage form1)
         {
             InitializeComponent();
@@ -62,15 +77,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btnChooseColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog dlg = new ColorDialog(); //Khởi tạo đối tượng ColorDialog 
-
-            if (dlg.ShowDialog() == DialogResult.OK){ //Nếu nhấp vào nút OK trên hộp thoại
-
-                txtColor.Text = "#" + dlg.Color.Name.ToString();
-            }
-        }
+     
         private void loadDataCreate()
         {
             chkIsFinish.Enabled = false;
@@ -80,15 +87,21 @@ namespace WindowsFormsApp1
             chkIsFinish.Enabled = true;
             selectedWorkID = workID;
             DataTable data= workDao.getWorkByWorkID(selectedWorkID);
-            if(data.Rows!=null&& data.Rows.Count > 0)
+            string idWorkType = data.Rows[0]["workType"].ToString();
+            DataTable workType = workDao.getWorkTypeByWorkID(idWorkType);
+            //MessageBox.Show(workType.Rows[0]["name"].ToString());
+            //MessageBox.Show(data.Rows[0]["name"].ToString());
+          
+
+            if (data.Rows!=null&& data.Rows.Count > 0)
             {
                 txtName.Text = data.Rows[0]["name"].ToString();
                 txtDescription.Text = data.Rows[0]["description"].ToString();
-                txtColor.Text = data.Rows[0]["backgroundColor"].ToString();
-                cbLoaiCV.Text= data.Rows[0]["name"].ToString();
+                cbLoaiCV.Text= workType.Rows[0]["name"].ToString();
                 cbLoaiCV.SelectedItem = data.Rows[0]["name"].ToString();
                 dateStart.Value = DateTime.Parse(data.Rows[0]["startDate"].ToString());
                 dateEnd.Value = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
+                alarmDate.Value = DateTime.Parse(data.Rows[0]["alarmDate"].ToString());
                 chkIsFinish.Checked = int.Parse(data.Rows[0]["isFinished"].ToString())==1?true:false;
             }
             
@@ -100,6 +113,7 @@ namespace WindowsFormsApp1
             cbLoaiCV.Enabled = false;
             dateStart.Enabled = false;
             dateEnd.Enabled = false;
+            alarmDate.Enabled = false;
             txtDescription.Enabled = false;
         }
 
@@ -123,16 +137,12 @@ namespace WindowsFormsApp1
                 txtDescription.Focus();
                 return;
             }
-            if (string.IsNullOrEmpty(txtColor.Text))
-            {
-                MessageBox.Show("Bạn cần nhập màu nền!");
-                txtColor.Focus();
-                return;
-            }
+      
+           
             if (dateEnd.Value.CompareTo(dateStart.Value) == -1)
             {
                 MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!");
-                txtColor.Focus();
+                
                 return;
             }
             var selectTypeWork = lstWorkType.Where(item => item.Name.Equals(cbLoaiCV.Text));
@@ -149,11 +159,13 @@ namespace WindowsFormsApp1
             }
 
             int isFinished = chkIsFinish.Checked ? 1 : 0;
+            string temp;
             if (string.IsNullOrEmpty(selectedWorkID))
             {
                 selectedWorkID = Helper.Helper.RandomID(10);
                 
-                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
+                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
+                temp = strWorkType.Id;
 
                 workDao.insert(work);
             }
@@ -161,12 +173,22 @@ namespace WindowsFormsApp1
             {
                 //update
                 
-                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, txtColor.Text, isFinished);
-
+                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
+                temp = strWorkType.Id;
                 workDao.update(work);
             }
-            this.referenceForm.loadData();
+            this.referenceForm.loadData(temp);
             this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

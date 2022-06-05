@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
 {
     public partial class workItem : UserControl
     {
+
         private WorkManagePage ReferenceForm;
         public workItem()
         {
@@ -54,6 +55,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        public string WorkType { get; set; }
 
         public string WorkId { get; set; }
 
@@ -75,6 +77,7 @@ namespace WindowsFormsApp1
             }
 
         }
+        
         public Color gbColor
         {
             get => background.BackColor;
@@ -93,9 +96,9 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                WorkTypeDao workTypeDao = new WorkTypeDao();
-                workTypeDao.delete(WorkId);
-                ReferenceForm.loadData();
+                WorkDao workDao = new WorkDao();
+                workDao.delete(WorkId);
+                ReferenceForm.loadData(WorkType);
             }
         }
 
@@ -107,7 +110,8 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                AddWork addWork = new AddWork(WorkId, this.ReferenceForm);
+                AddWork addWork = new AddWork(WorkId, this.ReferenceForm, false);
+              
                 addWork.Show();
             }
         }

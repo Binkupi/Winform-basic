@@ -56,15 +56,15 @@ namespace WindowsFormsApp1
 
         public string WorkTypeID { get; set; }
 
-        public string WorkTypeDescription
-        {
-            get => txtDescription.Text;
-            set
-            {
-                txtDescription.Text = value;
-            }
+        //public string WorkTypeDescription
+        //{
+        //    get => txtDescription.Text;
+        //    set
+        //    {
+        //        txtDescription.Text = value;
+        //    }
 
-        }
+        //}
 
         public Color bgColor
         {
@@ -116,10 +116,28 @@ namespace WindowsFormsApp1
         private void backgroundcolor_Click(object sender, EventArgs e)
         {
 
-            WorkManagePage work = new WorkManagePage();
+            WorkManagePage work = new WorkManagePage(WorkTypeID);
             work.Show();
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

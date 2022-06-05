@@ -20,14 +20,14 @@ namespace WindowsFormsApp1
         private Point? _mouseLocation;
         private WorkDao workDao = new WorkDao();
      
-        public WorkManagePage()
+        public WorkManagePage(string idWorkType)
         {
             InitializeComponent();
-            loadData();
+            loadData(idWorkType);
         }
 
         
-        public void loadData()
+        public void loadData(string idWorkType)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
                 DataTable lstWork = new DataTable();
                 lstWork = workDao.getListWork();
                 //lstWork = workDao.getListWorkByWorkType("test");
-                lstWork = workDao.getListWorkByWorkType("Test");
+                lstWork = workDao.getListWorkByWorkType(idWorkType);
                 DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
@@ -64,10 +64,12 @@ namespace WindowsFormsApp1
                 {
                     listUndoneItems[i] = new workItem(this);
                     listUndoneItems[i].WorkId = undoneWork.Id;
+                    listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
                     listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
                     listUndoneItems[i].strTime = undoneWork.Deadline.ToString("HH: mm");
-                    listUndoneItems[i].gbColor = System.Drawing.ColorTranslator.FromHtml(undoneWork.BackgroundColor);
+                   
+                    //listUndoneItems[i].gbColor = System.Drawing.ColorTranslator.FromHtml(undoneWork.BackgroundColor);
 
 
                     listUndoneItems[i].Margin = new Padding(10);

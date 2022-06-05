@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
             {
                 listItems[i] = new TypeWork();
                 listItems[i].WorkTypeName = listTypeWorkItem[i].Name;
-                listItems[i].WorkTypeDescription = listTypeWorkItem[i].Description;
+                //listItems[i].WorkTypeDescription = listTypeWorkItem[i].Description;
                 listItems[i].Margin = new Padding(30);
                 listItems[i].Click += new System.EventHandler(this.item_Clicked);
                 workTypeLayout.Controls.Add(listItems[i]);

@@ -154,6 +154,9 @@
   <data name="2530835_compose_create_edit_edit file_office_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2530835_compose_create_edit_edit file_office_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="58a27ee24edec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\58a27ee24edec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="6827792_delete_multimedia_remove_trash_ui_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6827792_delete_multimedia_remove_trash_ui_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,7 +166,7 @@
   <data name="hinh-nen-powerpoint-don-gian-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hinh-nen-powerpoint-don-gian-4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="58a27ee24edec" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\58a27ee24edec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="no-notification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\no-notification1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
