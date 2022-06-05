@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     {
 
         private WorkManagePage ReferenceForm;
+        private Home HomeReferenceForm;
         public workItem()
         {
             InitializeComponent();
@@ -26,6 +27,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.ReferenceForm = form1;
+        }
+
+        public workItem(Home form1)
+        {
+            InitializeComponent();
+            this.HomeReferenceForm = form1;
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -111,8 +118,10 @@ namespace WindowsFormsApp1
             if (result == DialogResult.Yes)
             {
                 AddWork addWork = new AddWork(WorkId, this.ReferenceForm, false);
+
               
                 addWork.Show();
+                //ReferenceForm.loadData(WorkType);
             }
         }
 

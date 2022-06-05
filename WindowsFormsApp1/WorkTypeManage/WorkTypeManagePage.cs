@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                 foreach (WorkType workType in workTypeList)
                 {
                     listWorkTypeItems[i] = new TypeWork(this);
-                    listWorkTypeItems[i].WorkTypeID = workType.Id;
+                    listWorkTypeItems[i].WorkTypeID = workType.Id.ToString();
                     listWorkTypeItems[i].WorkTypeName = workType.Name;
 
                     listWorkTypeItems[i].bgColor = System.Drawing.ColorTranslator.FromHtml(workType.BackgroundColor);
@@ -128,32 +128,70 @@ namespace WindowsFormsApp1
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            DataTable dtWork = new DataTable("Work");
-            Helper.Helper.ImportExcel(ref dtWork);
-            //if(dtWork!=null&& dtWork.Rows.Count>0)
-            //{
-            //    dtWork
-            //}
-           //foreach()
+            try
+            {
+                DataTable dtWorkType = new DataTable("WorkType");
+                Helper.Helper.ImportExcel(ref dtWorkType);
+                DataTable dtWorkTypeExcel = new DataTable("WorkTypeExcel");
+                dtWorkTypeExcel.Columns.Add("name", typeof(string));
+                dtWorkTypeExcel.Columns.Add("description", typeof(string));
+                dtWorkTypeExcel.Columns.Add("backgroundColor", typeof(string));
+                foreach (DataRow row in dtWorkType.Rows)
+                {
+                    DataRow rowExel = dtWorkTypeExcel.NewRow();
+                    rowExel["name"] = row["Tên loại công việc"].ToString();
+                    rowExel["description"] = row["Mô tả loại công việc"].ToString();
+                    rowExel["backgroundColor"] = row["Màu sắc"].ToString();
+                    dtWorkTypeExcel.Rows.Add(rowExel);
+                }
+
+                List<WorkType> lstWorkType = new List<WorkType>();
+
+                lstWorkType = Helper.Helper.ConvertToList<WorkType>(dtWorkTypeExcel);
+                foreach (WorkType workType in lstWorkType)
+                {
+                    workTypeDao.insertExcel(workType);
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+            
         }
 
         private void btnDefaultExport_Click(object sender, EventArgs e)
         {
-            DataTable dtWork = new DataTable("Work");
-            dtWork.Columns.Add("Loại công việc", typeof(string));
-            dtWork.Columns.Add("Tên công việc", typeof(string));
-            DataRow row = dtWork.NewRow();
-            row["Loại công việc"] = "1";
-            row["Tên công việc"] = "Quoooooooc";
-            dtWork.Rows.Add(row);
-            Helper.Helper.ExportExcel(dtWork);
+            DataTable dtWorkExcel = new DataTable("dtWorkExcel");
+            dtWorkExcel.Columns.Add("Tên loại công việc", typeof(string));
+            dtWorkExcel.Columns.Add("Mô tả loại công việc", typeof(string));
+            dtWorkExcel.Columns.Add("Màu sắc", typeof(string));
+            Helper.Helper.ExportDefaultExcel(dtWorkExcel);
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            DataTable dtWork = new DataTable("Work");
-            dtWork = workTypeDao.getListWorkType();
-            Helper.Helper.ExportDefaultExcel(dtWork);
+            DataTable dtWorkType = new DataTable("WorkType");
+            dtWorkType = workTypeDao.getListWorkType();
+            if (dtWorkType != null && dtWorkType.Rows.Count == 0)
+            {
+                throw new Exception("Không có dữ liệu xuất");
+            }
+            DataTable dtWorkExcel = new DataTable("dtWorkExcel");
+            dtWorkExcel.Columns.Add("Tên loại công việc", typeof(string));
+            dtWorkExcel.Columns.Add("Mô tả loại công việc", typeof(string));
+            dtWorkExcel.Columns.Add("Màu sắc", typeof(string));
+            foreach (DataRow row in dtWorkType.Rows)
+            {
+
+                DataRow rowExel = dtWorkExcel.NewRow();
+                rowExel["Tên loại công việc"] = row["name"].ToString();
+                rowExel["Mô tả loại công việc"] = row["description"].ToString();
+                rowExel["Màu sắc"] = row["backgroundColor"].ToString();
+                dtWorkExcel.Rows.Add(rowExel);
+
+            }
+            Helper.Helper.ExportExcel(dtWorkExcel);
         }
 
         private void flPanel_layout_Paint(object sender, PaintEventArgs e)

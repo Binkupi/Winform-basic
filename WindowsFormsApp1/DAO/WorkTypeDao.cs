@@ -60,13 +60,19 @@ namespace WindowsFormsApp1.DAO
         public void insert(WorkType workType)
         {
 
-            string query = "INSERT INTO `workType` (`id`, `name`, `description`, `backgroundColor`) VALUES('" + workType.Id + "', '" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "')";
+            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "')";
             bool result = sql.insert(query);
             if (result)
             {
                 MessageBox.Show("Lưu thành công.");
             }
 
+        }
+        public void insertExcel(WorkType workType)
+        {
+
+            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "')";
+            bool result = sql.insert(query);
         }
         public void update(WorkType workType)
         {

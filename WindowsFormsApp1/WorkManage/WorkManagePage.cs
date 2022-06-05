@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
                 foreach (Work undoneWork in lstUndoneWork)
                 {
                     listUndoneItems[i] = new workItem(this);
-                    listUndoneItems[i].WorkId = undoneWork.Id;
+                    listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
                     listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
@@ -84,7 +84,7 @@ namespace WindowsFormsApp1
                 foreach (Work doneWork in lstDoneWork)
                 {
                     listDoneItems[i] = new workItem(this);
-                    listDoneItems[i].WorkId = doneWork.Id;
+                    listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
                     listDoneItems[i].strTime = doneWork.Deadline.ToString("HH: mm");
@@ -98,8 +98,8 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)
                 {
-                    listLatedItems[i] = new workItem();
-                    listLatedItems[i].WorkId = latedWork.Id;
+                    listLatedItems[i] = new workItem(this);
+                    listLatedItems[i].WorkId = latedWork.Id.ToString();
                     listLatedItems[i].strName = latedWork.Name;
                     listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");
                     listLatedItems[i].strTime = latedWork.Deadline.ToString("HH: mm");
@@ -167,21 +167,24 @@ namespace WindowsFormsApp1
                 dtWork.Columns.Add("workType", typeof(string));
                 dtWork.Columns.Add("description", typeof(string));
                 dtWork.Columns.Add("deadline", typeof(DateTime));
+                dtWork.Columns.Add("isNotification", typeof(int));
                 dtWork.Columns.Add("alarmDate", typeof(DateTime));
+                dtWork.Columns.Add("isFinished", typeof(int));
                 foreach (DataRow row in lstWork.Rows)
                 {
                     DataRow rowExel = dtWork.NewRow();
                     rowExel["name"] = row["Tên công việc"].ToString();
                     rowExel["workType"] = row["Mã loại công việc"].ToString();
-                    rowExel["description"] = row["Mô tả loại công việc"].ToString();
+                    rowExel["description"] = row["Mô tả công việc"].ToString();
                     rowExel["deadline"] = DateTime.ParseExact(row["Ngày kết thúc"].ToString(), "dd/MM/yyyy", null);
+                    rowExel["isNotification"] = Int32.Parse(row["Có nhận thông báo"].ToString());
                     rowExel["alarmDate"] = DateTime.ParseExact(row["Ngày thông báo"].ToString(), "dd/MM/yyyy", null);
+                    rowExel["isFinished"] = 0;
                     dtWork.Rows.Add(rowExel);
                 }
                 
                 DateTime today = DateTime.Now;
-                DateTime test = DateTime.Parse(lstWork.Rows[0]["Deadline"].ToString());
-                var drUndoneWork = lstWork.AsEnumerable().Where(item => Int32.Parse(item.Field<string>("isFinished")) ==0 && today.CompareTo(DateTime.Parse(item.Field<String>("Deadline"))) == -1);
+                var drUndoneWork = dtWork.AsEnumerable().Where(item => item.Field<int>("isFinished")==0 && today.CompareTo(item.Field<DateTime>("deadline")) == -1);
                 List<Work> lstUndoneWork = new List<Work>();
                 if (drUndoneWork.Any())
                 {
@@ -189,7 +192,7 @@ namespace WindowsFormsApp1
                 }
                 foreach (Work work in lstUndoneWork)
                 {
-                    workDao.insert(work);
+                    workDao.insertExcel(work);
                 }
             }catch(Exception ex)
             {
@@ -202,11 +205,16 @@ namespace WindowsFormsApp1
         {
             DataTable dtWorkExcel = new DataTable("Work");
             dtWorkExcel = workDao.getListWorkByWorkType(idWorkType);
+            if(dtWorkExcel!=null && dtWorkExcel.Rows.Count == 0)
+            {
+                throw new Exception("Không có dữ liệu xuất");
+            }
             DataTable dtWork = new DataTable("Work");
             dtWork.Columns.Add("Tên công việc", typeof(string));
             dtWork.Columns.Add("Mã loại công việc", typeof(string));
-            dtWork.Columns.Add("Mô tả loại công việc", typeof(string));
+            dtWork.Columns.Add("Mô tả công việc", typeof(string));
             dtWork.Columns.Add("Ngày kết thúc", typeof(string));
+            dtWork.Columns.Add("Có nhận thông báo", typeof(int));
             dtWork.Columns.Add("Ngày thông báo", typeof(string));           
             foreach (DataRow row in dtWorkExcel.Rows)
             {
@@ -214,8 +222,9 @@ namespace WindowsFormsApp1
                 DataRow rowExel = dtWork.NewRow();
                 rowExel["Tên công việc"] = row["name"].ToString();
                 rowExel["Mã loại công việc"] = row["workType"].ToString();
-                rowExel["Mô tả loại công việc"] = row["description"].ToString();
+                rowExel["Mô tả công việc"] = row["description"].ToString();
                 rowExel["Ngày kết thúc"] = DateTime.Parse(row["deadline"].ToString()).ToString("dd/MM/yyyy");
+                rowExel["Có nhận thông báo"] = row["isNotification"].ToString();
                 rowExel["Ngày thông báo"] = DateTime.Parse(row["alarmDate"].ToString()).ToString("dd/MM/yyyy");
                 dtWork.Rows.Add(rowExel);
 
@@ -228,8 +237,9 @@ namespace WindowsFormsApp1
             DataTable dtWork = new DataTable("Work");
             dtWork.Columns.Add("Tên công việc", typeof(string));
             dtWork.Columns.Add("Mã loại công việc", typeof(string));
-            dtWork.Columns.Add("Mô tả loại công việc", typeof(string));
+            dtWork.Columns.Add("Mô tả công việc", typeof(string));
             dtWork.Columns.Add("Ngày kết thúc", typeof(string));
+            dtWork.Columns.Add("Có nhận thông báo", typeof(int));
             dtWork.Columns.Add("Ngày thông báo", typeof(string));
             Helper.Helper.ExportDefaultExcel(dtWork);
         }

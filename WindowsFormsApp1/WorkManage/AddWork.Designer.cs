@@ -42,16 +42,15 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.alarmDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.chkIsNotification = new System.Windows.Forms.CheckBox();
             this.lblStateWork = new System.Windows.Forms.Label();
             this.chkIsFinish = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dateStart = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dateEnd = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.alarmDate = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -221,100 +220,13 @@
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.dateStart);
-            this.panel7.Controls.Add(this.lblStateWork);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(this.chkIsFinish);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.dateEnd);
             this.panel7.Location = new System.Drawing.Point(22, 142);
             this.panel7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(752, 116);
+            this.panel7.Size = new System.Drawing.Size(752, 85);
             this.panel7.TabIndex = 11;
-            // 
-            // lblStateWork
-            // 
-            this.lblStateWork.AutoSize = true;
-            this.lblStateWork.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblStateWork.Location = new System.Drawing.Point(206, 8);
-            this.lblStateWork.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStateWork.Name = "lblStateWork";
-            this.lblStateWork.Size = new System.Drawing.Size(160, 18);
-            this.lblStateWork.TabIndex = 4;
-            this.lblStateWork.Text = "Trạng thái công việc *:";
-            this.lblStateWork.Visible = false;
-            // 
-            // chkIsFinish
-            // 
-            this.chkIsFinish.AutoSize = true;
-            this.chkIsFinish.Font = new System.Drawing.Font("Arial", 12F);
-            this.chkIsFinish.Location = new System.Drawing.Point(383, 8);
-            this.chkIsFinish.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.chkIsFinish.Name = "chkIsFinish";
-            this.chkIsFinish.Size = new System.Drawing.Size(127, 22);
-            this.chkIsFinish.TabIndex = 2;
-            this.chkIsFinish.Text = "Đã hoàn thành";
-            this.chkIsFinish.UseVisualStyleBackColor = true;
-            this.chkIsFinish.Visible = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.dateEnd);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Location = new System.Drawing.Point(22, 266);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(752, 80);
-            this.panel4.TabIndex = 10;
-            // 
-            // dateStart
-            // 
-            this.dateStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateStart.Font = new System.Drawing.Font("Arial", 10F);
-            this.dateStart.Location = new System.Drawing.Point(40, 72);
-            this.dateStart.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dateStart.Name = "dateStart";
-            this.dateStart.Size = new System.Drawing.Size(659, 23);
-            this.dateStart.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F);
-            this.label7.Location = new System.Drawing.Point(21, 38);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 18);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Ngày bắt đầu *:";
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.alarmDate);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(22, 347);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(752, 67);
-            this.panel6.TabIndex = 9;
-            // 
-            // dateEnd
-            // 
-            this.dateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateEnd.Font = new System.Drawing.Font("Arial", 10F);
-            this.dateEnd.Location = new System.Drawing.Point(41, 38);
-            this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(660, 23);
-            this.dateEnd.TabIndex = 5;
             // 
             // label6
             // 
@@ -323,11 +235,48 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 7);
+            this.label6.Location = new System.Drawing.Point(19, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 18);
             this.label6.TabIndex = 1;
             this.label6.Text = "Deadline *:";
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateEnd.Font = new System.Drawing.Font("Arial", 10F);
+            this.dateEnd.Location = new System.Drawing.Point(41, 48);
+            this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(659, 23);
+            this.dateEnd.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.alarmDate);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(22, 229);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(752, 80);
+            this.panel4.TabIndex = 10;
+            // 
+            // alarmDate
+            // 
+            this.alarmDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.alarmDate.Font = new System.Drawing.Font("Arial", 10F);
+            this.alarmDate.Location = new System.Drawing.Point(41, 54);
+            this.alarmDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.alarmDate.Name = "alarmDate";
+            this.alarmDate.Size = new System.Drawing.Size(660, 23);
+            this.alarmDate.TabIndex = 6;
             // 
             // label4
             // 
@@ -336,24 +285,61 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 12);
+            this.label4.Location = new System.Drawing.Point(19, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 18);
             this.label4.TabIndex = 2;
             this.label4.Text = "Đặt thông báo *:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // alarmDate
+            // panel6
             // 
-            this.alarmDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.alarmDate.Font = new System.Drawing.Font("Arial", 10F);
-            this.alarmDate.Location = new System.Drawing.Point(40, 41);
-            this.alarmDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.alarmDate.Name = "alarmDate";
-            this.alarmDate.Size = new System.Drawing.Size(660, 23);
-            this.alarmDate.TabIndex = 6;
+            this.panel6.Controls.Add(this.chkIsNotification);
+            this.panel6.Controls.Add(this.lblStateWork);
+            this.panel6.Controls.Add(this.chkIsFinish);
+            this.panel6.Location = new System.Drawing.Point(22, 312);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(752, 102);
+            this.panel6.TabIndex = 9;
+            // 
+            // chkIsNotification
+            // 
+            this.chkIsNotification.AutoSize = true;
+            this.chkIsNotification.Font = new System.Drawing.Font("Arial", 12F);
+            this.chkIsNotification.Location = new System.Drawing.Point(194, 51);
+            this.chkIsNotification.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.chkIsNotification.Name = "chkIsNotification";
+            this.chkIsNotification.Size = new System.Drawing.Size(124, 22);
+            this.chkIsNotification.TabIndex = 7;
+            this.chkIsNotification.Text = "Bật thông báo";
+            this.chkIsNotification.UseVisualStyleBackColor = true;
+            // 
+            // lblStateWork
+            // 
+            this.lblStateWork.AutoSize = true;
+            this.lblStateWork.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblStateWork.Location = new System.Drawing.Point(12, 24);
+            this.lblStateWork.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStateWork.Name = "lblStateWork";
+            this.lblStateWork.Size = new System.Drawing.Size(160, 18);
+            this.lblStateWork.TabIndex = 4;
+            this.lblStateWork.Text = "Trạng thái công việc *:";
+            // 
+            // chkIsFinish
+            // 
+            this.chkIsFinish.AutoSize = true;
+            this.chkIsFinish.Font = new System.Drawing.Font("Arial", 12F);
+            this.chkIsFinish.Location = new System.Drawing.Point(194, 23);
+            this.chkIsFinish.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.chkIsFinish.Name = "chkIsFinish";
+            this.chkIsFinish.Size = new System.Drawing.Size(127, 22);
+            this.chkIsFinish.TabIndex = 2;
+            this.chkIsFinish.Text = "Đã hoàn thành";
+            this.chkIsFinish.UseVisualStyleBackColor = true;
+            this.chkIsFinish.Visible = false;
             // 
             // AddWork
             // 
@@ -399,16 +385,15 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateStart;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DateTimePicker dateEnd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbLoaiCV;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.CheckBox chkIsFinish;
-        private System.Windows.Forms.Label lblStateWork;
         private System.Windows.Forms.DateTimePicker alarmDate;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.CheckBox chkIsNotification;
+        private System.Windows.Forms.Label lblStateWork;
+        private System.Windows.Forms.CheckBox chkIsFinish;
     }
 }
