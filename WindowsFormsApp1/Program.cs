@@ -17,11 +17,14 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           DateTime today = DateTime.Now;
-           DateTime value = DateTime.Parse(today.ToString());
+            //DateTime today = DateTime.Now;
+            //DateTime value = DateTime.Parse(today.ToString());
 
-            Console.WriteLine(value);
+            // Console.WriteLine(value);
+            //Helper.Helper.sentAutoMail();
 
+            //Helper.Helper.sentMail();
+            Helper.Helper.sentAutoMessage();
             Application.Run(new Home());
         }
     }
