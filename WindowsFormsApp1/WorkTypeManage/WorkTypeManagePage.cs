@@ -130,6 +130,11 @@ namespace WindowsFormsApp1
         {
             DataTable dtWork = new DataTable("Work");
             Helper.Helper.ImportExcel(ref dtWork);
+            //if(dtWork!=null&& dtWork.Rows.Count>0)
+            //{
+            //    dtWork
+            //}
+           //foreach()
         }
 
         private void btnDefaultExport_Click(object sender, EventArgs e)
@@ -147,11 +152,7 @@ namespace WindowsFormsApp1
         private void btnDownload_Click(object sender, EventArgs e)
         {
             DataTable dtWork = new DataTable("Work");
-            dtWork.Columns.Add("Loại công việc", typeof(string));
-            dtWork.Columns.Add("Tên công việc", typeof(string));
-            DataRow row = dtWork.NewRow();
-            row["Loại công việc"] = "1";
-            row["Tên công việc"] = "Quoooooooc";
+            dtWork = workTypeDao.getListWorkType();
             Helper.Helper.ExportDefaultExcel(dtWork);
         }
 

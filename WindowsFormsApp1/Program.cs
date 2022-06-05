@@ -24,8 +24,8 @@ namespace WindowsFormsApp1
             //Helper.Helper.sentAutoMail();
 
             //Helper.Helper.sentMail();
-            Helper.Helper.sentAutoMessage();
-            Application.Run(new Home());
+            //Helper.Helper.sentAutoMessage();
+            Application.Run(new WorkManagePage("gcnY0cnW"));
         }
     }
 }
