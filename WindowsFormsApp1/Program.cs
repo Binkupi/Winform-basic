@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DateTime today = DateTime.Now;
 
             //Helper.Helper.sentAutoMail();
             //Helper.Helper.sentMail();
