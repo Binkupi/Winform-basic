@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
                 foreach (Work undoneWork in lstUndoneWork)
                 {
                     listUndoneItems[i] = new workItem(this);
-                    listUndoneItems[i].WorkId = undoneWork.Id;
+                    listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
                     listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
                 foreach (Work doneWork in lstDoneWork)
                 {
                     listDoneItems[i] = new workItem(this);
-                    listDoneItems[i].WorkId = doneWork.Id;
+                    listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
                     listDoneItems[i].strTime = doneWork.Deadline.ToString("HH: mm");
@@ -99,8 +99,8 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)
                 {
-                    listLatedItems[i] = new workItem();
-                    listLatedItems[i].WorkId = latedWork.Id;
+                    listLatedItems[i] = new workItem(this);
+                    listLatedItems[i].WorkId = latedWork.Id.ToString();
                     listLatedItems[i].strName = latedWork.Name;
                     listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");
                     listLatedItems[i].strTime = latedWork.Deadline.ToString("HH: mm");

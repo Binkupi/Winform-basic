@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.Model
             Description = description;
             BackgroundColor = backgroundColor;
         }
-        public WorkType(string idTypeWork, string nameTypeWork, string description, string backgroundColor)
+        public WorkType(int idTypeWork, string nameTypeWork, string description, string backgroundColor)
         {
             Id = idTypeWork;
             Name = nameTypeWork;
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.Model
         }
 
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string BackgroundColor { get; set; }

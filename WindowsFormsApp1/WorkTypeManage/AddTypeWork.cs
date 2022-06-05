@@ -133,9 +133,9 @@ namespace WindowsFormsApp1
           
             if (string.IsNullOrEmpty(selectedWorkTypeID))
             {
-                selectedWorkTypeID = Helper.Helper.RandomID(10);
+                //selectedWorkTypeID = Helper.Helper.RandomID(10);
 
-                WorkType workType = new WorkType(selectedWorkTypeID, txtName.Text, txtDescription.Text, txtColor.Text);
+                WorkType workType = new WorkType(txtName.Text, txtDescription.Text, txtColor.Text);
 
                 workTypeDao.insert(workType);
             }
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
                 //update
 
 
-                WorkType workType = new WorkType(selectedWorkTypeID, txtName.Text, txtDescription.Text, txtColor.Text);
+                WorkType workType = new WorkType(Int32.Parse(selectedWorkTypeID), txtName.Text, txtDescription.Text, txtColor.Text);
 
                 workTypeDao.update(workType);
             }

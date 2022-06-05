@@ -18,12 +18,15 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Helper.Helper.sentAutoMail();
+            //Helper.Helper.sentMail();
+            //Helper.Helper.sentAutoMessage();
             DateTimePicker today = new DateTimePicker();
             today.Value = DateTime.Now;
+            
+            Console.WriteLine(today.Value.ToString("yyyy-mm-dd"));
 
 
-
-            Console.WriteLine(today);
 
             Application.Run(new Home());
         }

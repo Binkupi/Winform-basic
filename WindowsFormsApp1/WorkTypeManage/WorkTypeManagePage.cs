@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                 foreach (WorkType workType in workTypeList)
                 {
                     listWorkTypeItems[i] = new TypeWork(this);
-                    listWorkTypeItems[i].WorkTypeID = workType.Id;
+                    listWorkTypeItems[i].WorkTypeID = workType.Id.ToString();
                     listWorkTypeItems[i].WorkTypeName = workType.Name;
 
                     listWorkTypeItems[i].bgColor = System.Drawing.ColorTranslator.FromHtml(workType.BackgroundColor);

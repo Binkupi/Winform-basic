@@ -13,6 +13,8 @@ namespace WindowsFormsApp1
     public partial class AddWorkItem : UserControl
     {
         private WorkManagePage referenceForm;
+        private Home HomeReferenceForm;
+
         public AddWorkItem()
         {
             InitializeComponent();
@@ -21,6 +23,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.referenceForm = form1;
+        }
+
+        public AddWorkItem(Home form1)
+        {
+            InitializeComponent();
+            this.HomeReferenceForm = form1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

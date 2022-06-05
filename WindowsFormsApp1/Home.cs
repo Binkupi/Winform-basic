@@ -3,6 +3,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
 using WindowsFormsApp1.Model;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -17,18 +20,96 @@ namespace WindowsFormsApp1
 
         private void loadData()
         {
+            try
+            {
+                DataTable lstWork = new DataTable();
+                DateTimePicker today = new DateTimePicker();
+                today.Value = DateTime.Now;
+                String txtToday = today.Value.ToString("yyyy-MM-dd");
+                Console.WriteLine(txtToday);
 
-            undoneWorkLayout.Controls.Clear();
-            workItem workItem1 = new workItem();
-            workItem workItem2 = new workItem();
-            workItem workItem3 = new workItem();
-            workItem workItem4 = new workItem();
-            AddWorkItem addItem = new AddWorkItem();
-            undoneWorkLayout.Controls.Add(workItem1);
-            undoneWorkLayout.Controls.Add(workItem2);
-            undoneWorkLayout.Controls.Add(workItem3);
-            doneWorkLayout.Controls.Clear();
-            doneWorkLayout.Controls.Add(workItem4);
+
+                // string query = "SELECT * FROM work where deadline LIKE '" + txtToday + "%'";
+                //MessageBox.Show(query);
+
+                lstWork = workDao.getAllWorkByDate(txtToday);
+
+                //DateTime today = DateTime.Now;
+                var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0);
+                var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
+               
+                List<Work> lstUndoneWork = new List<Work>();
+                List<Work> lstDoneWork = new List<Work>();
+               
+                if (drUndoneWork.Any())
+                {
+                    lstUndoneWork = Helper.Helper.ConvertToList<Work>(drUndoneWork.CopyToDataTable());
+                }
+                if (drDoneWork.Any())
+                {
+                    DataTable test = drDoneWork.CopyToDataTable();
+                    lstDoneWork = Helper.Helper.ConvertToList<Work>(test);
+                }
+              
+                undoneWorkLayout.Controls.Clear();
+                var listUndoneItems = new workItem[100];
+                int i = 0;
+                foreach (Work undoneWork in lstUndoneWork)
+                {
+                    listUndoneItems[i] = new workItem(this);
+                    listUndoneItems[i].WorkId = undoneWork.Id.ToString();
+                    listUndoneItems[i].WorkType = undoneWork.WorkType;
+                    listUndoneItems[i].strName = undoneWork.Name;
+                    listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
+                    //listUndoneItems[i].strTime = undoneWork.Deadline.ToString("HH: mm");
+
+                    //listUndoneItems[i].gbColor = System.Drawing.ColorTranslator.FromHtml(undoneWork.BackgroundColor);
+
+
+                    listUndoneItems[i].Margin = new Padding(10);
+                    undoneWorkLayout.Controls.Add(listUndoneItems[i]);
+                    i++;
+                }
+                AddWorkItem addWorkItem = new AddWorkItem(this);
+                addWorkItem.Margin = new Padding(10);
+                undoneWorkLayout.Controls.Add(addWorkItem);
+
+
+                doneWorkLayout.Controls.Clear();
+                var listDoneItems = new workItem[100];
+                i = 0;
+                foreach (Work doneWork in lstDoneWork)
+                {
+                    listDoneItems[i] = new workItem(this);
+                    listDoneItems[i].WorkId = doneWork.Id.ToString();
+                    listDoneItems[i].strName = doneWork.Name;
+                    listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
+                    listDoneItems[i].strTime = doneWork.Deadline.ToString("HH: mm");
+                    listDoneItems[i].Margin = new Padding(10);
+                    doneWorkLayout.Controls.Add(listDoneItems[i]);
+                    i++;
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+            //undoneWorkLayout.Controls.Clear();
+            //workItem workItem1 = new workItem();
+            //workItem workItem2 = new workItem();
+            //workItem workItem3 = new workItem();
+            //workItem workItem4 = new workItem();
+            //AddWorkItem addItem = new AddWorkItem();
+            //undoneWorkLayout.Controls.Add(workItem1);
+            //undoneWorkLayout.Controls.Add(workItem2);
+            //undoneWorkLayout.Controls.Add(workItem3);
+            //doneWorkLayout.Controls.Clear();
+            //doneWorkLayout.Controls.Add(workItem4);
 
 
 

@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.DAO
                 MessageBox.Show(ex.Message);
             }
             return dTable;
-            
+
 
         }
         public DataTable getListWorkByWorkType(string workType)
@@ -34,7 +34,7 @@ namespace WindowsFormsApp1.DAO
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM work where workType = '"+workType+"'");
+                dTable = sql.get("SELECT * FROM work where workType = '" + workType + "'");
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.DAO
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM work where id='"+id+"'");
+                dTable = sql.get("SELECT * FROM work where id='" + id + "'");
             }
             catch (Exception ex)
             {
@@ -61,12 +61,12 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-         public DataTable getAllWorkByDate(string id)
+        public DataTable getAllWorkByDate(string date)
         {
             DataTable dTable = new DataTable();
             try
-            {
-                dTable = sql.get("SELECT * FROM work where id='"+id+"'");
+            {   
+                dTable = sql.get("SELECT * FROM work where deadline LIKE '" + date + "%'");
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace WindowsFormsApp1.DAO
         public DataTable getWorkTypeByWorkID(string id)
         {
             DataTable dTable = new DataTable();
-          
+
             try
             {
                 dTable = sql.get("SELECT * FROM worktype where id='" + id + "'");
@@ -97,7 +97,7 @@ namespace WindowsFormsApp1.DAO
         public void delete(string id)
         {
 
-            string query = "DELETE FROM work WHERE id ='"+id+"'";
+            string query = "DELETE FROM work WHERE id ='" + id + "'";
             bool result = sql.delete(query);
             if (result)
             {
@@ -108,25 +108,67 @@ namespace WindowsFormsApp1.DAO
         public void insert(Work work)
         {
 
-            string query = "INSERT INTO `work` (`id`, `name`, `workType`, `startDate`, `deadline`, `description`, `alarmDate`, `isFinished`) VALUES('"+work.Id+"', '"+work.Name+"', '"+work.WorkType+"', '"+work.StartDate.ToString("yyyy-MM-dd HH:mm") + "', '"+work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '"+work.Description+"', '"+ work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "',"+work.IsFinished+")";
+            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + ")";
             bool result = sql.insert(query);
             if (result)
             {
                 MessageBox.Show("Lưu thành công.");
             }
-                
+
         }
         public void update(Work work)
         {
-            string query = "UPDATE `work` set `name` = '" + work.Name + "', `workType` ='" + work.WorkType + "', `startDate`='"+ work.StartDate.ToString("yyyy-MM-dd HH:mm") + "', `deadline`='"+ work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', `description`='"+ work.Description + "', `alarmDate`='" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "', `isFinished`= " + work.IsFinished +" where id='"+work.Id+"'";
-           // MessageBox.Show(query);
+            string query = "UPDATE `work` set `name` = '" + work.Name + "', `workType` ='" + work.WorkType + "', `isNotification`='" + work.IsNotification + "', `deadline`='" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', `description`='" + work.Description + "', `alarmDate`='" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "', `isFinished`= " + work.IsFinished + " where id='" + work.Id + "'";
+            // MessageBox.Show(query);
             bool result = sql.update(query);
             if (result)
             {
                 MessageBox.Show("Cập nhật thành công.");
             }
-                
+
+        }
+        public DataTable getWorkBeforeDeadline()
+        {
+
+            DataTable dTable = new DataTable();
+            DateTime today = DateTime.Now;
+            try
+            {
+                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=1");
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+            }
+            return dTable;
+        }
+        public DataTable getWorkDeadline()
+        {
+
+            DataTable dTable = new DataTable();
+            DateTime today = DateTime.Now;
+            try
+            {
+                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=0");
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+            }
+            return dTable;
         }
 
+        //public DataTable getWorkDeadline()
+        //        {
+
+        //            DataTable dTable = new DataTable();
+        //            DateTime today = DateTime.Now;
+        //            try
+        //            {
+        //                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=0");
+
+        //            }
     }
 }

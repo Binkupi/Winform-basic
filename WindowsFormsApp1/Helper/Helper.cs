@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using Quartz;
+using Quartz.Impl;
 using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1.Helper
@@ -211,5 +215,115 @@ namespace WindowsFormsApp1.Helper
             var finalString = new String(stringChars);
             return finalString;
         }
+        public static Byte[] ExportExcelEmail(DataTable data)
+        {
+            string filePath = "";
+            // tạo SaveFileDialog để lưu file excel
+
+
+            try
+            {
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    string sheetName = "sheet1";
+                    if (data != null && data.Rows.Count > 0)
+                    {
+                        package.Workbook.Worksheets.Add(sheetName);
+                        ExcelWorksheet ws = package.Workbook.Worksheets[sheetName];
+                        ws.Cells["A1"].LoadFromDataTable(data, true);
+                        ws.Cells.AutoFitColumns();
+                    }
+                    if (package.Workbook.Worksheets.Count <= 0)
+                    {
+                        package.Workbook.Worksheets.Add(sheetName);
+                        ExcelWorksheet ws = package.Workbook.Worksheets[1];
+                        ws.Cells[1, 1].Value = "Không có dữ liệu";
+                        ws.Cells[1, 1, 1, 5].Merge = true; //Merge columns start and end range
+                        ws.Cells[1, 1, 1, 5].Style.Font.Bold = true; //Font should be bold
+                        ws.Cells[1, 1, 1, 5].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; // Aligmnet is center
+                        ws.Cells[1, 1, 1, 5].Style.Font.Size = 16;
+                        ws.Cells.AutoFitColumns();
+                    }
+                    //Lưu file lại
+                    Byte[] bin = package.GetAsByteArray();
+                    //File.WriteAllBytes(filePath, bin);
+                    return bin;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+        public static void sentAutoMail()
+        {
+            IJobDetail job = JobBuilder.Create<EmailJob>().Build();
+            IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
+
+            scheduler.Start();
+
+            ITrigger trigger = TriggerBuilder.Create()
+
+                .WithDailyTimeIntervalSchedule
+
+                  (s =>
+
+                     s.WithIntervalInHours(24)
+
+                    .OnEveryDay()
+
+                    .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(23, 19))
+
+                  )
+
+                .Build();
+
+            scheduler.ScheduleJob(job, trigger);
+        }
+
+        public static void sentMail()
+        {
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential("tongdinhquoc@gmail.com", "20112000a");
+
+                MailMessage message = new MailMessage("tongdinhquoc@gmail.com", "18521312@gm.uit.edu.vn");
+                message.Subject = "18521312@gm.uit.edu.vn";
+                message.Body = "Quốc quá là đẹp trai";
+
+                mailclient.Send(message);
+                MessageBox.Show("Mail đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+        }
+        public static void sentAutoMessage()
+        {
+            IJobDetail job = JobBuilder.Create<NotificationJob>().Build();
+            IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
+
+            scheduler.Start();
+
+            ITrigger trigger = TriggerBuilder.Create()
+                .StartNow()
+
+            .WithSimpleSchedule(x => x
+
+                //.WithIntervalInSeconds(1)
+                .WithIntervalInHours(2)
+
+                .RepeatForever())
+
+            .Build();
+
+            scheduler.ScheduleJob(job, trigger);
+        }
     }
+
 }

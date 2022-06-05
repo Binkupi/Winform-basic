@@ -38,22 +38,21 @@ namespace WindowsFormsApp1
             InitializeComponent();            
             loadListWorkType();
             loadDataEdit(workID);
-            this.referenceForm = form1;
+            
             if (seen == true)
-            {
-              
-                
+            {                          
                 //btnSubmit.Text = "Cập nhật";
                 btnSubmit.Visible = false;
                 loadDataShow(workID);
             } else
             {
-                lblStateWork.Visible = true;
+                //lblStateWork.Visible = true;
                 chkIsFinish.Visible = true;
                 chkIsFinish.Enabled = true;
                 btnSubmit.Text = "Cập nhật";
             }
-           
+            this.referenceForm = form1;
+
 
 
         }
@@ -98,8 +97,8 @@ namespace WindowsFormsApp1
                 txtName.Text = data.Rows[0]["name"].ToString();
                 txtDescription.Text = data.Rows[0]["description"].ToString();
                 cbLoaiCV.Text= workType.Rows[0]["name"].ToString();
-                cbLoaiCV.SelectedItem = data.Rows[0]["name"].ToString();
-                dateStart.Value = DateTime.Parse(data.Rows[0]["startDate"].ToString());
+                cbLoaiCV.SelectedItem = data.Rows[0]["name"].ToString();               
+                chkIsNotification.Checked = int.Parse(data.Rows[0]["isNotification"].ToString()) == 1 ? true : false;
                 dateEnd.Value = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
                 alarmDate.Value = DateTime.Parse(data.Rows[0]["alarmDate"].ToString());
                 chkIsFinish.Checked = int.Parse(data.Rows[0]["isFinished"].ToString())==1?true:false;
@@ -111,7 +110,7 @@ namespace WindowsFormsApp1
             chkIsFinish.Enabled = false;
             txtName.Enabled = false;
             cbLoaiCV.Enabled = false;
-            dateStart.Enabled = false;
+            chkIsNotification.Enabled = false;
             dateEnd.Enabled = false;
             alarmDate.Enabled = false;
             txtDescription.Enabled = false;
@@ -139,12 +138,7 @@ namespace WindowsFormsApp1
             }
       
            
-            if (dateEnd.Value.CompareTo(dateStart.Value) == -1)
-            {
-                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!");
-                
-                return;
-            }
+            
             var selectTypeWork = lstWorkType.Where(item => item.Name.Equals(cbLoaiCV.Text));
             WorkType strWorkType = new WorkType();
             if (selectTypeWork.Any())
@@ -159,26 +153,30 @@ namespace WindowsFormsApp1
             }
 
             int isFinished = chkIsFinish.Checked ? 1 : 0;
-            string temp;
+            int isNotification = chkIsNotification.Checked ? 1 : 0;
+            string idWorkType;
             if (string.IsNullOrEmpty(selectedWorkID))
             {
-                selectedWorkID = Helper.Helper.RandomID(10);
+                //selectedWorkID = Helper.Helper.RandomID(10);
                 
-                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
-                temp = strWorkType.Id;
+                Work work = new Work(txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
+                idWorkType = strWorkType.Id.ToString();
 
                 workDao.insert(work);
+                this.referenceForm.loadData(idWorkType);
+                this.Hide();
             }
             else
             {
                 //update
                 
-                Work work = new Work(selectedWorkID, txtName.Text, strWorkType.Id, dateStart.Value, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
-                temp = strWorkType.Id;
+                Work work = new Work(Int32.Parse(selectedWorkID), txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
+                idWorkType = strWorkType.Id.ToString();
                 workDao.update(work);
+                this.referenceForm.loadData(idWorkType);
+                this.Hide();
             }
-            this.referenceForm.loadData(temp);
-            this.Hide();
+           
         }
 
         private void label5_Click(object sender, EventArgs e)
