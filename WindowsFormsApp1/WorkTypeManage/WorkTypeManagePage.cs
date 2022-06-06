@@ -20,14 +20,22 @@ namespace WindowsFormsApp1
     public partial class WorkTypeManagePage : Form
     {
         List<WorkType> listTypeWorkItem = new List<WorkType>();
-        private WorkTypeDao workTypeDao = new WorkTypeDao();
+        public WorkTypeDao workTypeDao = new WorkTypeDao();
+        public Home homeReferenceForm;
 
-        public WorkTypeManagePage()
+        public WorkTypeManagePage(Home form1)
         {
-            InitializeComponent();
-            loadData();
-           // LoadList();
+            Console.WriteLine(this.homeReferenceForm);
             
+            InitializeComponent();
+            this.homeReferenceForm = form1;
+            loadData();
+            // LoadList();
+           
+            Console.WriteLine(this.homeReferenceForm);
+            
+
+
         }
 
 
@@ -54,7 +62,8 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (WorkType workType in workTypeList)
                 {
-                    listWorkTypeItems[i] = new TypeWork(this);
+                    Console.WriteLine(this.homeReferenceForm);
+                    listWorkTypeItems[i] = new TypeWork(this.homeReferenceForm,this);
                     listWorkTypeItems[i].WorkTypeID = workType.Id.ToString();
                     listWorkTypeItems[i].WorkTypeName = workType.Name;
 
@@ -69,8 +78,7 @@ namespace WindowsFormsApp1
                 addWorkTypeItem.Margin = new Padding(10);
                 workTypeLayout.Controls.Add(addWorkTypeItem);
              
-               
-
+              
             }
             catch (Exception ex)
             {
@@ -79,34 +87,6 @@ namespace WindowsFormsApp1
             
         }
 
-
-        private void LoadList()
-        {
-            workTypeLayout.Controls.Clear();
-            var listItems = new TypeWork[listTypeWorkItem.Count];
-            
-
-            for (int i =0; i<listTypeWorkItem.Count;i++)
-            {
-                listItems[i] = new TypeWork();
-                listItems[i].WorkTypeName = listTypeWorkItem[i].Name;
-                //listItems[i].WorkTypeDescription = listTypeWorkItem[i].Description;
-                listItems[i].Margin = new Padding(30);
-                listItems[i].Click += new System.EventHandler(this.item_Clicked);
-                workTypeLayout.Controls.Add(listItems[i]);
-
-
-            }
-
-
-            var data = new WorkTypeAdd();
-            data.Margin = new Padding(30);
-            data.Click += new System.EventHandler(this.item_Add);
-            workTypeLayout.Controls.Add(data);
-
-            
-        }
-       
 
         private void item_Clicked(object sender, EventArgs e)
         {

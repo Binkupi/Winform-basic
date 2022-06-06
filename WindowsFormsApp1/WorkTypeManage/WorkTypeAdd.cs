@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.WorkTypeManage
 {
     public partial class WorkTypeAdd : UserControl
     {
-        private WorkTypeManagePage referenceForm;
+        public WorkTypeManagePage workTypereferenceForm;
         public WorkTypeAdd()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1.WorkTypeManage
         public WorkTypeAdd(WorkTypeManagePage form1)
         {
             InitializeComponent();
-            this.referenceForm = form1;
+            this.workTypereferenceForm = form1;
         }
 
 
@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.WorkTypeManage
         {
 
 
-            AddTypeWork addTypeWork = new AddTypeWork(referenceForm);
+            AddTypeWork addTypeWork = new AddTypeWork(this.workTypereferenceForm);
             addTypeWork.Show();
         }
     }

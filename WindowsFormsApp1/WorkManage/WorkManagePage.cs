@@ -20,10 +20,16 @@ namespace WindowsFormsApp1
         private Point? _mouseLocation;
         private WorkDao workDao = new WorkDao();
         private string idWorkType;
-        public WorkManagePage(string idWorkType)
+        public Home homeReferenceForm;
+        public WorkTypeManagePage workTypeReferenceForm;
+
+        public WorkManagePage(Home form1, WorkTypeManagePage form2, string idWorkType)
         {
             InitializeComponent();
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
             loadData(idWorkType);
+            
         }
 
         
@@ -61,7 +67,7 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem(this);
+                    listUndoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
                     listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
@@ -75,15 +81,16 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem(this);
+                AddWorkItem addWorkItem = new AddWorkItem(this.homeReferenceForm, this.workTypeReferenceForm,this);
                 addWorkItem.Margin = new Padding(10);
                 undoneWorkLayout.Controls.Add(addWorkItem);
+
                 doneWorkLayout.Controls.Clear();
                 var listDoneItems = new workItem[100];
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem(this);
+                    listDoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
                     listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
@@ -92,13 +99,14 @@ namespace WindowsFormsApp1
                     doneWorkLayout.Controls.Add(listDoneItems[i]);
                     i++;
                 }
+
+                //AddWorkItem addUndoneItem = new AddWorkItem(this.homeReferenceForm,this);
                 latedWorkLayout.Controls.Clear();
-                AddWorkItem addUndoneItem = new AddWorkItem(this);
                 var listLatedItems = new workItem[100];
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)
                 {
-                    listLatedItems[i] = new workItem(this);
+                    listLatedItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
                     listLatedItems[i].WorkId = latedWork.Id.ToString();
                     listLatedItems[i].strName = latedWork.Name;
                     listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");

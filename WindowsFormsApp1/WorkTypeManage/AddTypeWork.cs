@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
       //  private WorkDao workDao = new WorkDao();
         private WorkTypeDao workTypeDao = new WorkTypeDao();
         private List<WorkType> lstWorkType = new List<WorkType>();
-        private WorkTypeManagePage referenceForm;
+        public WorkTypeManagePage workTypereferenceForm;
         public AddTypeWork()
         {
             InitializeComponent();
@@ -35,13 +35,13 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             loadDataEdit(selectedWorkTypeID);
-            this.referenceForm = form1;
+            this.workTypereferenceForm = form1;
         }
         public AddTypeWork(string workTypeID, WorkTypeManagePage form1, bool seen = false)
         {
             InitializeComponent();
 
-            this.referenceForm = form1;
+            this.workTypereferenceForm = form1;
             if (seen)
             {
                 loadDataShow(workTypeID);
@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             loadDataEdit(workTypeID);
-            this.referenceForm = form1;
+            this.workTypereferenceForm = form1;
         }
       
        
@@ -148,7 +148,7 @@ namespace WindowsFormsApp1
 
                 workTypeDao.update(workType);
             }
-            this.referenceForm.loadData();
+            this.workTypereferenceForm.loadData();
             this.Hide();
         }
 

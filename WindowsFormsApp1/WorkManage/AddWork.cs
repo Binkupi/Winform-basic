@@ -18,54 +18,114 @@ namespace WindowsFormsApp1
         private WorkDao workDao = new WorkDao();
         private WorkTypeDao workTypeDao = new WorkTypeDao();
         private List<WorkType> lstWorkType = new List<WorkType>();
-        private WorkManagePage referenceForm;
+
+        public WorkManagePage workReferenceForm;
+        public WorkTypeManagePage workTypereferenceForm;
+        public Home homeReferenceForm;
         public AddWork()
         {
             InitializeComponent();
             loadListWorkType();
             loadDataCreate();
+            formatTimePicker();
         }
-        public AddWork(WorkManagePage form1)
+
+
+        //public AddWork(WorkManagePage form1)
+        //{
+        //    InitializeComponent();
+        //    loadListWorkType();
+        //    loadDataCreate();
+        //    formatTimePicker();
+        //    this.referenceForm = form1;
+        //}
+
+        //------h1
+        public AddWork(Home form1, WorkTypeManagePage form2,  WorkManagePage form3)
         {
             InitializeComponent();
+            this.homeReferenceForm = form1;
+            this.workTypereferenceForm = form2;
+            this.workReferenceForm = form3;
             loadListWorkType();
             loadDataCreate();
-            this.referenceForm = form1;
-        }
-        public AddWork(string workID, WorkManagePage form1, bool seen )
-        {
+            formatTimePicker();
 
-            InitializeComponent();            
+            
+        }
+
+        public AddWork(Home form1, WorkTypeManagePage form2, string workID, WorkManagePage form3, bool seen)
+        {
+            InitializeComponent();
+            this.homeReferenceForm = form1;
+            this.workTypereferenceForm = form2;
+            this.workReferenceForm = form3;
             loadListWorkType();
             loadDataEdit(workID);
-            
+            formatTimePicker();
+
             if (seen == true)
-            {                          
-                //btnSubmit.Text = "Cập nhật";
+            {
+               
                 btnSubmit.Visible = false;
                 loadDataShow(workID);
-            } else
-            {
-                //lblStateWork.Visible = true;
+            }
+            else
+            {          
                 chkIsFinish.Visible = true;
                 chkIsFinish.Enabled = true;
                 btnSubmit.Text = "Cập nhật";
             }
-            this.referenceForm = form1;
-
-
+            
 
         }
+
+        //public AddWork(string workID, WorkManagePage form1, bool seen )
+        //{
+
+        //    InitializeComponent();            
+        //    loadListWorkType();
+        //    loadDataEdit(workID);
+        //    formatTimePicker();
+
+        //    if (seen == true)
+        //    {                          
+        //        //btnSubmit.Text = "Cập nhật";
+        //        btnSubmit.Visible = false;
+        //        loadDataShow(workID);
+        //    } else
+        //    {
+        //        //lblStateWork.Visible = true;
+        //        chkIsFinish.Visible = true;
+        //        chkIsFinish.Enabled = true;
+        //        btnSubmit.Text = "Cập nhật";
+        //    }
+        //    this.referenceForm = form1;
+
+
+
+        //}
 
 
         public AddWork(string workID, WorkManagePage form1)
         {
             InitializeComponent();
+            this.workReferenceForm = form1;
             loadListWorkType();
-            
+            formatTimePicker();
+
             loadDataEdit(workID);
-            this.referenceForm = form1;
+           
         }
+
+        public void formatTimePicker()
+        {
+
+            dateEnd.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            alarmDate.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+
+        }
+
         private void loadListWorkType()
         {
             DataTable dtWorkType = workTypeDao.getListWorkType();
@@ -157,13 +217,22 @@ namespace WindowsFormsApp1
             string idWorkType;
             if (string.IsNullOrEmpty(selectedWorkID))
             {
-                //selectedWorkID = Helper.Helper.RandomID(10);
+
                 
                 Work work = new Work(txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
                 idWorkType = strWorkType.Id.ToString();
 
                 workDao.insert(work);
-                this.referenceForm.loadData(idWorkType);
+
+                if(this.workReferenceForm != null)
+                {
+                    this.workReferenceForm.loadData(idWorkType);
+                    this.workTypereferenceForm.loadData();
+                }
+                if (this.homeReferenceForm != null)
+                {
+                    this.homeReferenceForm.loadData();
+                }       
                 this.Hide();
             }
             else
@@ -173,7 +242,14 @@ namespace WindowsFormsApp1
                 Work work = new Work(Int32.Parse(selectedWorkID), txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
                 idWorkType = strWorkType.Id.ToString();
                 workDao.update(work);
-                this.referenceForm.loadData(idWorkType);
+               
+              
+               if(this.workReferenceForm != null)
+                {
+                    this.workReferenceForm.loadData(idWorkType);
+                    this.workTypereferenceForm.loadData();
+                }
+                this.homeReferenceForm.loadData();
                 this.Hide();
             }
            

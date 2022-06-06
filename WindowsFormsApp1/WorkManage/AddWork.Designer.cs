@@ -247,6 +247,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateEnd.Font = new System.Drawing.Font("Arial", 10F);
+            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateEnd.Location = new System.Drawing.Point(41, 48);
             this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dateEnd.Name = "dateEnd";
@@ -272,10 +273,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.alarmDate.Font = new System.Drawing.Font("Arial", 10F);
+            this.alarmDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.alarmDate.Location = new System.Drawing.Point(41, 54);
             this.alarmDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.alarmDate.Name = "alarmDate";
-            this.alarmDate.Size = new System.Drawing.Size(660, 23);
+            this.alarmDate.Size = new System.Drawing.Size(659, 23);
             this.alarmDate.TabIndex = 6;
             // 
             // label4

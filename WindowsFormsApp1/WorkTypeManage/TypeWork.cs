@@ -15,15 +15,18 @@ namespace WindowsFormsApp1
 {
     public partial class TypeWork : UserControl
     {
-        private WorkTypeManagePage ReferenceForm;
+        public WorkTypeManagePage workTypeReferenceForm;
+        public Home homeReferenceForm;
+
         public TypeWork()
         {
             InitializeComponent();
         }
-        public TypeWork(WorkTypeManagePage form1)
+        public TypeWork(Home form1, WorkTypeManagePage form2)
         {
             InitializeComponent();
-            this.ReferenceForm = form1;
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
         }
 
         private void TypeWork_Load(object sender, EventArgs e)
@@ -40,12 +43,12 @@ namespace WindowsFormsApp1
                 if (WorkTypeName.Length != 0)
                 {
                     int i = txt.Length;
-                    while (TextRenderer.MeasureText(txt + "...", txtWorkTypeName.Font).Width > txtWorkTypeName.Width - 6)
+                    while (TextRenderer.MeasureText(txt, txtWorkTypeName.Font).Width > txtWorkTypeName.Width - 6)
                     {
                         txt = value.Substring(0, --i);
                         if (i == 0) break;
                     }
-                    txtWorkTypeName.Text = txt + "...";
+                    txtWorkTypeName.Text = txt;
                 }
                 else
                 {
@@ -87,17 +90,13 @@ namespace WindowsFormsApp1
             {
                 WorkTypeDao workTypeDao = new WorkTypeDao();
                 workTypeDao.delete(WorkTypeID);
-                ReferenceForm.loadData();
+                workTypeReferenceForm.loadData();
             }
-
-
-
-
 
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            AddTypeWork addTypeWork = new AddTypeWork(WorkTypeID, ReferenceForm);
+            AddTypeWork addTypeWork = new AddTypeWork(WorkTypeID, workTypeReferenceForm);
             addTypeWork.Show();
         }
 
@@ -116,7 +115,7 @@ namespace WindowsFormsApp1
         private void backgroundcolor_Click(object sender, EventArgs e)
         {
 
-            WorkManagePage work = new WorkManagePage(WorkTypeID);
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID);
             work.Show();
         }
 

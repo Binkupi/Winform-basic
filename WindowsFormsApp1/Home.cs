@@ -12,13 +12,17 @@ namespace WindowsFormsApp1
     public partial class Home : Form
     {
         private WorkDao workDao = new WorkDao();
+        public Home homeReferenceForm;
+        public WorkManagePage workReferenceForm;
         public Home()
         {
             InitializeComponent();
+            this.homeReferenceForm = this;
             loadData();
+           
         }
 
-        private void loadData()
+        public void loadData()
         {
             try
             {
@@ -70,7 +74,7 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem(this);
+                AddWorkItem addWorkItem = new AddWorkItem(this, workReferenceForm);
                 addWorkItem.Margin = new Padding(10);
                 undoneWorkLayout.Controls.Add(addWorkItem);
 
@@ -166,7 +170,7 @@ namespace WindowsFormsApp1
 
         private void lbl_ListTypeWork_DoubleClick(object sender, EventArgs e)
         {
-            WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage();
+            WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage(this.homeReferenceForm);
             workTypeManagePage.Show();
         }
     }

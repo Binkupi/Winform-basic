@@ -12,28 +12,37 @@ namespace WindowsFormsApp1
 {
     public partial class AddWorkItem : UserControl
     {
-        private WorkManagePage referenceForm;
-        private Home HomeReferenceForm;
+        public WorkManagePage workReferenceForm;
+        public WorkTypeManagePage workTypeReferenceForm;
+        public Home homeReferenceForm;
 
         public AddWorkItem()
         {
             InitializeComponent();
         }
-        public AddWorkItem(WorkManagePage form1)
+        public AddWorkItem(Home form1, WorkManagePage form2)
         {
             InitializeComponent();
-            this.referenceForm = form1;
+            this.homeReferenceForm = form1;
+            this.workReferenceForm = form2;
+        }
+        public AddWorkItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3)
+        {
+            InitializeComponent();
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
+            this.workReferenceForm = form3;
         }
 
-        public AddWorkItem(Home form1)
-        {
-            InitializeComponent();
-            this.HomeReferenceForm = form1;
-        }
+        //public AddWorkItem(Home form1)
+        //{
+        //    InitializeComponent();
+        //    this.homeReferenceForm = form1;
+        //}
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(referenceForm);
+            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, this.workReferenceForm);
             addWork.Show();
         }
 
@@ -44,8 +53,8 @@ namespace WindowsFormsApp1
 
         private void panelAdd_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(referenceForm);
-            addWork.Show();
+            //AddWork addWork = new AddWork(referenceForm);
+            //addWork.Show();
         }
     }
 }

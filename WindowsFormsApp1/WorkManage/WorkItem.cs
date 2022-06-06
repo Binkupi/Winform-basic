@@ -16,23 +16,35 @@ namespace WindowsFormsApp1
     public partial class workItem : UserControl
     {
 
-        private WorkManagePage ReferenceForm;
-        private Home HomeReferenceForm;
-        public workItem()
-        {
-            InitializeComponent();
-        }
+        public WorkManagePage workReferenceForm;
+        public Home homeReferenceForm;
+        public WorkTypeManagePage workTypeReferenceForm;
+        private string inputIdWorkType;
+        //public workItem()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public workItem(WorkManagePage form1)
+        //public workItem(WorkManagePage form1,string idWorkType)
+        //{
+        //    InitializeComponent();
+        //    inputIdWorkType = idWorkType;
+        //    this.ReferenceForm = form1;
+        //}
+
+        public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType)
         {
             InitializeComponent();
-            this.ReferenceForm = form1;
+            inputIdWorkType = idWorkType;
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
+            this.workReferenceForm = form3;
         }
 
         public workItem(Home form1)
         {
             InitializeComponent();
-            this.HomeReferenceForm = form1;
+            this.homeReferenceForm = form1;
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -49,7 +61,7 @@ namespace WindowsFormsApp1
                 if (txt.Length != 0)
                 {
                     int i = txt.Length;
-                    while (TextRenderer.MeasureText(txt + "...", txtName.Font).Width > txtName.Width - 6)
+                    while (TextRenderer.MeasureText(txt, txtName.Font).Width > txtName.Width - 6)
                     {
                         txt = value.Substring(0, --i);
                         if (i == 0) break;
@@ -104,8 +116,16 @@ namespace WindowsFormsApp1
             if (result == DialogResult.Yes)
             {
                 WorkDao workDao = new WorkDao();
+                string idWorkType = WorkType;
                 workDao.delete(WorkId);
-                ReferenceForm.loadData(WorkType);
+                //ReferenceForm.loadData(WorkType);
+                
+                if(this.workReferenceForm != null)
+                {
+                    workReferenceForm.loadData(inputIdWorkType);
+                }
+                this.homeReferenceForm.loadData();
+                     
             }
         }
 
@@ -117,23 +137,25 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                AddWork addWork = new AddWork(WorkId, this.ReferenceForm, false);
+                //AddWork addWork = new AddWork(WorkId, this.ReferenceForm, false);
+                //addWork.Show();
 
-              
+                AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, false);
                 addWork.Show();
-                //ReferenceForm.loadData(WorkType);
+
+               
             }
         }
 
         private void txtName_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(WorkId, this.ReferenceForm, true);
+            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, true);
             addWork.Show();
         }
 
         private void txtDate_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(WorkId, this.ReferenceForm, true);
+            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, true);
             addWork.Show();
         }
 
