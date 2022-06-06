@@ -18,11 +18,13 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DateTime today = DateTime.Now;
+            DateTime today1 = DateTime.Now;
+
 
             //Helper.Helper.sentAutoMail();
             //Helper.Helper.sentMail();
             //Helper.Helper.sentAutoMessage();
-            Application.Run(new WorkTypeManagePage());
+            Application.Run(new Home());
         }
     }
 }
