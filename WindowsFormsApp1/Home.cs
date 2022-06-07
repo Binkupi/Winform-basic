@@ -31,14 +31,15 @@ namespace WindowsFormsApp1
                 DataTable lstWork = new DataTable();
                 DateTimePicker today = new DateTimePicker();
                 today.Value = DateTime.Now;
-                String txtToday = today.Value.ToString("yyyy-MM-dd");
-                Console.WriteLine(txtToday);
+                String txtTodayStart = today.Value.ToString("yyyy-MM-dd 00:00:00");
+                String txtTodayEnd = today.Value.ToString("yyyy-MM-dd 23:59:59");
+                Console.WriteLine(txtTodayEnd);
 
 
-                // string query = "SELECT * FROM work where deadline LIKE '" + txtToday + "%'";
+                //string query = "SELECT * FROM work where deadline BETWEEN  '" + txtTodayStart + "' AND '" + txtTodayEnd + "'";
                 //MessageBox.Show(query);
 
-                lstWork = workDao.getAllWorkByDate(txtToday, this.client);
+                lstWork = workDao.getAllWorkByDate(txtTodayStart, txtTodayEnd, this.client);
 
                 //DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0);
@@ -62,12 +63,12 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem(this,client);
+                    listUndoneItems[i] = new workItem(this, undoneWork.Id.ToString(), Int32.Parse(undoneWork.IsNotification.ToString()),client);
                     listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
                     listUndoneItems[i].strDate = undoneWork.Deadline.ToString("dd/MM/yyyy");
-                    //listUndoneItems[i].strTime = undoneWork.Deadline.ToString("HH: mm");
+                    listUndoneItems[i].strTime = undoneWork.Deadline.ToString("HH: mm");
 
                     //listUndoneItems[i].gbColor = System.Drawing.ColorTranslator.FromHtml(undoneWork.BackgroundColor);
 
@@ -76,9 +77,9 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem(this, workReferenceForm, client);
-                addWorkItem.Margin = new Padding(10);
-                undoneWorkLayout.Controls.Add(addWorkItem);
+                // AddWorkItem addWorkItem = new AddWorkItem(this, workReferenceForm, client);
+                // addWorkItem.Margin = new Padding(10);
+                // undoneWorkLayout.Controls.Add(addWorkItem);
 
 
                 doneWorkLayout.Controls.Clear();
@@ -86,7 +87,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem(this, client) ;
+                    listDoneItems[i] = new workItem(this, doneWork.Id.ToString(), Int32.Parse(doneWork.IsNotification.ToString()), client);
                     listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");

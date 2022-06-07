@@ -18,17 +18,34 @@ namespace WindowsFormsApp1
         public WorkTypeManagePage workTypeReferenceForm;
         public Home homeReferenceForm;
         public ClientModel client;
+        private WorkDao workDao = new WorkDao();
+
+
         public TypeWork()
         {
             InitializeComponent();
+           
         }
         public TypeWork(Home form1, WorkTypeManagePage form2, ClientModel client)
         {
             InitializeComponent();
+         
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
             this.client = client;
         }
+
+        public TypeWork(Home form1, WorkTypeManagePage form2, int doneWork, int unDoneWork, int lateWork, ClientModel client)
+        {
+            InitializeComponent();
+            txtDoneWork.Text = doneWork.ToString();
+            txtUnDoneWork.Text = unDoneWork.ToString();
+            txtLateWork.Text = lateWork.ToString();
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
+            this.client = client;
+        }
+
 
         private void TypeWork_Load(object sender, EventArgs e)
         {
@@ -60,6 +77,8 @@ namespace WindowsFormsApp1
 
         public string WorkTypeID { get; set; }
 
+
+
         //public string WorkTypeDescription
         //{
         //    get => txtDescription.Text;
@@ -79,19 +98,47 @@ namespace WindowsFormsApp1
             }
 
         }
+        
+
+
+
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
-            string message = "Bạn có muốn xóa công việc này không?";
+            string message = "Bạn có muốn xóa loại công việc này không?";
             string title = "Thông báo";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
                 WorkTypeDao workTypeDao = new WorkTypeDao();
-                workTypeDao.delete(WorkTypeID, client) ;
-                workTypeReferenceForm.loadData();
+                WorkDao workDao = new WorkDao();
+                DataTable lstWork = new DataTable();
+                List<Work> lstAllWork = new List<Work>();
+                lstWork = workDao.getListWorkByWorkType(WorkTypeID, client);
+                var allWork = lstWork.AsEnumerable();
+                if (allWork.Any())
+                {
+                    lstAllWork = Helper.Helper.ConvertToList<Work>(allWork.CopyToDataTable());
+                }
+               
+              
+
+                if(lstAllWork.Count == 0)
+                {
+
+                    workTypeDao.delete(WorkTypeID,client);
+                    workTypeReferenceForm.loadData();
+                }
+                else
+                {
+                     message = "Xóa tất cả công việc thuộc loại công việc này để có thể thực hiện thao tác này ";
+                     title = "Thông báo";
+                     buttons = MessageBoxButtons.YesNo;
+                     result = MessageBox.Show(message, title, buttons);
+                }
+
             }
 
         }
@@ -120,7 +167,11 @@ namespace WindowsFormsApp1
             work.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+       
+      
+
+
+private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

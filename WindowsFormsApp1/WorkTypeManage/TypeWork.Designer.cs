@@ -30,11 +30,10 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.backgroundcolor = new System.Windows.Forms.Panel();
-            this.btnNotification = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtLateWork = new System.Windows.Forms.Label();
+            this.txtDoneWork = new System.Windows.Forms.Label();
+            this.txtUnDoneWork = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@ namespace WindowsFormsApp1
             this.btnEdit = new System.Windows.Forms.PictureBox();
             this.elipseControl1 = new WindowsFormsApp1.ElipseControl();
             this.backgroundcolor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
@@ -52,7 +50,6 @@ namespace WindowsFormsApp1
             // backgroundcolor
             // 
             this.backgroundcolor.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.backgroundcolor.Controls.Add(this.btnNotification);
             this.backgroundcolor.Controls.Add(this.panel1);
             this.backgroundcolor.Controls.Add(this.txtWorkTypeName);
             this.backgroundcolor.Controls.Add(this.btnRemove);
@@ -65,22 +62,11 @@ namespace WindowsFormsApp1
             this.backgroundcolor.Click += new System.EventHandler(this.backgroundcolor_Click);
             this.backgroundcolor.Paint += new System.Windows.Forms.PaintEventHandler(this.backgroundcolor_Paint);
             // 
-            // btnNotification
-            // 
-            this.btnNotification.Image = global::WindowsFormsApp1.Properties.Resources.no_notification;
-            this.btnNotification.Location = new System.Drawing.Point(112, 0);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(28, 35);
-            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnNotification.TabIndex = 5;
-            this.btnNotification.TabStop = false;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtLateWork);
+            this.panel1.Controls.Add(this.txtDoneWork);
+            this.panel1.Controls.Add(this.txtUnDoneWork);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -90,35 +76,35 @@ namespace WindowsFormsApp1
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label6
+            // txtLateWork
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(86, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "0";
+            this.txtLateWork.AutoSize = true;
+            this.txtLateWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLateWork.Location = new System.Drawing.Point(86, 64);
+            this.txtLateWork.Name = "txtLateWork";
+            this.txtLateWork.Size = new System.Drawing.Size(17, 18);
+            this.txtLateWork.TabIndex = 5;
+            this.txtLateWork.Text = "0";
             // 
-            // label5
+            // txtDoneWork
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(86, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 18);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "3";
+            this.txtDoneWork.AutoSize = true;
+            this.txtDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoneWork.Location = new System.Drawing.Point(86, 35);
+            this.txtDoneWork.Name = "txtDoneWork";
+            this.txtDoneWork.Size = new System.Drawing.Size(17, 18);
+            this.txtDoneWork.TabIndex = 4;
+            this.txtDoneWork.Text = "3";
             // 
-            // label4
+            // txtUnDoneWork
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(86, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "4";
+            this.txtUnDoneWork.AutoSize = true;
+            this.txtUnDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnDoneWork.Location = new System.Drawing.Point(86, 5);
+            this.txtUnDoneWork.Name = "txtUnDoneWork";
+            this.txtUnDoneWork.Size = new System.Drawing.Size(17, 18);
+            this.txtUnDoneWork.TabIndex = 3;
+            this.txtUnDoneWork.Text = "4";
             // 
             // label3
             // 
@@ -203,7 +189,6 @@ namespace WindowsFormsApp1
             this.Size = new System.Drawing.Size(150, 175);
             this.Load += new System.EventHandler(this.TypeWork_Load);
             this.backgroundcolor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).EndInit();
@@ -222,9 +207,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox btnNotification;
+        private System.Windows.Forms.Label txtLateWork;
+        private System.Windows.Forms.Label txtDoneWork;
+        private System.Windows.Forms.Label txtUnDoneWork;
     }
 }

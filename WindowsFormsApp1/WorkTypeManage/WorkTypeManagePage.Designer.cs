@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkTypeManagePage));
             this.workTypeLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelTool = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.workTypeLayout.AutoScroll = true;
+            this.workTypeLayout.BackColor = System.Drawing.Color.Lavender;
             this.workTypeLayout.Location = new System.Drawing.Point(-1, 52);
             this.workTypeLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.workTypeLayout.Name = "workTypeLayout";
@@ -62,6 +64,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(21, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -85,6 +88,7 @@ namespace WindowsFormsApp1
             // 
             // btnUpload
             // 
+            this.btnUpload.BackColor = System.Drawing.Color.White;
             this.btnUpload.Image = global::WindowsFormsApp1.Properties.Resources._2849798_upload_multimedia_icon;
             this.btnUpload.Location = new System.Drawing.Point(13, 4);
             this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -97,6 +101,7 @@ namespace WindowsFormsApp1
             // 
             // btnDefaultExport
             // 
+            this.btnDefaultExport.BackColor = System.Drawing.Color.White;
             this.btnDefaultExport.Image = global::WindowsFormsApp1.Properties.Resources._172516_paper_clip_icon;
             this.btnDefaultExport.Location = new System.Drawing.Point(63, 4);
             this.btnDefaultExport.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -109,6 +114,7 @@ namespace WindowsFormsApp1
             // 
             // btnDownload
             // 
+            this.btnDownload.BackColor = System.Drawing.Color.White;
             this.btnDownload.Image = global::WindowsFormsApp1.Properties.Resources._1564526_add_arrow_download_save_guardar_icon;
             this.btnDownload.Location = new System.Drawing.Point(108, 4);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -134,9 +140,11 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
             this.ClientSize = new System.Drawing.Size(874, 430);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.workTypeLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "WorkTypeManagePage";
             this.Text = "Quản lý loại công việc";

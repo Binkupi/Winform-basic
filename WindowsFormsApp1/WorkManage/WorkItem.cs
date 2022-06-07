@@ -12,8 +12,8 @@ using WindowsFormsApp1.Model;
 
 //namespace WindowsFormsApp1.WorkManage
 namespace WindowsFormsApp1
-
 {
+   
     public partial class workItem : UserControl
     {
 
@@ -21,6 +21,11 @@ namespace WindowsFormsApp1
         public Home homeReferenceForm;
         public WorkTypeManagePage workTypeReferenceForm;
         private string inputIdWorkType;
+        public int stateNotification;
+        private string workId;
+        WorkDao workDao = new WorkDao();
+        DataTable data = new DataTable();
+       
         //public workItem()
         //{
         //    InitializeComponent();
@@ -35,19 +40,56 @@ namespace WindowsFormsApp1
 
         public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType,ClientModel client)
         {
+           
             InitializeComponent();
+            
+            loadData();
             inputIdWorkType = idWorkType;
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
             this.workReferenceForm = form3;
             this.client = client;
         }
+        public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType, string workId,  int isNotification, ClientModel client)
+        {
+           
+            InitializeComponent();
+            this.stateNotification = isNotification;
+            this.workId = workId;
+            this.client = client;
+
+
+            loadData();
+            inputIdWorkType = idWorkType;
+           
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
+            this.workReferenceForm = form3;
+           
+            
+        }
+
 
         public workItem(Home form1,ClientModel client)
         {
+            
             InitializeComponent();
+            loadData();
             this.homeReferenceForm = form1;
             this.client = client;
+           
+        }
+        public workItem(Home form1, string workId, int isNotification, ClientModel client)
+        {
+            
+            InitializeComponent();
+            this.stateNotification = isNotification;
+            this.workId = workId;
+            this.client = client;
+            this.homeReferenceForm = form1;
+            loadData();
+           
+
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -59,23 +101,24 @@ namespace WindowsFormsApp1
             get => txtName.Text;
             set
             {
-                // trim if title is too long
-                string txt = string.Copy(value);
-                if (txt.Length != 0)
-                {
-                    int i = txt.Length;
-                    while (TextRenderer.MeasureText(txt, txtName.Font).Width > txtName.Width - 6)
-                    {
-                        txt = value.Substring(0, --i);
-                        if (i == 0) break;
-                    }
-                    txtName.Text = txt + "...";
-                }
-                else
-                {
-                    txtName.Text = value;
-                }
-            }
+                //    // trim if title is too long
+                //    string txt = string.Copy(value);
+                //    if (txt.Length != 0)
+                //    {
+                //        int i = txt.Length;
+                //        while (TextRenderer.MeasureText(txt, txtName.Font).Width > txtName.Width - 6)
+                //        {
+                //            txt = value.Substring(0, --i);
+                //            if (i == 0) break;
+                //        }
+                //        txtName.Text = txt;
+                //    }
+                //    else
+                //    {
+                //        txtName.Text = value;
+                //    }
+                txtName.Text = value;
+        }
         }
         public string WorkType { get; set; }
 
@@ -164,5 +207,79 @@ namespace WindowsFormsApp1
             addWork.Show();
         }
 
+        public void loadData()
+        {
+           
+           
+            if (this.stateNotification == 1)
+            {
+                ptbNotificationBell.Image = Properties.Resources.bell_on;
+            } else
+            {
+                ptbNotificationBell.Image = Properties.Resources.bell_off;
+            }
+        }
+
+        private void ptbNotificationBell_Click(object sender, EventArgs e)
+        {
+            loadData();
+
+            string message = "Bạn có muốn bật thông báo công việc này?";
+            string title = "Thông báo";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                //WorkDao workDao = new WorkDao();
+                //string idWorkType = WorkType;
+                // workDao.delete(WorkId);
+
+                //ReferenceForm.loadData(WorkType);
+
+
+                this.data = this.workDao.getWorkByWorkID(this.workId, client);
+                int isNotification;
+
+                if (this.stateNotification == 1)
+                {
+                    isNotification = 0;
+                    loadData();
+                }
+                else
+                {
+                    //this.stateNotification = 1;
+                    isNotification = 1 ;
+                }
+
+               // bool checkNotification;
+                bool checkFinish;
+
+
+                string workName = data.Rows[0]["name"].ToString();
+                string Description = data.Rows[0]["description"].ToString();
+                string idTypeWork = data.Rows[0]["workType"].ToString();
+
+
+
+                
+                DateTime deadline = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
+                DateTime alrmDate = DateTime.Parse(data.Rows[0]["alarmDate"].ToString());
+
+
+                checkFinish = int.Parse(data.Rows[0]["isFinished"].ToString()) == 1 ? true : false;
+                int inFinish = checkFinish ? 1 : 0;
+
+                Work work = new Work(Int32.Parse(this.WorkId),workName, idTypeWork, isNotification, deadline, Description, alrmDate, inFinish);
+                workDao.update(work,client);
+                loadData();
+
+                if (this.workReferenceForm != null)
+                {
+                    workReferenceForm.loadData(inputIdWorkType);
+                }
+                this.homeReferenceForm.loadData();
+
+            }
+        }
     }
 }

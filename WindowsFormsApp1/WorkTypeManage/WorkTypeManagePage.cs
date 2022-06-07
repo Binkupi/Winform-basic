@@ -23,7 +23,11 @@ namespace WindowsFormsApp1
         public WorkTypeDao workTypeDao = new WorkTypeDao();
         public Home homeReferenceForm;
         public ClientModel client;
-        public WorkTypeManagePage(Home form1, ClientModel client)
+        public int workDone = 0;
+        public int workUnDone = 0;
+        public int workLate = 0;
+
+        public WorkTypeManagePage(Home form1,ClientModel client)
         {
             Console.WriteLine(this.homeReferenceForm);
             
@@ -33,7 +37,7 @@ namespace WindowsFormsApp1
             loadData();
             // LoadList();
            
-            Console.WriteLine(this.homeReferenceForm);
+           // Console.WriteLine(this.homeReferenceForm);
             
 
 
@@ -63,8 +67,10 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (WorkType workType in workTypeList)
                 {
-                    Console.WriteLine(this.homeReferenceForm);
-                    listWorkTypeItems[i] = new TypeWork(this.homeReferenceForm,this, client);
+                    // Console.WriteLine(this.homeReferenceForm);
+                    resetStateWorkType();
+                    loadStateWorkType(workType.Id.ToString());
+                    listWorkTypeItems[i] = new TypeWork(this.homeReferenceForm,this, this.workDone, this.workUnDone, this.workLate, client);
                     listWorkTypeItems[i].WorkTypeID = workType.Id.ToString();
                     listWorkTypeItems[i].WorkTypeName = workType.Name;
 
@@ -84,8 +90,43 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }          
+        }
+        public void resetStateWorkType()
+        {
+            this.workDone = 0;
+            this.workUnDone = 0;
+            this.workLate = 0;
+        }
+        public void loadStateWorkType(string WorkTypeID)
+        {
+            WorkDao workDao = new WorkDao();
+            DataTable lstWork = new DataTable();
+            lstWork = workDao.getListWorkByWorkType(WorkTypeID, client);
+            DateTime today = DateTime.Now;
+            var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
+            var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
+            var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) > 0);
+
+            List<Work> lstUndoneWork = new List<Work>();
+            List<Work> lstDoneWork = new List<Work>();
+            List<Work> lstLatedWork = new List<Work>();
+            if (drUndoneWork.Any())
+            {
+                lstUndoneWork = Helper.Helper.ConvertToList<Work>(drUndoneWork.CopyToDataTable());
+                this.workUnDone = lstUndoneWork.Count;
             }
-            
+            if (drDoneWork.Any())
+            {
+                DataTable test = drDoneWork.CopyToDataTable();
+                lstDoneWork = Helper.Helper.ConvertToList<Work>(test);
+                this.workDone = lstDoneWork.Count;
+            }
+            if (drLatedWork.Any())
+            {
+                lstLatedWork = Helper.Helper.ConvertToList<Work>(drLatedWork.CopyToDataTable());
+                this.workLate = lstLatedWork.Count;
+            }
         }
 
 
