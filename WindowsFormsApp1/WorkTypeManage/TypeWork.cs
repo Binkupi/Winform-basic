@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
 using WindowsFormsApp1.DAO;
-
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
@@ -17,16 +17,17 @@ namespace WindowsFormsApp1
     {
         public WorkTypeManagePage workTypeReferenceForm;
         public Home homeReferenceForm;
-
+        public ClientModel client;
         public TypeWork()
         {
             InitializeComponent();
         }
-        public TypeWork(Home form1, WorkTypeManagePage form2)
+        public TypeWork(Home form1, WorkTypeManagePage form2, ClientModel client)
         {
             InitializeComponent();
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
+            this.client = client;
         }
 
         private void TypeWork_Load(object sender, EventArgs e)
@@ -89,14 +90,14 @@ namespace WindowsFormsApp1
             if (result == DialogResult.Yes)
             {
                 WorkTypeDao workTypeDao = new WorkTypeDao();
-                workTypeDao.delete(WorkTypeID);
+                workTypeDao.delete(WorkTypeID, client) ;
                 workTypeReferenceForm.loadData();
             }
 
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            AddTypeWork addTypeWork = new AddTypeWork(WorkTypeID, workTypeReferenceForm);
+            AddTypeWork addTypeWork = new AddTypeWork(WorkTypeID, workTypeReferenceForm, client);
             addTypeWork.Show();
         }
 
@@ -115,7 +116,7 @@ namespace WindowsFormsApp1
         private void backgroundcolor_Click(object sender, EventArgs e)
         {
 
-            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID);
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
             work.Show();
         }
 

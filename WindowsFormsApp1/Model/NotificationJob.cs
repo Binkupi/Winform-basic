@@ -13,8 +13,11 @@ namespace WindowsFormsApp1.Model
     {
         public void Execute(IJobExecutionContext context)
         {
+            JobDataMap dataMap = context.JobDetail.JobDataMap;
+
+            ClientModel client = (ClientModel)dataMap["client"];
             WorkDao workDao = new WorkDao();
-            var dt = workDao.getWorkDeadline();
+            var dt = workDao.getWorkDeadline(client);
             List<Work> lst = new List<Work>();
             string content = " Bạn không có công việc cần hoàn tất hôm nay!";
             if (dt != null && dt.Rows.Count > 0)

@@ -22,12 +22,13 @@ namespace WindowsFormsApp1
         private string idWorkType;
         public Home homeReferenceForm;
         public WorkTypeManagePage workTypeReferenceForm;
-
-        public WorkManagePage(Home form1, WorkTypeManagePage form2, string idWorkType)
+        public ClientModel client;
+        public WorkManagePage(Home form1, WorkTypeManagePage form2, string idWorkType, ClientModel client)
         {
             InitializeComponent();
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
+            this.client = client;
             loadData(idWorkType);
             
         }
@@ -41,7 +42,7 @@ namespace WindowsFormsApp1
                 this.idWorkType = idWorkType;
                 DataTable lstWork = new DataTable();
                 //lstWork = workDao.getListWorkByWorkType("test");
-                lstWork = workDao.getListWorkByWorkType(idWorkType);
+                lstWork = workDao.getListWorkByWorkType(idWorkType, client);
                 DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
@@ -67,7 +68,7 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listUndoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, client);
                     listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
@@ -81,7 +82,7 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem(this.homeReferenceForm, this.workTypeReferenceForm,this);
+                AddWorkItem addWorkItem = new AddWorkItem(this.homeReferenceForm, this.workTypeReferenceForm,this, client);
                 addWorkItem.Margin = new Padding(10);
                 undoneWorkLayout.Controls.Add(addWorkItem);
 
@@ -90,7 +91,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listDoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, client);
                     listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
@@ -106,7 +107,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)
                 {
-                    listLatedItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listLatedItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, client);
                     listLatedItems[i].WorkId = latedWork.Id.ToString();
                     listLatedItems[i].strName = latedWork.Name;
                     listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");
@@ -200,7 +201,7 @@ namespace WindowsFormsApp1
                 }
                 foreach (Work work in lstUndoneWork)
                 {
-                    workDao.insertExcel(work);
+                    workDao.insertExcel(work, client);
                 }
             }catch(Exception ex)
             {
@@ -212,7 +213,7 @@ namespace WindowsFormsApp1
         private void btnDownload_Click(object sender, EventArgs e)
         {
             DataTable dtWorkExcel = new DataTable("Work");
-            dtWorkExcel = workDao.getListWorkByWorkType(idWorkType);
+            dtWorkExcel = workDao.getListWorkByWorkType(idWorkType, client);
             if(dtWorkExcel!=null && dtWorkExcel.Rows.Count == 0)
             {
                 throw new Exception("Không có dữ liệu xuất");

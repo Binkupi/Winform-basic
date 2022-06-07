@@ -82,6 +82,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\ChangePasswordPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\ChangePasswordPage.Designer.cs">
+      <DependentUpon>ChangePasswordPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ForgotPasswordPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\ForgotPasswordPage.Designer.cs">
+      <DependentUpon>ForgotPasswordPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\RegisterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\RegisterPage.Designer.cs">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\Sql.cs" />
     <Compile Include="DAO\WorkDao.cs" />
     <Compile Include="DAO\WorkTypeDao.cs" />
@@ -90,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeItem.resx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\EmailJob.cs" />
     <Compile Include="Model\NotificationJob.cs" />
     <Compile Include="Model\Work.cs" />
@@ -168,6 +194,15 @@
     <Compile Include="WorkTypeManage\WorkTypeManagePage.Designer.cs">
       <DependentUpon>WorkTypeManagePage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Client\ForgotPasswordPage.resx">
+      <DependentUpon>ForgotPasswordPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\RegisterPage.resx">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeItem.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeItem.Designer.cs</LastGenOutput>

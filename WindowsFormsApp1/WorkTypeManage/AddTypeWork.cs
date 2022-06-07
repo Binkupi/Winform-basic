@@ -19,29 +19,33 @@ namespace WindowsFormsApp1
         private WorkTypeDao workTypeDao = new WorkTypeDao();
         private List<WorkType> lstWorkType = new List<WorkType>();
         public WorkTypeManagePage workTypereferenceForm;
+        private ClientModel client;
         public AddTypeWork()
         {
             InitializeComponent();
             loadDataEdit(selectedWorkTypeID);
         }
-        public AddTypeWork(string workTypeID)
+        public AddTypeWork(string workTypeID, ClientModel client)
         {
             InitializeComponent();
+            this.client = client;
             loadDataEdit(workTypeID);
 
 
         }
-        public AddTypeWork(WorkTypeManagePage form1)
+        public AddTypeWork(WorkTypeManagePage form1, ClientModel client)
         {
             InitializeComponent();
+            this.client = client;
             loadDataEdit(selectedWorkTypeID);
             this.workTypereferenceForm = form1;
         }
-        public AddTypeWork(string workTypeID, WorkTypeManagePage form1, bool seen = false)
+        public AddTypeWork(string workTypeID, WorkTypeManagePage form1,ClientModel client, bool seen = false)
         {
             InitializeComponent();
 
             this.workTypereferenceForm = form1;
+            this.client = client;
             if (seen)
             {
                 loadDataShow(workTypeID);
@@ -49,9 +53,10 @@ namespace WindowsFormsApp1
 
         }
 
-        public AddTypeWork(string workTypeID, WorkTypeManagePage form1)
+        public AddTypeWork(string workTypeID, WorkTypeManagePage form1, ClientModel client)
         {
             InitializeComponent();
+            this.client = client;
             loadDataEdit(workTypeID);
             this.workTypereferenceForm = form1;
         }
@@ -62,7 +67,7 @@ namespace WindowsFormsApp1
         {
             
             selectedWorkTypeID = workTypeID;
-            DataTable data = workTypeDao.getWorkTypeByWorkTypeID(selectedWorkTypeID);
+            DataTable data = workTypeDao.getWorkTypeByWorkTypeID(selectedWorkTypeID, client) ;
             if (data.Rows != null && data.Rows.Count > 0)
             {
                 txtName.Text = data.Rows[0]["name"].ToString();
@@ -137,7 +142,7 @@ namespace WindowsFormsApp1
 
                 WorkType workType = new WorkType(txtName.Text, txtDescription.Text, txtColor.Text);
 
-                workTypeDao.insert(workType);
+                workTypeDao.insert(workType, client);
             }
             else
             {
@@ -146,7 +151,7 @@ namespace WindowsFormsApp1
 
                 WorkType workType = new WorkType(Int32.Parse(selectedWorkTypeID), txtName.Text, txtDescription.Text, txtColor.Text);
 
-                workTypeDao.update(workType);
+                workTypeDao.update(workType, client);
             }
             this.workTypereferenceForm.loadData();
             this.Hide();

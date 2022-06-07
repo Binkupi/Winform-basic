@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 //namespace WindowsFormsApp1.WorkManage
 namespace WindowsFormsApp1
@@ -32,19 +33,21 @@ namespace WindowsFormsApp1
         //    this.ReferenceForm = form1;
         //}
 
-        public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType)
+        public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType,ClientModel client)
         {
             InitializeComponent();
             inputIdWorkType = idWorkType;
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
             this.workReferenceForm = form3;
+            this.client = client;
         }
 
-        public workItem(Home form1)
+        public workItem(Home form1,ClientModel client)
         {
             InitializeComponent();
             this.homeReferenceForm = form1;
+            this.client = client;
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -75,6 +78,8 @@ namespace WindowsFormsApp1
             }
         }
         public string WorkType { get; set; }
+
+        public ClientModel client { get; set; }
 
         public string WorkId { get; set; }
 
@@ -117,7 +122,7 @@ namespace WindowsFormsApp1
             {
                 WorkDao workDao = new WorkDao();
                 string idWorkType = WorkType;
-                workDao.delete(WorkId);
+                workDao.delete(WorkId, client);
                 //ReferenceForm.loadData(WorkType);
                 
                 if(this.workReferenceForm != null)
@@ -140,7 +145,7 @@ namespace WindowsFormsApp1
                 //AddWork addWork = new AddWork(WorkId, this.ReferenceForm, false);
                 //addWork.Show();
 
-                AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, false);
+                AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm,client, false);
                 addWork.Show();
 
                
@@ -149,13 +154,13 @@ namespace WindowsFormsApp1
 
         private void txtName_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, true);
+            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm,client, true);
             addWork.Show();
         }
 
         private void txtDate_Click(object sender, EventArgs e)
         {
-            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm, true);
+            AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm,client, true);
             addWork.Show();
         }
 

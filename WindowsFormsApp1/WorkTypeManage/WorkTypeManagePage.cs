@@ -22,13 +22,14 @@ namespace WindowsFormsApp1
         List<WorkType> listTypeWorkItem = new List<WorkType>();
         public WorkTypeDao workTypeDao = new WorkTypeDao();
         public Home homeReferenceForm;
-
-        public WorkTypeManagePage(Home form1)
+        public ClientModel client;
+        public WorkTypeManagePage(Home form1, ClientModel client)
         {
             Console.WriteLine(this.homeReferenceForm);
             
             InitializeComponent();
             this.homeReferenceForm = form1;
+            this.client = client;
             loadData();
             // LoadList();
            
@@ -47,7 +48,7 @@ namespace WindowsFormsApp1
             try
             {
                 DataTable lstWorkType = new DataTable();
-                lstWorkType = workTypeDao.getListWorkType();
+                lstWorkType = workTypeDao.getListWorkType(client);
                 var lstWorkTypeAll = lstWorkType.AsEnumerable(); ;
                 List<WorkType> workTypeList = new List<WorkType>();
 
@@ -63,7 +64,7 @@ namespace WindowsFormsApp1
                 foreach (WorkType workType in workTypeList)
                 {
                     Console.WriteLine(this.homeReferenceForm);
-                    listWorkTypeItems[i] = new TypeWork(this.homeReferenceForm,this);
+                    listWorkTypeItems[i] = new TypeWork(this.homeReferenceForm,this, client);
                     listWorkTypeItems[i].WorkTypeID = workType.Id.ToString();
                     listWorkTypeItems[i].WorkTypeName = workType.Name;
 
@@ -74,7 +75,7 @@ namespace WindowsFormsApp1
                     workTypeLayout.Controls.Add(listWorkTypeItems[i]);
                     i++;
                 }
-                WorkTypeAdd addWorkTypeItem = new WorkTypeAdd(this);
+                WorkTypeAdd addWorkTypeItem = new WorkTypeAdd(this, client);
                 addWorkTypeItem.Margin = new Padding(10);
                 workTypeLayout.Controls.Add(addWorkTypeItem);
              
@@ -130,7 +131,7 @@ namespace WindowsFormsApp1
                 lstWorkType = Helper.Helper.ConvertToList<WorkType>(dtWorkTypeExcel);
                 foreach (WorkType workType in lstWorkType)
                 {
-                    workTypeDao.insertExcel(workType);
+                    workTypeDao.insertExcel(workType, client);
                 }
             }catch(Exception ex)
             {
@@ -152,7 +153,7 @@ namespace WindowsFormsApp1
         private void btnDownload_Click(object sender, EventArgs e)
         {
             DataTable dtWorkType = new DataTable("WorkType");
-            dtWorkType = workTypeDao.getListWorkType();
+            dtWorkType = workTypeDao.getListWorkType(client);
             if (dtWorkType != null && dtWorkType.Rows.Count == 0)
             {
                 throw new Exception("Không có dữ liệu xuất");

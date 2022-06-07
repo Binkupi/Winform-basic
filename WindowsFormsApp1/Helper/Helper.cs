@@ -283,7 +283,7 @@ namespace WindowsFormsApp1.Helper
             scheduler.ScheduleJob(job, trigger);
         }
 
-        public static void sentMail()
+        public static void sentMail(string text)
         {
             try
             {
@@ -293,7 +293,7 @@ namespace WindowsFormsApp1.Helper
 
                 MailMessage message = new MailMessage("tongdinhquoc@gmail.com", "18521312@gm.uit.edu.vn");
                 message.Subject = "18521312@gm.uit.edu.vn";
-                message.Body = "Quốc quá là đẹp trai";
+                message.Body = text;
 
                 mailclient.Send(message);
                 MessageBox.Show("Mail đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -303,9 +303,10 @@ namespace WindowsFormsApp1.Helper
                 MessageBox.Show("Error:" + ex.Message);
             }
         }
-        public static void sentAutoMessage()
+        public static void sentAutoMessage(ClientModel client)
         {
             IJobDetail job = JobBuilder.Create<NotificationJob>().Build();
+            job.JobDataMap.Put("client", client);
             IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
 
             scheduler.Start();

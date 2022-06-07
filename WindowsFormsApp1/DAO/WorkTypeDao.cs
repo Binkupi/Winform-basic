@@ -12,12 +12,12 @@ namespace WindowsFormsApp1.DAO
     public class WorkTypeDao
     {
         Sql sql = new Sql();
-        public DataTable getListWorkType()
+        public DataTable getListWorkType(ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM workType");
+                dTable = sql.get("SELECT * FROM workType where clientID = "+client.id);
             }
             catch (Exception ex)
             {
@@ -29,12 +29,12 @@ namespace WindowsFormsApp1.DAO
 
         }
 
-        public DataTable getWorkTypeByWorkTypeID(string id)
+        public DataTable getWorkTypeByWorkTypeID(string id, ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM workType where id='" + id + "'");
+                dTable = sql.get("SELECT * FROM workType where id='" + id + "' and clientID = "+client.id);
             }
             catch (Exception ex)
             {
@@ -46,10 +46,10 @@ namespace WindowsFormsApp1.DAO
 
         }
 
-        public void delete(string id)
+        public void delete(string id, ClientModel client)
         {
 
-            string query = "DELETE FROM workType WHERE id ='" + id + "'";
+            string query = "DELETE FROM workType WHERE id ='" + id + "' and client= "+client.id ;
             bool result = sql.delete(query);
             if (result)
             {
@@ -57,10 +57,10 @@ namespace WindowsFormsApp1.DAO
             }
 
         }
-        public void insert(WorkType workType)
+        public void insert(WorkType workType, ClientModel client)
         {
 
-            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "')";
+            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`,`clientID`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "'," + client.id+")";
             bool result = sql.insert(query);
             if (result)
             {
@@ -68,16 +68,16 @@ namespace WindowsFormsApp1.DAO
             }
 
         }
-        public void insertExcel(WorkType workType)
+        public void insertExcel(WorkType workType, ClientModel client)
         {
 
-            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "')";
+            string query = "INSERT INTO `workType` (`name`, `description`, `backgroundColor`,`clientID`) VALUES('" + workType.Name + "', '" + workType.Description + "', '" + workType.BackgroundColor + "'," + client.id + ")";
             bool result = sql.insert(query);
         }
-        public void update(WorkType workType)
+        public void update(WorkType workType, ClientModel client)
         {
 
-            string query = "UPDATE `workType` SET `name` = '" + workType.Name + "',  `description`='" + workType.Description + "',`backgroundColor`= '" + workType.BackgroundColor + "' where `worktype` . `id`='" + workType.Id + "'";
+            string query = "UPDATE `workType` SET `name` = '" + workType.Name + "',  `description`='" + workType.Description + "',`backgroundColor`= '" + workType.BackgroundColor + "' where `worktype` . `id`='" + workType.Id + "' and clientID="+ client.id;
 
             // MessageBox.Show(query);
 

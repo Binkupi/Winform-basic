@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         private WorkDao workDao = new WorkDao();
         private WorkTypeDao workTypeDao = new WorkTypeDao();
         private List<WorkType> lstWorkType = new List<WorkType>();
+        private ClientModel client;
 
         public WorkManagePage workReferenceForm;
         public WorkTypeManagePage workTypereferenceForm;
@@ -41,7 +42,7 @@ namespace WindowsFormsApp1
         //}
 
         //------h1
-        public AddWork(Home form1, WorkTypeManagePage form2,  WorkManagePage form3)
+        public AddWork(Home form1, WorkTypeManagePage form2,  WorkManagePage form3, ClientModel client)
         {
             InitializeComponent();
             this.homeReferenceForm = form1;
@@ -50,19 +51,21 @@ namespace WindowsFormsApp1
             loadListWorkType();
             loadDataCreate();
             formatTimePicker();
-
+            this.client = client;
             
         }
 
-        public AddWork(Home form1, WorkTypeManagePage form2, string workID, WorkManagePage form3, bool seen)
+        public AddWork(Home form1, WorkTypeManagePage form2, string workID, WorkManagePage form3, ClientModel client, bool seen)
         {
             InitializeComponent();
             this.homeReferenceForm = form1;
             this.workTypereferenceForm = form2;
             this.workReferenceForm = form3;
+            this.client = client;
             loadListWorkType();
             loadDataEdit(workID);
             formatTimePicker();
+            this.client = client;
 
             if (seen == true)
             {
@@ -128,7 +131,7 @@ namespace WindowsFormsApp1
 
         private void loadListWorkType()
         {
-            DataTable dtWorkType = workTypeDao.getListWorkType();
+            DataTable dtWorkType = workTypeDao.getListWorkType(client);
             lstWorkType = Helper.Helper.ConvertToList<WorkType>(dtWorkType);
             foreach (DataRow row in dtWorkType.Rows)
             {
@@ -145,9 +148,9 @@ namespace WindowsFormsApp1
         {
             chkIsFinish.Enabled = true;
             selectedWorkID = workID;
-            DataTable data= workDao.getWorkByWorkID(selectedWorkID);
+            DataTable data= workDao.getWorkByWorkID(selectedWorkID, client);
             string idWorkType = data.Rows[0]["workType"].ToString();
-            DataTable workType = workDao.getWorkTypeByWorkID(idWorkType);
+            DataTable workType = workDao.getWorkTypeByWorkID(idWorkType, client);
             //MessageBox.Show(workType.Rows[0]["name"].ToString());
             //MessageBox.Show(data.Rows[0]["name"].ToString());
           
@@ -222,7 +225,7 @@ namespace WindowsFormsApp1
                 Work work = new Work(txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
                 idWorkType = strWorkType.Id.ToString();
 
-                workDao.insert(work);
+                workDao.insert(work, client);
 
                 if(this.workReferenceForm != null)
                 {
@@ -241,7 +244,7 @@ namespace WindowsFormsApp1
                 
                 Work work = new Work(Int32.Parse(selectedWorkID), txtName.Text, strWorkType.Id.ToString(), isNotification, dateEnd.Value, txtDescription.Text, alarmDate.Value, isFinished);
                 idWorkType = strWorkType.Id.ToString();
-                workDao.update(work);
+                workDao.update(work, client);
                
               
                if(this.workReferenceForm != null)

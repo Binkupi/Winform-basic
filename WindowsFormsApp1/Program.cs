@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
+using WindowsFormsApp1.Client;
 
 namespace WindowsFormsApp1
 {
@@ -23,8 +24,8 @@ namespace WindowsFormsApp1
 
             //Helper.Helper.sentAutoMail();
             //Helper.Helper.sentMail();
-            //Helper.Helper.sentAutoMessage();
-            Application.Run(new Home());
+            
+            Application.Run(new LoginPage());
         }
     }
 }

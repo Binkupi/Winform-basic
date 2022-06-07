@@ -13,12 +13,12 @@ namespace WindowsFormsApp1.DAO
     public class WorkDao
     {
         Sql sql = new Sql();
-        public DataTable getListWork()
+        public DataTable getListWork(ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM work");
+                dTable = sql.get("SELECT * FROM work where clientID ="+client.id);
             }
             catch (Exception ex)
             {
@@ -29,12 +29,12 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public DataTable getListWorkByWorkType(string workType)
+        public DataTable getListWorkByWorkType(string workType, ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM work where workType = '" + workType + "'");
+                dTable = sql.get("SELECT * FROM work where workType = '" + workType + "' and clientID =" + client.id);
             }
             catch (Exception ex)
             {
@@ -45,12 +45,12 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public DataTable getWorkByWorkID(string id)
+        public DataTable getWorkByWorkID(string id, ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {
-                dTable = sql.get("SELECT * FROM work where id='" + id + "'");
+                dTable = sql.get("SELECT * FROM work where id='" + id + "'and clientID =" + client.id);
             }
             catch (Exception ex)
             {
@@ -61,12 +61,12 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public DataTable getAllWorkByDate(string date)
+        public DataTable getAllWorkByDate(string date, ClientModel client)
         {
             DataTable dTable = new DataTable();
             try
             {   
-                dTable = sql.get("SELECT * FROM work where deadline LIKE '" + date + "%'");
+                dTable = sql.get("SELECT * FROM work where deadline LIKE '" + date + "%'and clientID =" + client.id);
             }
             catch (Exception ex)
             {
@@ -77,13 +77,13 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public DataTable getWorkTypeByWorkID(string id)
+        public DataTable getWorkTypeByWorkID(string id, ClientModel client)
         {
             DataTable dTable = new DataTable();
 
             try
             {
-                dTable = sql.get("SELECT * FROM worktype where id='" + id + "'");
+                dTable = sql.get("SELECT * FROM worktype where id='" + id + "'and clientID =" + client.id);
             }
             catch (Exception ex)
             {
@@ -94,10 +94,10 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public void delete(string id)
+        public void delete(string id, ClientModel client)
         {
 
-            string query = "DELETE FROM work WHERE id ='" + id + "'";
+            string query = "DELETE FROM work WHERE id ='" + id + "' and clientID =" + client.id;
             bool result = sql.delete(query);
             if (result)
             {
@@ -105,10 +105,10 @@ namespace WindowsFormsApp1.DAO
             }
 
         }
-        public void insert(Work work)
+        public void insert(Work work, ClientModel client)
         {
 
-            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + ")";
+            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`,`clientID`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + "'," + client.id + ")";
             bool result = sql.insert(query);
             if (result)
             {
@@ -116,16 +116,16 @@ namespace WindowsFormsApp1.DAO
             }
 
         }
-        public void insertExcel (Work work)
+        public void insertExcel (Work work, ClientModel client)
         {
 
-            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + ")";
+            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`,`clientID`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + "'," + client.id + ")";
             bool result = sql.insert(query);
 
         }
-        public void update(Work work)
+        public void update(Work work,ClientModel client)
         {
-            string query = "UPDATE `work` set `name` = '" + work.Name + "', `workType` ='" + work.WorkType + "', `isNotification`='" + work.IsNotification + "', `deadline`='" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', `description`='" + work.Description + "', `alarmDate`='" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "', `isFinished`= " + work.IsFinished + " where id='" + work.Id + "'";
+            string query = "UPDATE `work` set `name` = '" + work.Name + "', `workType` ='" + work.WorkType + "', `isNotification`='" + work.IsNotification + "', `deadline`='" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', `description`='" + work.Description + "', `alarmDate`='" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "', `isFinished`= " + work.IsFinished + " where id='" + work.Id + "' and clientID =" + client.id;
             // MessageBox.Show(query);
             bool result = sql.update(query);
             if (result)
@@ -141,7 +141,7 @@ namespace WindowsFormsApp1.DAO
             DateTime today = DateTime.Now;
             try
             {
-                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=1");
+                dTable = sql.get("SELECT * FROM work INNER JOIN client on work.clientID = client.id where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=1  ");
             }
             catch (Exception ex)
             {
@@ -150,14 +150,14 @@ namespace WindowsFormsApp1.DAO
             }
             return dTable;
         }
-        public DataTable getWorkDeadline()
+        public DataTable getWorkDeadline(ClientModel client)
         {
 
             DataTable dTable = new DataTable();
             DateTime today = DateTime.Now;
             try
             {
-                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=0");
+                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=0 and clientID =" + client.id);
             }
             catch (Exception ex)
             {

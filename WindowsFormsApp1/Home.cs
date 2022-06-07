@@ -14,8 +14,10 @@ namespace WindowsFormsApp1
         private WorkDao workDao = new WorkDao();
         public Home homeReferenceForm;
         public WorkManagePage workReferenceForm;
-        public Home()
+        public ClientModel client;
+        public Home(ClientModel client)
         {
+            this.client = client;
             InitializeComponent();
             this.homeReferenceForm = this;
             loadData();
@@ -36,7 +38,7 @@ namespace WindowsFormsApp1
                 // string query = "SELECT * FROM work where deadline LIKE '" + txtToday + "%'";
                 //MessageBox.Show(query);
 
-                lstWork = workDao.getAllWorkByDate(txtToday);
+                lstWork = workDao.getAllWorkByDate(txtToday, this.client);
 
                 //DateTime today = DateTime.Now;
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0);
@@ -60,7 +62,7 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem(this);
+                    listUndoneItems[i] = new workItem(this,client);
                     listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
@@ -74,7 +76,7 @@ namespace WindowsFormsApp1
                     undoneWorkLayout.Controls.Add(listUndoneItems[i]);
                     i++;
                 }
-                AddWorkItem addWorkItem = new AddWorkItem(this, workReferenceForm);
+                AddWorkItem addWorkItem = new AddWorkItem(this, workReferenceForm, client);
                 addWorkItem.Margin = new Padding(10);
                 undoneWorkLayout.Controls.Add(addWorkItem);
 
@@ -84,7 +86,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem(this);
+                    listDoneItems[i] = new workItem(this, client) ;
                     listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
@@ -170,7 +172,7 @@ namespace WindowsFormsApp1
 
         private void lbl_ListTypeWork_DoubleClick(object sender, EventArgs e)
         {
-            WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage(this.homeReferenceForm);
+            WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage(this.homeReferenceForm, client);
             workTypeManagePage.Show();
         }
     }
