@@ -183,6 +183,26 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bell_off {
+            get {
+                object obj = ResourceManager.GetObject("bell-off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bell_on {
+            get {
+                object obj = ResourceManager.GetObject("bell-on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cartoon_styles_ppt_backgrounds_powerpoint {
             get {
                 object obj = ResourceManager.GetObject("cartoon-styles-ppt-backgrounds-powerpoint", resourceCulture);
@@ -216,16 +236,6 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap hinh_nen_powerpoint_don_gian_ma_dep_2 {
             get {
                 object obj = ResourceManager.GetObject("hinh-nen-powerpoint-don-gian-ma-dep-2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap no_notification {
-            get {
-                object obj = ResourceManager.GetObject("no-notification", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

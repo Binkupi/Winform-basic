@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
+using WindowsFormsApp1.Model;
 
 //namespace WindowsFormsApp1.WorkManage
 namespace WindowsFormsApp1
-
 {
+   
     public partial class workItem : UserControl
     {
 
@@ -20,6 +21,11 @@ namespace WindowsFormsApp1
         public Home homeReferenceForm;
         public WorkTypeManagePage workTypeReferenceForm;
         private string inputIdWorkType;
+        public int stateNotification;
+        private string workId;
+        WorkDao workDao = new WorkDao();
+        DataTable data = new DataTable();
+       
         //public workItem()
         //{
         //    InitializeComponent();
@@ -34,17 +40,54 @@ namespace WindowsFormsApp1
 
         public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType)
         {
+           
             InitializeComponent();
+            
+            loadData();
             inputIdWorkType = idWorkType;
             this.homeReferenceForm = form1;
             this.workTypeReferenceForm = form2;
             this.workReferenceForm = form3;
+           
         }
+        public workItem(Home form1, WorkTypeManagePage form2, WorkManagePage form3, string idWorkType, string workId,  int isNotification)
+        {
+           
+            InitializeComponent();
+            this.stateNotification = isNotification;
+            this.workId = workId;
+
+
+            loadData();
+            inputIdWorkType = idWorkType;
+           
+            this.homeReferenceForm = form1;
+            this.workTypeReferenceForm = form2;
+            this.workReferenceForm = form3;
+           
+            
+        }
+
 
         public workItem(Home form1)
         {
+            
             InitializeComponent();
+            loadData();
             this.homeReferenceForm = form1;
+           
+        }
+        public workItem(Home form1, string workId, int isNotification)
+        {
+            
+            InitializeComponent();
+            this.stateNotification = isNotification;
+            this.workId = workId;
+
+
+           loadData();
+            this.homeReferenceForm = form1;
+
         }
 
         private void WorkItem_Load(object sender, EventArgs e)
@@ -66,7 +109,7 @@ namespace WindowsFormsApp1
                         txt = value.Substring(0, --i);
                         if (i == 0) break;
                     }
-                    txtName.Text = txt + "...";
+                    txtName.Text = txt;
                 }
                 else
                 {
@@ -159,5 +202,79 @@ namespace WindowsFormsApp1
             addWork.Show();
         }
 
+        public void loadData()
+        {
+           
+           
+            if (this.stateNotification == 1)
+            {
+                ptbNotificationBell.Image = Properties.Resources.bell_on;
+            } else
+            {
+                ptbNotificationBell.Image = Properties.Resources.bell_off;
+            }
+        }
+
+        private void ptbNotificationBell_Click(object sender, EventArgs e)
+        {
+            loadData();
+
+            string message = "Bạn có muốn bật thông báo công việc này?";
+            string title = "Thông báo";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                //WorkDao workDao = new WorkDao();
+                //string idWorkType = WorkType;
+                // workDao.delete(WorkId);
+
+                //ReferenceForm.loadData(WorkType);
+
+
+                this.data = this.workDao.getWorkByWorkID(this.workId);
+                int isNotification;
+
+                if (this.stateNotification == 1)
+                {
+                    isNotification = 0;
+                    loadData();
+                }
+                else
+                {
+                    //this.stateNotification = 1;
+                    isNotification = 1 ;
+                }
+
+               // bool checkNotification;
+                bool checkFinish;
+
+
+                string workName = data.Rows[0]["name"].ToString();
+                string Description = data.Rows[0]["description"].ToString();
+                string idTypeWork = data.Rows[0]["workType"].ToString();
+
+
+
+                
+                DateTime deadline = DateTime.Parse(data.Rows[0]["Deadline"].ToString());
+                DateTime alrmDate = DateTime.Parse(data.Rows[0]["alarmDate"].ToString());
+
+
+                checkFinish = int.Parse(data.Rows[0]["isFinished"].ToString()) == 1 ? true : false;
+                int inFinish = checkFinish ? 1 : 0;
+
+                Work work = new Work(Int32.Parse(this.WorkId),workName, idTypeWork, isNotification, deadline, Description, alrmDate, inFinish);
+                workDao.update(work);
+                loadData();
+
+                if (this.workReferenceForm != null)
+                {
+                    workReferenceForm.loadData(inputIdWorkType);
+                }
+                this.homeReferenceForm.loadData();
+
+            }
+        }
     }
 }

@@ -299,8 +299,10 @@
     <Content Include="obj\Debug\WindowsFormsApp1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WindowsFormsApp1.exe" />
     <Content Include="obj\Debug\WindowsFormsApp1.pdb" />
-    <Content Include="Resources\no-notification.png" />
-    <None Include="Resources\no-notification1.png" />
+    <Content Include="Resources\bell-off.png" />
+    <None Include="Resources\bell-off1.png" />
+    <Content Include="Resources\bell-on.png" />
+    <None Include="Resources\bell-on1.png" />
     <None Include="Resources\58a27ee24edec.png" />
     <None Include="Resources\6827792_delete_multimedia_remove_trash_ui_icon.png" />
     <None Include="Resources\511562_trash can_delete_trash_wastebin_icon.png" />

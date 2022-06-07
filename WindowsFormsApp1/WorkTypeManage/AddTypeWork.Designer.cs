@@ -89,6 +89,7 @@
             this.txtColor.Font = new System.Drawing.Font("Arial", 10F);
             this.txtColor.Location = new System.Drawing.Point(405, 17);
             this.txtColor.Name = "txtColor";
+            this.txtColor.ReadOnly = true;
             this.txtColor.Size = new System.Drawing.Size(89, 23);
             this.txtColor.TabIndex = 7;
             // 
@@ -184,9 +185,10 @@
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(41, 32);
+            this.txtName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(41, 25);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(799, 20);
+            this.txtName.Size = new System.Drawing.Size(799, 26);
             this.txtName.TabIndex = 2;
             // 
             // label3

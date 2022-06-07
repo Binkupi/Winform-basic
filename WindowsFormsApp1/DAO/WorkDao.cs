@@ -61,12 +61,12 @@ namespace WindowsFormsApp1.DAO
 
 
         }
-        public DataTable getAllWorkByDate(string date)
+        public DataTable getAllWorkByDate(string date1, string date2)
         {
             DataTable dTable = new DataTable();
             try
             {   
-                dTable = sql.get("SELECT * FROM work where deadline LIKE '" + date + "%'");
+                dTable = sql.get("SELECT * FROM work where deadline BETWEEN  '" + date1 + "' AND '" + date2 + "'");
             }
             catch (Exception ex)
             {

@@ -43,9 +43,11 @@ namespace WindowsFormsApp1
                 //lstWork = workDao.getListWorkByWorkType("test");
                 lstWork = workDao.getListWorkByWorkType(idWorkType);
                 DateTime today = DateTime.Now;
+               // int result = today.CompareTo(item.Field<DateTime>("Deadline");
                 var drUndoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == -1);
                 var drDoneWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 1);
-                var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) == 1);
+                var drLatedWork = lstWork.AsEnumerable().Where(item => item.Field<int>("IsFinished") == 0 && today.CompareTo(item.Field<DateTime>("Deadline")) > 0);
+
                 List<Work> lstUndoneWork = new List<Work>();
                 List<Work> lstDoneWork = new List<Work>();
                 List<Work> lstLatedWork = new List<Work>();
@@ -67,7 +69,7 @@ namespace WindowsFormsApp1
                 int i = 0;
                 foreach (Work undoneWork in lstUndoneWork)
                 {
-                    listUndoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listUndoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, undoneWork.Id.ToString(), Int32.Parse(undoneWork.IsNotification.ToString()) );
                     listUndoneItems[i].WorkId = undoneWork.Id.ToString();
                     listUndoneItems[i].WorkType = undoneWork.WorkType;
                     listUndoneItems[i].strName = undoneWork.Name;
@@ -90,7 +92,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work doneWork in lstDoneWork)
                 {
-                    listDoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listDoneItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, doneWork.Id.ToString(), Int32.Parse(doneWork.IsNotification.ToString()));
                     listDoneItems[i].WorkId = doneWork.Id.ToString();
                     listDoneItems[i].strName = doneWork.Name;
                     listDoneItems[i].strDate = doneWork.Deadline.ToString("dd/MM/yyyy");
@@ -106,7 +108,7 @@ namespace WindowsFormsApp1
                 i = 0;
                 foreach (Work latedWork in lstLatedWork)
                 {
-                    listLatedItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType);
+                    listLatedItems[i] = new workItem(this.homeReferenceForm, this.workTypeReferenceForm, this, idWorkType, latedWork.Id.ToString(), Int32.Parse(latedWork.IsNotification.ToString()));
                     listLatedItems[i].WorkId = latedWork.Id.ToString();
                     listLatedItems[i].strName = latedWork.Name;
                     listLatedItems[i].strDate = latedWork.Deadline.ToString("dd/MM/yyyy");
