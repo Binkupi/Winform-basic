@@ -99,23 +99,24 @@ namespace WindowsFormsApp1
             get => txtName.Text;
             set
             {
-                // trim if title is too long
-                string txt = string.Copy(value);
-                if (txt.Length != 0)
-                {
-                    int i = txt.Length;
-                    while (TextRenderer.MeasureText(txt, txtName.Font).Width > txtName.Width - 6)
-                    {
-                        txt = value.Substring(0, --i);
-                        if (i == 0) break;
-                    }
-                    txtName.Text = txt;
-                }
-                else
-                {
-                    txtName.Text = value;
-                }
-            }
+                //    // trim if title is too long
+                //    string txt = string.Copy(value);
+                //    if (txt.Length != 0)
+                //    {
+                //        int i = txt.Length;
+                //        while (TextRenderer.MeasureText(txt, txtName.Font).Width > txtName.Width - 6)
+                //        {
+                //            txt = value.Substring(0, --i);
+                //            if (i == 0) break;
+                //        }
+                //        txtName.Text = txt;
+                //    }
+                //    else
+                //    {
+                //        txtName.Text = value;
+                //    }
+                txtName.Text = value;
+        }
         }
         public string WorkType { get; set; }
 

@@ -61,13 +61,13 @@ namespace WindowsFormsApp1
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 14);
             this.label4.TabIndex = 6;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panelLatedWork
             // 
             this.panelLatedWork.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelLatedWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelLatedWork.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.hinh_nen_powerpoint_don_gian_4;
+            this.panelLatedWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
             this.panelLatedWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLatedWork.Controls.Add(this.latedWorkLayout);
             this.panelLatedWork.Controls.Add(this.titleLatedWork);
@@ -76,6 +76,7 @@ namespace WindowsFormsApp1
             this.panelLatedWork.Name = "panelLatedWork";
             this.panelLatedWork.Size = new System.Drawing.Size(1031, 365);
             this.panelLatedWork.TabIndex = 2;
+            this.panelLatedWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLatedWork_Paint);
             // 
             // latedWorkLayout
             // 
@@ -83,30 +84,31 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.latedWorkLayout.AutoScroll = true;
-            this.latedWorkLayout.BackColor = System.Drawing.Color.Transparent;
+            this.latedWorkLayout.BackColor = System.Drawing.Color.DarkSalmon;
             this.latedWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.latedWorkLayout.Location = new System.Drawing.Point(7, 58);
+            this.latedWorkLayout.Location = new System.Drawing.Point(2, 49);
             this.latedWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.latedWorkLayout.Name = "latedWorkLayout";
-            this.latedWorkLayout.Size = new System.Drawing.Size(1022, 304);
+            this.latedWorkLayout.Size = new System.Drawing.Size(1027, 313);
             this.latedWorkLayout.TabIndex = 2;
+            this.latedWorkLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.latedWorkLayout_Paint);
             // 
             // titleLatedWork
             // 
             this.titleLatedWork.BackColor = System.Drawing.Color.Transparent;
             this.titleLatedWork.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.titleLatedWork.ForeColor = System.Drawing.Color.DarkRed;
-            this.titleLatedWork.Location = new System.Drawing.Point(7, 18);
+            this.titleLatedWork.ForeColor = System.Drawing.Color.Transparent;
+            this.titleLatedWork.Location = new System.Drawing.Point(411, 9);
             this.titleLatedWork.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLatedWork.Name = "titleLatedWork";
-            this.titleLatedWork.Size = new System.Drawing.Size(412, 26);
+            this.titleLatedWork.Size = new System.Drawing.Size(308, 26);
             this.titleLatedWork.TabIndex = 0;
             this.titleLatedWork.Text = "Công việc đã trễ hạn";
+            this.titleLatedWork.Click += new System.EventHandler(this.titleLatedWork_Click);
             // 
             // panelDoneWork
             // 
-            this.panelDoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelDoneWork.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.anh_dep_cho_dien_thoai;
+            this.panelDoneWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
             this.panelDoneWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDoneWork.Controls.Add(this.doneWorkLayout);
             this.panelDoneWork.Controls.Add(this.label2);
@@ -115,6 +117,7 @@ namespace WindowsFormsApp1
             this.panelDoneWork.Name = "panelDoneWork";
             this.panelDoneWork.Size = new System.Drawing.Size(478, 370);
             this.panelDoneWork.TabIndex = 1;
+            this.panelDoneWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDoneWork_Paint);
             // 
             // doneWorkLayout
             // 
@@ -122,32 +125,33 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.doneWorkLayout.AutoScroll = true;
-            this.doneWorkLayout.BackColor = System.Drawing.Color.Transparent;
+            this.doneWorkLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(188)))), ((int)(((byte)(143)))));
             this.doneWorkLayout.Location = new System.Drawing.Point(2, 43);
             this.doneWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.doneWorkLayout.Name = "doneWorkLayout";
             this.doneWorkLayout.Size = new System.Drawing.Size(472, 327);
             this.doneWorkLayout.TabIndex = 1;
+            this.doneWorkLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.doneWorkLayout_Paint);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(2, 8);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(259, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "Công việc đã làm";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panelUndoneWork
             // 
             this.panelUndoneWork.AllowDrop = true;
             this.panelUndoneWork.AutoScroll = true;
-            this.panelUndoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelUndoneWork.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.cartoon_styles_ppt_backgrounds_powerpoint;
+            this.panelUndoneWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
             this.panelUndoneWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelUndoneWork.Controls.Add(this.undoneWorkLayout);
             this.panelUndoneWork.Controls.Add(this.txtUndoneWorkTitle);
@@ -157,6 +161,7 @@ namespace WindowsFormsApp1
             this.panelUndoneWork.Name = "panelUndoneWork";
             this.panelUndoneWork.Size = new System.Drawing.Size(555, 370);
             this.panelUndoneWork.TabIndex = 0;
+            this.panelUndoneWork.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUndoneWork_Paint);
             // 
             // undoneWorkLayout
             // 
@@ -164,15 +169,16 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.undoneWorkLayout.AutoScroll = true;
-            this.undoneWorkLayout.BackColor = System.Drawing.Color.Transparent;
+            this.undoneWorkLayout.BackColor = System.Drawing.Color.SkyBlue;
             this.undoneWorkLayout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undoneWorkLayout.Location = new System.Drawing.Point(2, 46);
             this.undoneWorkLayout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.undoneWorkLayout.Name = "undoneWorkLayout";
-            this.undoneWorkLayout.Size = new System.Drawing.Size(553, 342);
+            this.undoneWorkLayout.Size = new System.Drawing.Size(553, 324);
             this.undoneWorkLayout.TabIndex = 1;
             this.undoneWorkLayout.DragDrop += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragDrop);
             this.undoneWorkLayout.DragEnter += new System.Windows.Forms.DragEventHandler(this.undoneWorkLayout_DragEnter);
+            this.undoneWorkLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.undoneWorkLayout_Paint);
             this.undoneWorkLayout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseDown);
             this.undoneWorkLayout.MouseEnter += new System.EventHandler(this.undoneWorkLayout_MouseEnter);
             this.undoneWorkLayout.MouseMove += new System.Windows.Forms.MouseEventHandler(this.undoneWorkLayout_MouseMove);
@@ -183,13 +189,14 @@ namespace WindowsFormsApp1
             this.txtUndoneWorkTitle.AutoSize = true;
             this.txtUndoneWorkTitle.BackColor = System.Drawing.Color.Transparent;
             this.txtUndoneWorkTitle.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.txtUndoneWorkTitle.ForeColor = System.Drawing.Color.MediumBlue;
+            this.txtUndoneWorkTitle.ForeColor = System.Drawing.Color.Transparent;
             this.txtUndoneWorkTitle.Location = new System.Drawing.Point(2, 8);
             this.txtUndoneWorkTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtUndoneWorkTitle.Name = "txtUndoneWorkTitle";
             this.txtUndoneWorkTitle.Size = new System.Drawing.Size(296, 30);
             this.txtUndoneWorkTitle.TabIndex = 0;
             this.txtUndoneWorkTitle.Text = "Công việc chưa làm";
+            this.txtUndoneWorkTitle.Click += new System.EventHandler(this.txtUndoneWorkTitle_Click);
             // 
             // panelTool
             // 
@@ -203,9 +210,11 @@ namespace WindowsFormsApp1
             this.panelTool.Name = "panelTool";
             this.panelTool.Size = new System.Drawing.Size(168, 42);
             this.panelTool.TabIndex = 5;
+            this.panelTool.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTool_Paint);
             // 
             // btnUpload
             // 
+            this.btnUpload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpload.Image = global::WindowsFormsApp1.Properties.Resources._2849798_upload_multimedia_icon;
             this.btnUpload.Location = new System.Drawing.Point(38, 4);
             this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -218,6 +227,7 @@ namespace WindowsFormsApp1
             // 
             // btnDefaultExport
             // 
+            this.btnDefaultExport.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDefaultExport.Image = global::WindowsFormsApp1.Properties.Resources._172516_paper_clip_icon;
             this.btnDefaultExport.Location = new System.Drawing.Point(88, 4);
             this.btnDefaultExport.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -230,6 +240,7 @@ namespace WindowsFormsApp1
             // 
             // btnDownload
             // 
+            this.btnDownload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDownload.Image = global::WindowsFormsApp1.Properties.Resources._1564526_add_arrow_download_save_guardar_icon;
             this.btnDownload.Location = new System.Drawing.Point(133, 4);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

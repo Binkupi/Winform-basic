@@ -296,5 +296,60 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void doneWorkLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtUndoneWorkTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void latedWorkLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelUndoneWork_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDoneWork_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void titleLatedWork_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelLatedWork_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void undoneWorkLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelTool_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

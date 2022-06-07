@@ -111,8 +111,32 @@ namespace WindowsFormsApp1
             if (result == DialogResult.Yes)
             {
                 WorkTypeDao workTypeDao = new WorkTypeDao();
-                workTypeDao.delete(WorkTypeID);
-                workTypeReferenceForm.loadData();
+                WorkDao workDao = new WorkDao();
+                DataTable lstWork = new DataTable();
+                List<Work> lstAllWork = new List<Work>();
+                lstWork = workDao.getListWorkByWorkType(WorkTypeID);
+                var allWork = lstWork.AsEnumerable();
+                if (allWork.Any())
+                {
+                    lstAllWork = Helper.Helper.ConvertToList<Work>(allWork.CopyToDataTable());
+                }
+               
+              
+
+                if(lstAllWork.Count == 0)
+                {
+
+                    workTypeDao.delete(WorkTypeID);
+                    workTypeReferenceForm.loadData();
+                }
+                else
+                {
+                     message = "Xóa tất cả công việc thuộc loại công việc này để có thể thực hiện thao tác này ";
+                     title = "Thông báo";
+                     buttons = MessageBoxButtons.YesNo;
+                     result = MessageBox.Show(message, title, buttons);
+                }
+
             }
 
         }

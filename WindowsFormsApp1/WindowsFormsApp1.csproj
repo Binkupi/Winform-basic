@@ -300,6 +300,8 @@
     <Content Include="obj\Debug\WindowsFormsApp1.exe" />
     <Content Include="obj\Debug\WindowsFormsApp1.pdb" />
     <Content Include="Resources\bell-off.png" />
+    <Content Include="Resources\icon-home.ico" />
+    <Content Include="Resources\icon-home.png" />
     <None Include="Resources\bell-off1.png" />
     <Content Include="Resources\bell-on.png" />
     <None Include="Resources\bell-on1.png" />

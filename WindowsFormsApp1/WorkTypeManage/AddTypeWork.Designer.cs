@@ -50,10 +50,11 @@
             // 
             // btnChooseColor
             // 
+            this.btnChooseColor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseColor.Location = new System.Drawing.Point(189, 12);
             this.btnChooseColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnChooseColor.Name = "btnChooseColor";
-            this.btnChooseColor.Size = new System.Drawing.Size(189, 32);
+            this.btnChooseColor.Size = new System.Drawing.Size(139, 32);
             this.btnChooseColor.TabIndex = 3;
             this.btnChooseColor.Text = "Chọn màu";
             this.btnChooseColor.UseVisualStyleBackColor = true;
@@ -86,11 +87,11 @@
             // 
             // txtColor
             // 
-            this.txtColor.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtColor.Location = new System.Drawing.Point(405, 17);
+            this.txtColor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtColor.Location = new System.Drawing.Point(358, 17);
             this.txtColor.Name = "txtColor";
             this.txtColor.ReadOnly = true;
-            this.txtColor.Size = new System.Drawing.Size(89, 23);
+            this.txtColor.Size = new System.Drawing.Size(89, 26);
             this.txtColor.TabIndex = 7;
             // 
             // panel1
@@ -149,6 +150,7 @@
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(40, 36);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(800, 95);
@@ -210,10 +212,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(-2, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 32);
+            this.label1.Size = new System.Drawing.Size(361, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "Thông tin loại công việc";
             // 
@@ -221,6 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(923, 407);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);

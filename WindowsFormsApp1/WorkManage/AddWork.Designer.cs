@@ -42,10 +42,10 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.alarmDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.panel6 = new System.Windows.Forms.Panel();
             this.chkIsNotification = new System.Windows.Forms.CheckBox();
             this.lblStateWork = new System.Windows.Forms.Label();
@@ -79,9 +79,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.txtName);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(22, 4);
+            this.panel2.Location = new System.Drawing.Point(11, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(752, 61);
+            this.panel2.Size = new System.Drawing.Size(752, 67);
             this.panel2.TabIndex = 2;
             // 
             // txtName
@@ -115,9 +115,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.cbLoaiCV);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(22, 69);
+            this.panel3.Location = new System.Drawing.Point(11, 69);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(752, 75);
+            this.panel3.Size = new System.Drawing.Size(752, 80);
             this.panel3.TabIndex = 3;
             // 
             // cbLoaiCV
@@ -153,9 +153,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.txtDescription);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(22, 327);
+            this.panel5.Location = new System.Drawing.Point(11, 336);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(752, 160);
+            this.panel5.Size = new System.Drawing.Size(752, 154);
             this.panel5.TabIndex = 4;
             // 
             // txtDescription
@@ -163,10 +163,10 @@
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(40, 36);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(660, 109);
+            this.txtDescription.Size = new System.Drawing.Size(660, 103);
             this.txtDescription.TabIndex = 2;
             this.txtDescription.Text = "";
             // 
@@ -188,7 +188,7 @@
             // 
             this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSubmit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(326, 513);
+            this.btnSubmit.Location = new System.Drawing.Point(315, 496);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(115, 32);
             this.btnSubmit.TabIndex = 5;
@@ -209,7 +209,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-1, 64);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 650);
+            this.panel1.Size = new System.Drawing.Size(800, 550);
             this.panel1.TabIndex = 1;
             // 
             // panel7
@@ -221,11 +221,24 @@
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Controls.Add(this.dateEnd);
-            this.panel7.Location = new System.Drawing.Point(24, 147);
+            this.panel7.Location = new System.Drawing.Point(13, 151);
             this.panel7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(752, 82);
+            this.panel7.Size = new System.Drawing.Size(752, 94);
             this.panel7.TabIndex = 11;
+            // 
+            // alarmDate
+            // 
+            this.alarmDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.alarmDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alarmDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.alarmDate.Location = new System.Drawing.Point(382, 48);
+            this.alarmDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.alarmDate.Name = "alarmDate";
+            this.alarmDate.Size = new System.Drawing.Size(316, 26);
+            this.alarmDate.TabIndex = 6;
             // 
             // label6
             // 
@@ -239,32 +252,6 @@
             this.label6.Size = new System.Drawing.Size(85, 18);
             this.label6.TabIndex = 1;
             this.label6.Text = "Deadline *:";
-            // 
-            // dateEnd
-            // 
-            this.dateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateEnd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEnd.Location = new System.Drawing.Point(41, 48);
-            this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(280, 26);
-            this.dateEnd.TabIndex = 5;
-            // 
-            // alarmDate
-            // 
-            this.alarmDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.alarmDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alarmDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.alarmDate.Location = new System.Drawing.Point(382, 48);
-            this.alarmDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.alarmDate.Name = "alarmDate";
-            this.alarmDate.Size = new System.Drawing.Size(280, 26);
-            this.alarmDate.TabIndex = 6;
             // 
             // label4
             // 
@@ -280,6 +267,19 @@
             this.label4.Text = "Đặt thông báo *:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // dateEnd
+            // 
+            this.dateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateEnd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateEnd.Location = new System.Drawing.Point(41, 48);
+            this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(314, 26);
+            this.dateEnd.TabIndex = 5;
+            // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -288,16 +288,16 @@
             this.panel6.Controls.Add(this.chkIsNotification);
             this.panel6.Controls.Add(this.lblStateWork);
             this.panel6.Controls.Add(this.chkIsFinish);
-            this.panel6.Location = new System.Drawing.Point(22, 232);
+            this.panel6.Location = new System.Drawing.Point(11, 247);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(752, 90);
+            this.panel6.Size = new System.Drawing.Size(752, 94);
             this.panel6.TabIndex = 9;
             // 
             // chkIsNotification
             // 
             this.chkIsNotification.AutoSize = true;
             this.chkIsNotification.Font = new System.Drawing.Font("Arial", 12F);
-            this.chkIsNotification.Location = new System.Drawing.Point(384, 49);
+            this.chkIsNotification.Location = new System.Drawing.Point(261, 50);
             this.chkIsNotification.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chkIsNotification.Name = "chkIsNotification";
             this.chkIsNotification.Size = new System.Drawing.Size(124, 22);
@@ -320,7 +320,7 @@
             // 
             this.chkIsFinish.AutoSize = true;
             this.chkIsFinish.Font = new System.Drawing.Font("Arial", 12F);
-            this.chkIsFinish.Location = new System.Drawing.Point(194, 49);
+            this.chkIsFinish.Location = new System.Drawing.Point(261, 22);
             this.chkIsFinish.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chkIsFinish.Name = "chkIsFinish";
             this.chkIsFinish.Size = new System.Drawing.Size(127, 22);
@@ -335,7 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources._58a27ee24edec;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 704);
+            this.ClientSize = new System.Drawing.Size(800, 611);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
