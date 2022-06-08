@@ -173,8 +173,10 @@ namespace WindowsFormsApp1
 
         private void lbl_ListTypeWork_DoubleClick(object sender, EventArgs e)
         {
+            this.Hide();
             WorkTypeManagePage workTypeManagePage = new WorkTypeManagePage(this.homeReferenceForm, client);
             workTypeManagePage.Show();
+            
         }
     }
 }

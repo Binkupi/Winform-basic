@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
@@ -18,6 +19,7 @@ namespace WindowsFormsApp1.Client
         public RegisterPage()
         {
             InitializeComponent();
+            textPassword.PasswordChar = '*';
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -40,6 +42,15 @@ namespace WindowsFormsApp1.Client
                 textEmail.Focus();
                 return;
             }
+            string pattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex myRegex = new Regex(pattern);
+            Match m = myRegex.Match(textEmail.Text);
+            if (!m.Success)
+            {
+                MessageBox.Show("Email của bạn không đúng. Vui lòng kiểm tra lại");
+                textEmail.Focus();
+                return;
+            }
             ClientModel client = new ClientModel(textName.Text, textPassword.Text, textEmail.Text);
             bool result = clientDao.insertClient(client);
             if (result)
@@ -56,6 +67,16 @@ namespace WindowsFormsApp1.Client
             this.Hide();
             LoginPage login = new LoginPage();
             login.Show();
+        }
+
+        private void RegisterPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterPage_SizeChanged(object sender, EventArgs e)
+        {
+            panel.Location = new Point((panel.Parent.Width - panel.Width) / 2, (panel.Parent.Height - panel.Height) / 2);
         }
     }
 }

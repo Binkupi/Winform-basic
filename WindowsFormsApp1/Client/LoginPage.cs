@@ -18,6 +18,7 @@ namespace WindowsFormsApp1.Client
         public LoginPage()
         {
             InitializeComponent();
+            textPassword.PasswordChar = '*';
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -64,6 +65,11 @@ namespace WindowsFormsApp1.Client
             this.Hide();
             ForgotPasswordPage forgot = new ForgotPasswordPage();
             forgot.Show();
+        }
+
+        private void LoginPage_SizeChanged(object sender, EventArgs e)
+        {
+            panel.Location = new Point((panel.Parent.Width - panel.Width) / 2, (panel.Parent.Height - panel.Height) / 2);
         }
     }
 }

@@ -274,7 +274,7 @@ namespace WindowsFormsApp1.Helper
 
                     .OnEveryDay()
 
-                    .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(23, 19))
+                    .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(19, 31))
 
                   )
 

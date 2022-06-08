@@ -279,6 +279,7 @@ namespace WindowsFormsApp1
             panelLatedWork.Size = new Size((panelUndoneWork.Parent.Width) - 10, (panelUndoneWork.Parent.Height / 2) - 10);
             panelLatedWork.Location = new Point(0,((panelUndoneWork.Parent.Height / 2) + 5));
             titleLatedWork.Location = new Point((titleLatedWork.Parent.Width - titleLatedWork.Width) / 2, 10);
+            panelHome.Location = new Point(panelHome.Parent.Width - panelHome.Width - 10, 0);
         }
 
         private void WorkManagePage_Load(object sender, EventArgs e)
@@ -286,16 +287,13 @@ namespace WindowsFormsApp1
             panelUndoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 10, (panelUndoneWork.Parent.Height / 2) - 10);
             panelUndoneWork.Location = new Point(0, 0);
             panelTool.Location = new Point(panelTool.Parent.Width - panelTool.Width-5, 0);
+            
             panelDoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 10, (panelUndoneWork.Parent.Height / 2) - 10);
             panelDoneWork.Location = new Point((panelUndoneWork.Parent.Width / 2) + 5, 0);
             panelLatedWork.Size = new Size((panelUndoneWork.Parent.Width ) - 10, (panelUndoneWork.Parent.Height / 2) - 10);
             panelLatedWork.Location = new Point(0,( (panelUndoneWork.Parent.Height / 2) + 5));
             titleLatedWork.Location = new Point((titleLatedWork.Parent.Width - titleLatedWork.Width) / 2, 10);
-        }
-
-        private void datetimepicker_ValueChanged(object sender, EventArgs e)
-        {
-
+            panelHome.Location = new Point(panelHome.Parent.Width - panelHome.Width - 10, 0);
         }
 
         private void doneWorkLayout_Paint(object sender, PaintEventArgs e)
@@ -351,6 +349,13 @@ namespace WindowsFormsApp1
         private void panelTool_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home(client);
+            home.Show();
         }
     }
 }

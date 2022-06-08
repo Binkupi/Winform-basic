@@ -148,17 +148,11 @@ namespace WindowsFormsApp1
             addTypeWork.Show();
         }
 
-
-
         private void backgroundcolor_Paint(object sender, PaintEventArgs e)
         {
             
         }
 
-        private void txtDescription_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void backgroundcolor_Click(object sender, EventArgs e)
         {
@@ -167,28 +161,60 @@ namespace WindowsFormsApp1
             work.Show();
         }
 
-       
-      
-
-
-private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Click(object sender, EventArgs e)
         {
-
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label2_Click_1(object sender, EventArgs e)
         {
-
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click_1(object sender, EventArgs e)
         {
-
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label3_Click_1(object sender, EventArgs e)
         {
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
+        }
 
+        private void txtUnDoneWork_Click(object sender, EventArgs e)
+        {
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
+        }
+
+        private void txtDoneWork_Click(object sender, EventArgs e)
+        {
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
+        }
+
+        private void txtLateWork_Click(object sender, EventArgs e)
+        {
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
+        }
+
+        private void txtWorkTypeName_Click(object sender, EventArgs e)
+        {
+            workTypeReferenceForm.Hide();
+            WorkManagePage work = new WorkManagePage(homeReferenceForm, workTypeReferenceForm, WorkTypeID, client);
+            work.Show();
         }
     }
 }

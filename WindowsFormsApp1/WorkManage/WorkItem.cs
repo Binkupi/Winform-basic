@@ -197,6 +197,7 @@ namespace WindowsFormsApp1
 
         private void txtName_Click(object sender, EventArgs e)
         {
+
             AddWork addWork = new AddWork(this.homeReferenceForm, this.workTypeReferenceForm, WorkId, this.workReferenceForm,client, true);
             addWork.Show();
         }

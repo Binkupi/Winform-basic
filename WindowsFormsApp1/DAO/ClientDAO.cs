@@ -34,6 +34,25 @@ namespace WindowsFormsApp1.DAO
 
 
         }
+
+        public DataTable getListClient()
+        {
+            DataTable dTable = new DataTable();
+            try
+            {
+                
+                dTable = sql.get("SELECT * FROM client");
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+                return new DataTable();
+            }
+            return dTable;
+
+
+        }
         public bool  insertClient(ClientModel client)
         {
             bool result = false;

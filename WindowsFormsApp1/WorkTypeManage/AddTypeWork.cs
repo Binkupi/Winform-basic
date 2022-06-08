@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
@@ -107,7 +108,18 @@ namespace WindowsFormsApp1
             { //Nếu nhấp vào nút OK trên hộp thoại
 
                // txtColor.Text = dlg.Color.Name.ToString();
-                txtColor.Text = "#" + dlg.Color.Name.ToString();
+                
+                string pattern = "^[A-za-z]+$";
+                Regex myRegex = new Regex(pattern);
+                Match m = myRegex.Match(dlg.Color.Name.ToString());
+                if(m.Success)
+                {
+                    txtColor.Text = dlg.Color.Name.ToString();
+                }
+                else
+                {
+                    txtColor.Text = "#"+dlg.Color.Name.ToString();
+                }
             }
         }
 

@@ -22,9 +22,9 @@ namespace WindowsFormsApp1
             DateTime today1 = DateTime.Now;
 
 
-            //Helper.Helper.sentAutoMail();
+            Helper.Helper.sentAutoMail();
             //Helper.Helper.sentMail();
-            
+
             Application.Run(new LoginPage());
         }
     }

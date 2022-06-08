@@ -220,5 +220,12 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home(client);
+            home.Show();
+        }
     }
 }

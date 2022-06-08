@@ -334,6 +334,9 @@
     <Content Include="obj\Debug\WindowsFormsApp1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WindowsFormsApp1.exe" />
     <Content Include="obj\Debug\WindowsFormsApp1.pdb" />
+    <None Include="Resources\216242_home_icon.png" />
+    <None Include="Resources\216242_home_icon1.png" />
+    <None Include="Resources\216242_home_icon2.png" />
     <Content Include="Resources\bell-off.png" />
     <Content Include="Resources\icon-home.ico" />
     <Content Include="Resources\icon-home.png" />

@@ -134,14 +134,14 @@ namespace WindowsFormsApp1.DAO
             }
 
         }
-        public DataTable getWorkBeforeDeadline()
+        public DataTable getWorkBeforeDeadline(DataRow client)
         {
 
             DataTable dTable = new DataTable();
             DateTime today = DateTime.Now;
             try
             {
-                dTable = sql.get("SELECT * FROM work INNER JOIN client on work.clientID = client.id where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=1  ");
+                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=1 and clientID ="+Int32.Parse(client["id"].ToString()));
             }
             catch (Exception ex)
             {
@@ -157,7 +157,7 @@ namespace WindowsFormsApp1.DAO
             DateTime today = DateTime.Now;
             try
             {
-                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',deadline)=0 and clientID =" + client.id);
+                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',alarmDate)=0 and isNotification and clientID =" + client.id);
             }
             catch (Exception ex)
             {
