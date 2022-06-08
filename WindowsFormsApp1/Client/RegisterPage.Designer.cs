@@ -31,7 +31,7 @@ namespace WindowsFormsApp1.Client
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterPage));
             this.textName = new System.Windows.Forms.TextBox();
-            this.textPassword = new System.Windows.Forms.TextBox();
+            this.textPasswordAgain = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -40,29 +40,31 @@ namespace WindowsFormsApp1.Client
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textPassword = new System.Windows.Forms.TextBox();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textName
             // 
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textName.Location = new System.Drawing.Point(223, 86);
+            this.textName.Location = new System.Drawing.Point(262, 86);
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(439, 30);
             this.textName.TabIndex = 0;
             // 
-            // textPassword
+            // textPasswordAgain
             // 
-            this.textPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textPassword.Location = new System.Drawing.Point(223, 160);
-            this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(438, 30);
-            this.textPassword.TabIndex = 1;
+            this.textPasswordAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textPasswordAgain.Location = new System.Drawing.Point(263, 222);
+            this.textPasswordAgain.Name = "textPasswordAgain";
+            this.textPasswordAgain.Size = new System.Drawing.Size(438, 30);
+            this.textPasswordAgain.TabIndex = 1;
             // 
             // textEmail
             // 
             this.textEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textEmail.Location = new System.Drawing.Point(223, 226);
+            this.textEmail.Location = new System.Drawing.Point(263, 288);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(438, 30);
             this.textEmail.TabIndex = 2;
@@ -70,7 +72,7 @@ namespace WindowsFormsApp1.Client
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnRegister.Location = new System.Drawing.Point(398, 309);
+            this.btnRegister.Location = new System.Drawing.Point(398, 386);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(210, 49);
             this.btnRegister.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace WindowsFormsApp1.Client
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnLogin.Location = new System.Drawing.Point(138, 310);
+            this.btnLogin.Location = new System.Drawing.Point(138, 387);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(210, 49);
             this.btnLogin.TabIndex = 4;
@@ -103,17 +105,17 @@ namespace WindowsFormsApp1.Client
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(48, 161);
+            this.label2.Location = new System.Drawing.Point(47, 223);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 29);
+            this.label2.Size = new System.Drawing.Size(204, 29);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Mật khẩu";
+            this.label2.Text = "Nhập lại mật khẩu";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label3.Location = new System.Drawing.Point(48, 227);
+            this.label3.Location = new System.Drawing.Point(52, 289);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 29);
             this.label3.TabIndex = 7;
@@ -131,6 +133,8 @@ namespace WindowsFormsApp1.Client
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.label5);
+            this.panel.Controls.Add(this.textPassword);
             this.panel.Controls.Add(this.label4);
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.label2);
@@ -138,19 +142,37 @@ namespace WindowsFormsApp1.Client
             this.panel.Controls.Add(this.btnLogin);
             this.panel.Controls.Add(this.btnRegister);
             this.panel.Controls.Add(this.textEmail);
-            this.panel.Controls.Add(this.textPassword);
+            this.panel.Controls.Add(this.textPasswordAgain);
             this.panel.Controls.Add(this.textName);
             this.panel.Location = new System.Drawing.Point(12, 43);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(773, 385);
+            this.panel.Size = new System.Drawing.Size(773, 492);
             this.panel.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label5.Location = new System.Drawing.Point(46, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 29);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Mật khẩu";
+            // 
+            // textPassword
+            // 
+            this.textPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textPassword.Location = new System.Drawing.Point(263, 158);
+            this.textPassword.Name = "textPassword";
+            this.textPassword.Size = new System.Drawing.Size(438, 30);
+            this.textPassword.TabIndex = 9;
             // 
             // RegisterPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 547);
             this.Controls.Add(this.panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterPage";
@@ -166,7 +188,7 @@ namespace WindowsFormsApp1.Client
         #endregion
 
         private System.Windows.Forms.TextBox textName;
-        private System.Windows.Forms.TextBox textPassword;
+        private System.Windows.Forms.TextBox textPasswordAgain;
         private System.Windows.Forms.TextBox textEmail;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnLogin;
@@ -175,5 +197,7 @@ namespace WindowsFormsApp1.Client
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textPassword;
     }
 }

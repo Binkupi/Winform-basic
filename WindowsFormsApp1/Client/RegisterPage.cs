@@ -19,6 +19,7 @@ namespace WindowsFormsApp1.Client
         public RegisterPage()
         {
             InitializeComponent();
+            textPasswordAgain.PasswordChar = '*';
             textPassword.PasswordChar = '*';
         }
 
@@ -36,10 +37,23 @@ namespace WindowsFormsApp1.Client
                 textPassword.Focus();
                 return;
             }
+            if (string.IsNullOrEmpty(textPasswordAgain.Text))
+            {
+                MessageBox.Show("Bạn cần nhập lại mật khẩu");
+                textPasswordAgain.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(textEmail.Text))
             {
                 MessageBox.Show("Bạn cần nhập email");
                 textEmail.Focus();
+                return;
+            }
+            if (!textPassword.Text.Equals(textPasswordAgain.Text))
+            {
+                MessageBox.Show("Mật khẩu không trùng khớp.");
+                textPasswordAgain.Text = "";
+                textPasswordAgain.Focus();
                 return;
             }
             string pattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
@@ -51,7 +65,13 @@ namespace WindowsFormsApp1.Client
                 textEmail.Focus();
                 return;
             }
-            ClientModel client = new ClientModel(textName.Text, textPassword.Text, textEmail.Text);
+            if (clientDao.CheckClient(textEmail.Text))
+            {
+                MessageBox.Show("Email đã được sử dụng vui lòng dùng email đăng kí khác");
+            
+                return;
+            }
+            ClientModel client = new ClientModel(textName.Text, textPasswordAgain.Text, textEmail.Text);
             bool result = clientDao.insertClient(client);
             if (result)
             {

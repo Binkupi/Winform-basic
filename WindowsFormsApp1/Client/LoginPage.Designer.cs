@@ -61,7 +61,7 @@ namespace WindowsFormsApp1.Client
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnLogin.Location = new System.Drawing.Point(462, 288);
+            this.btnLogin.Location = new System.Drawing.Point(431, 288);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(185, 43);
             this.btnLogin.TabIndex = 3;
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1.Client
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnRegister.Location = new System.Drawing.Point(208, 288);
+            this.btnRegister.Location = new System.Drawing.Point(177, 288);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(185, 43);
             this.btnRegister.TabIndex = 4;
@@ -114,7 +114,7 @@ namespace WindowsFormsApp1.Client
             // 
             this.btnForgotPassword.AutoSize = true;
             this.btnForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnForgotPassword.Location = new System.Drawing.Point(343, 345);
+            this.btnForgotPassword.Location = new System.Drawing.Point(312, 345);
             this.btnForgotPassword.Name = "btnForgotPassword";
             this.btnForgotPassword.Size = new System.Drawing.Size(174, 29);
             this.btnForgotPassword.TabIndex = 8;
