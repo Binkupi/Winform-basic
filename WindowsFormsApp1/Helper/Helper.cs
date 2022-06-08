@@ -274,7 +274,7 @@ namespace WindowsFormsApp1.Helper
 
                     .OnEveryDay()
 
-                    .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(19, 31))
+                    .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(22, 53))
 
                   )
 
@@ -289,7 +289,7 @@ namespace WindowsFormsApp1.Helper
             {
                 SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
                 mailclient.EnableSsl = true;
-                mailclient.Credentials = new NetworkCredential("tongdinhquoc@gmail.com", "20112000a");
+                mailclient.Credentials = new NetworkCredential("tongdinhquoc@gmail.com", "mlqktktyqjdsursk");
 
                 MailMessage message = new MailMessage("tongdinhquoc@gmail.com", "18521312@gm.uit.edu.vn");
                 message.Subject = "18521312@gm.uit.edu.vn";

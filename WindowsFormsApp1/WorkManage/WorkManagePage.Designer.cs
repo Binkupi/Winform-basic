@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
             // 
             this.panelLatedWork.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelLatedWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
+            this.panelLatedWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelLatedWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLatedWork.Controls.Add(this.latedWorkLayout);
             this.panelLatedWork.Controls.Add(this.titleLatedWork);
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
             // 
             this.titleLatedWork.BackColor = System.Drawing.Color.Transparent;
             this.titleLatedWork.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.titleLatedWork.ForeColor = System.Drawing.Color.Transparent;
+            this.titleLatedWork.ForeColor = System.Drawing.Color.DarkSalmon;
             this.titleLatedWork.Location = new System.Drawing.Point(548, 10);
             this.titleLatedWork.Name = "titleLatedWork";
             this.titleLatedWork.Size = new System.Drawing.Size(411, 30);
@@ -108,7 +108,7 @@ namespace WindowsFormsApp1
             // 
             // panelDoneWork
             // 
-            this.panelDoneWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
+            this.panelDoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelDoneWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDoneWork.Controls.Add(this.doneWorkLayout);
             this.panelDoneWork.Controls.Add(this.label2);
@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
             this.label2.Location = new System.Drawing.Point(3, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(327, 38);
@@ -149,7 +149,7 @@ namespace WindowsFormsApp1
             // 
             this.panelUndoneWork.AllowDrop = true;
             this.panelUndoneWork.AutoScroll = true;
-            this.panelUndoneWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(106)))), ((int)(((byte)(167)))));
+            this.panelUndoneWork.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelUndoneWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelUndoneWork.Controls.Add(this.undoneWorkLayout);
             this.panelUndoneWork.Controls.Add(this.txtUndoneWorkTitle);
@@ -185,7 +185,7 @@ namespace WindowsFormsApp1
             this.txtUndoneWorkTitle.AutoSize = true;
             this.txtUndoneWorkTitle.BackColor = System.Drawing.Color.Transparent;
             this.txtUndoneWorkTitle.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Bold);
-            this.txtUndoneWorkTitle.ForeColor = System.Drawing.Color.Transparent;
+            this.txtUndoneWorkTitle.ForeColor = System.Drawing.Color.MediumBlue;
             this.txtUndoneWorkTitle.Location = new System.Drawing.Point(3, 9);
             this.txtUndoneWorkTitle.Name = "txtUndoneWorkTitle";
             this.txtUndoneWorkTitle.Size = new System.Drawing.Size(369, 38);
@@ -265,6 +265,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1381, 862);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelLatedWork);

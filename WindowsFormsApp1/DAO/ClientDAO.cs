@@ -34,6 +34,27 @@ namespace WindowsFormsApp1.DAO
 
 
         }
+        public bool CheckClient(string email)
+        {
+            try
+            {
+                DataTable dTable = new DataTable();
+                dTable = sql.get("SELECT * FROM client where email = '" + email + "'");
+                if (dTable != null && dTable.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Show any error message.
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            return false;
+
+
+        }
 
         public DataTable getListClient()
         {
@@ -75,7 +96,7 @@ namespace WindowsFormsApp1.DAO
             bool result = false;
             try
             {
-                string query = "UPDATE `client` set `password` = '" + password + " where email='" + email + "'";
+                string query = "UPDATE `client` set `password` = '" + password + "' where email='" + email + "'";
                 // MessageBox.Show(query);
                 result = sql.update(query);
                 if (result)

@@ -29,6 +29,7 @@ namespace WindowsFormsApp1.Client
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             this.textName = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -113,7 +114,7 @@ namespace WindowsFormsApp1.Client
             // 
             this.btnForgotPassword.AutoSize = true;
             this.btnForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnForgotPassword.Location = new System.Drawing.Point(321, 345);
+            this.btnForgotPassword.Location = new System.Drawing.Point(343, 345);
             this.btnForgotPassword.Name = "btnForgotPassword";
             this.btnForgotPassword.Size = new System.Drawing.Size(174, 29);
             this.btnForgotPassword.TabIndex = 8;
@@ -143,6 +144,7 @@ namespace WindowsFormsApp1.Client
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginPage";
             this.Text = "Trang đăng nhập";
             this.SizeChanged += new System.EventHandler(this.LoginPage_SizeChanged);

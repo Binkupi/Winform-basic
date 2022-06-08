@@ -157,7 +157,7 @@ namespace WindowsFormsApp1.DAO
             DateTime today = DateTime.Now;
             try
             {
-                dTable = sql.get("SELECT * FROM work where DateDiff('" + today.ToString("yyyy-MM-dd") + "',alarmDate)=0 and isNotification and clientID =" + client.id);
+                dTable = sql.get("SELECT a.name as workName, b.name as workTypeName FROM work as a inner join workType as b on a.workType = b.id where DateDiff('" + today.ToString("yyyy-MM-dd") + "',alarmDate)=0 and isNotification =1 and a.clientID =" + client.id);
             }
             catch (Exception ex)
             {

@@ -18,18 +18,22 @@ namespace WindowsFormsApp1.Model
             ClientModel client = (ClientModel)dataMap["client"];
             WorkDao workDao = new WorkDao();
             var dt = workDao.getWorkDeadline(client);
-            List<Work> lst = new List<Work>();
+            List<WorkCustom> lst = new List<WorkCustom>();
             string content = " Bạn không có công việc cần hoàn tất hôm nay!";
             if (dt != null && dt.Rows.Count > 0)
             {
                 content = "Hôm nay bạn cần hoàn tất những công việc sau: \n";
-                lst = Helper.Helper.ConvertToList<Work>(dt);
+                lst = Helper.Helper.ConvertToList<WorkCustom>(dt);
             }
-            foreach (Work work in lst)
+            foreach (WorkCustom work in lst)
             {
-                content += "Ngày " + work.Deadline.ToString("dd-MM-yyyy") + ": " + work.Name + "\n";
+                content += "Ngày " + work.workTypeName + ": " + work.workName + "\n";
             }
-            MessageBox.Show(content);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                MessageBox.Show(content);
+            }
+           
         }
 
     }

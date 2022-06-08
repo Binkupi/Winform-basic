@@ -57,7 +57,7 @@ namespace WindowsFormsApp1.Model
                         File.WriteAllBytes(path, data);
                         SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
                         mailclient.EnableSsl = true;
-                        mailclient.Credentials = new NetworkCredential("tongdinhquoc@gmail.com", "20112000a");
+                        mailclient.Credentials = new NetworkCredential("tongdinhquoc@gmail.com", "mlqktktyqjdsursk");
                         DateTime today = DateTime.Now;
                         MailMessage message = new MailMessage("tongdinhquoc@gmail.com", "18521312@gm.uit.edu.vn");
                         message.Subject = client["email"].ToString();

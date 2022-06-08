@@ -29,6 +29,7 @@ namespace WindowsFormsApp1.Client
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPasswordPage));
             this.textEmail = new System.Windows.Forms.TextBox();
             this.btnGetPassword = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,6 +95,7 @@ namespace WindowsFormsApp1.Client
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ForgotPasswordPage";
             this.Text = "Trang lấy lại mật khẩu";
             this.SizeChanged += new System.EventHandler(this.ForgotPasswordPage_SizeChanged);

@@ -37,9 +37,15 @@ namespace WindowsFormsApp1.Client
                 textEmail.Focus();
                 return;
             }
-           
-            bool result = clientDao.update(textEmail.Text, "123");
-            Helper.Helper.sentMail("Mật khẩu mới của bạn là: 123");
+            bool checkEmail = clientDao.CheckClient(textEmail.Text);
+            if (!checkEmail)
+            {
+                MessageBox.Show("Email này chưa đăng kí tài khoản.");
+                return;
+            }
+            string newPassWord = Helper.Helper.RandomID(8);
+            bool result = clientDao.update(textEmail.Text, newPassWord);
+            Helper.Helper.sentMail("Mật khẩu mới của bạn là: "+ newPassWord);
             if (result)
             {
                 MessageBox.Show("Mật khẩu đã được cấp mới thành công. Vui lòng kiểm tra mail để sử dụng mật khẩu");

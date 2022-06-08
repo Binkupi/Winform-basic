@@ -82,12 +82,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\ChangePasswordPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Client\ChangePasswordPage.Designer.cs">
-      <DependentUpon>ChangePasswordPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Client\ForgotPasswordPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +113,7 @@
     <Compile Include="Model\EmailJob.cs" />
     <Compile Include="Model\NotificationJob.cs" />
     <Compile Include="Model\Work.cs" />
+    <Compile Include="Model\WorkCustom.cs" />
     <Compile Include="Model\WorkType.cs" />
     <Compile Include="WorkManage\WorkItem.cs">
       <SubType>UserControl</SubType>
