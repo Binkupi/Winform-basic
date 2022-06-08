@@ -48,10 +48,11 @@ namespace WindowsFormsApp1
             this.homeReferenceForm = form1;
             this.workTypereferenceForm = form2;
             this.workReferenceForm = form3;
+            this.client = client;
             loadListWorkType();
             loadDataCreate();
             formatTimePicker();
-            this.client = client;
+            
             
         }
 
@@ -65,7 +66,6 @@ namespace WindowsFormsApp1
             loadListWorkType();
             loadDataEdit(workID);
             formatTimePicker();
-            this.client = client;
 
             if (seen == true)
             {
