@@ -36,8 +36,8 @@ namespace WindowsFormsApp1
             this.txtTime = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.PictureBox();
-            this.elipseControl1 = new WindowsFormsApp1.ElipseControl();
             this.txtName = new System.Windows.Forms.Label();
+            this.elipseControl1 = new WindowsFormsApp1.ElipseControl();
             this.background.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNotificationBell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
@@ -47,11 +47,11 @@ namespace WindowsFormsApp1
             // txtDate
             // 
             this.txtDate.AutoSize = true;
-            this.txtDate.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDate.Location = new System.Drawing.Point(5, 9);
             this.txtDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(63, 16);
+            this.txtDate.Size = new System.Drawing.Size(66, 17);
             this.txtDate.TabIndex = 3;
             this.txtDate.Text = "Ngày giờ";
             this.txtDate.Click += new System.EventHandler(this.txtDate_Click);
@@ -86,11 +86,11 @@ namespace WindowsFormsApp1
             // txtTime
             // 
             this.txtTime.AutoSize = true;
-            this.txtTime.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtTime.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTime.Location = new System.Drawing.Point(5, 121);
             this.txtTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(30, 16);
+            this.txtTime.Size = new System.Drawing.Size(32, 17);
             this.txtTime.TabIndex = 4;
             this.txtTime.Text = "Giờ";
             // 
@@ -119,15 +119,11 @@ namespace WindowsFormsApp1
             this.btnDelete.TabStop = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // elipseControl1
-            // 
-            this.elipseControl1.CornerRadius = 20;
-            this.elipseControl1.TargetControl = this;
-            // 
             // txtName
             // 
             this.txtName.AllowDrop = true;
             this.txtName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.Location = new System.Drawing.Point(2, 32);
             this.txtName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtName.Name = "txtName";
@@ -135,6 +131,11 @@ namespace WindowsFormsApp1
             this.txtName.TabIndex = 0;
             this.txtName.Text = "Công việc";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 20;
+            this.elipseControl1.TargetControl = this;
             // 
             // workItem
             // 

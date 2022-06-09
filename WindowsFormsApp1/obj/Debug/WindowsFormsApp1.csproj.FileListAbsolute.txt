@@ -127,13 +127,8 @@ C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Commo
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Common.Logging.xml
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Common.Logging.Core.pdb
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Common.Logging.Core.xml
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\DevExpress.Xpo.v18.1.xml
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Quartz.pdb
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\Quartz.xml
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
-C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
@@ -155,3 +150,6 @@ C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\Windo
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Client.ForgotPasswordPage.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Client.LoginPage.resources
+C:\Users\Admin\source\repos\finnal-work-manager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Client.RegisterPage.resources

@@ -49,7 +49,8 @@ namespace WindowsFormsApp1.DAO
         public void delete(string id, ClientModel client)
         {
 
-            string query = "DELETE FROM workType WHERE id ='" + id + "' and client= "+client.id ;
+            string query = "DELETE FROM workType WHERE id ='" + id + "' and clientID= "+client.id ;
+            //string query = "DELETE FROM workType WHERE id ='" + id + "' and client= " + "'" + client.id + "'";
             bool result = sql.delete(query);
             if (result)
             {

@@ -25,7 +25,8 @@ namespace WindowsFormsApp1
         private string workId;
         WorkDao workDao = new WorkDao();
         DataTable data = new DataTable();
-       
+        //private string message;
+
         //public workItem()
         //{
         //    InitializeComponent();
@@ -171,6 +172,8 @@ namespace WindowsFormsApp1
                 if(this.workReferenceForm != null)
                 {
                     workReferenceForm.loadData(inputIdWorkType);
+                    workTypeReferenceForm.loadData();
+                    
                 }
                 this.homeReferenceForm.loadData();
                      
@@ -225,7 +228,14 @@ namespace WindowsFormsApp1
         {
             loadData();
 
-            string message = "Bạn có muốn bật thông báo công việc này?";
+             string message;
+            if (this.stateNotification == 0)
+            {
+                message = "Bạn muốn bật thông báo công việc này?";
+            } else
+            {
+                 message = "Bạn muốn tắt thông báo công việc này?";
+            }
             string title = "Thông báo";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);

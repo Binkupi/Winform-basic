@@ -55,8 +55,9 @@ namespace WindowsFormsApp1
             this.backgroundcolor.Controls.Add(this.btnRemove);
             this.backgroundcolor.Controls.Add(this.btnEdit);
             this.backgroundcolor.Location = new System.Drawing.Point(0, 0);
+            this.backgroundcolor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.backgroundcolor.Name = "backgroundcolor";
-            this.backgroundcolor.Size = new System.Drawing.Size(200, 200);
+            this.backgroundcolor.Size = new System.Drawing.Size(150, 175);
             this.backgroundcolor.TabIndex = 4;
             this.backgroundcolor.Click += new System.EventHandler(this.backgroundcolor_Click);
             this.backgroundcolor.Paint += new System.Windows.Forms.PaintEventHandler(this.backgroundcolor_Paint);
@@ -69,21 +70,19 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1, 42);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Location = new System.Drawing.Point(1, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(196, 103);
+            this.panel1.Size = new System.Drawing.Size(147, 90);
             this.panel1.TabIndex = 4;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // txtLateWork
             // 
             this.txtLateWork.AutoSize = true;
-            this.txtLateWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLateWork.Location = new System.Drawing.Point(115, 73);
-            this.txtLateWork.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtLateWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLateWork.Location = new System.Drawing.Point(86, 64);
             this.txtLateWork.Name = "txtLateWork";
-            this.txtLateWork.Size = new System.Drawing.Size(21, 23);
+            this.txtLateWork.Size = new System.Drawing.Size(18, 19);
             this.txtLateWork.TabIndex = 5;
             this.txtLateWork.Text = "0";
             this.txtLateWork.Click += new System.EventHandler(this.txtLateWork_Click);
@@ -91,11 +90,10 @@ namespace WindowsFormsApp1
             // txtDoneWork
             // 
             this.txtDoneWork.AutoSize = true;
-            this.txtDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoneWork.Location = new System.Drawing.Point(115, 40);
-            this.txtDoneWork.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoneWork.Location = new System.Drawing.Point(86, 35);
             this.txtDoneWork.Name = "txtDoneWork";
-            this.txtDoneWork.Size = new System.Drawing.Size(21, 23);
+            this.txtDoneWork.Size = new System.Drawing.Size(18, 19);
             this.txtDoneWork.TabIndex = 4;
             this.txtDoneWork.Text = "3";
             this.txtDoneWork.Click += new System.EventHandler(this.txtDoneWork_Click);
@@ -103,11 +101,10 @@ namespace WindowsFormsApp1
             // txtUnDoneWork
             // 
             this.txtUnDoneWork.AutoSize = true;
-            this.txtUnDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnDoneWork.Location = new System.Drawing.Point(115, 6);
-            this.txtUnDoneWork.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtUnDoneWork.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnDoneWork.Location = new System.Drawing.Point(86, 5);
             this.txtUnDoneWork.Name = "txtUnDoneWork";
-            this.txtUnDoneWork.Size = new System.Drawing.Size(21, 23);
+            this.txtUnDoneWork.Size = new System.Drawing.Size(18, 19);
             this.txtUnDoneWork.TabIndex = 3;
             this.txtUnDoneWork.Text = "4";
             this.txtUnDoneWork.Click += new System.EventHandler(this.txtUnDoneWork_Click);
@@ -116,10 +113,9 @@ namespace WindowsFormsApp1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 73);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(6, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 22);
+            this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Trễ hạn:";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
@@ -128,10 +124,9 @@ namespace WindowsFormsApp1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 40);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 22);
+            this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Đã làm:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
@@ -140,10 +135,9 @@ namespace WindowsFormsApp1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 22);
+            this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chưa làm:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -151,10 +145,10 @@ namespace WindowsFormsApp1
             // txtWorkTypeName
             // 
             this.txtWorkTypeName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.txtWorkTypeName.Location = new System.Drawing.Point(8, 13);
-            this.txtWorkTypeName.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.txtWorkTypeName.Location = new System.Drawing.Point(6, 11);
+            this.txtWorkTypeName.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.txtWorkTypeName.Name = "txtWorkTypeName";
-            this.txtWorkTypeName.Size = new System.Drawing.Size(189, 26);
+            this.txtWorkTypeName.Size = new System.Drawing.Size(142, 23);
             this.txtWorkTypeName.TabIndex = 3;
             this.txtWorkTypeName.Text = "Tên loại công việc";
             this.txtWorkTypeName.Click += new System.EventHandler(this.txtWorkTypeName_Click);
@@ -162,9 +156,10 @@ namespace WindowsFormsApp1
             // btnRemove
             // 
             this.btnRemove.Image = global::WindowsFormsApp1.Properties.Resources._3844425_can_trash_icon;
-            this.btnRemove.Location = new System.Drawing.Point(155, 150);
+            this.btnRemove.Location = new System.Drawing.Point(116, 131);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(43, 42);
+            this.btnRemove.Size = new System.Drawing.Size(32, 37);
             this.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRemove.TabIndex = 1;
             this.btnRemove.TabStop = false;
@@ -173,9 +168,10 @@ namespace WindowsFormsApp1
             // btnEdit
             // 
             this.btnEdit.Image = global::WindowsFormsApp1.Properties.Resources._8725775_edit_icon;
-            this.btnEdit.Location = new System.Drawing.Point(100, 150);
+            this.btnEdit.Location = new System.Drawing.Point(75, 131);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(39, 42);
+            this.btnEdit.Size = new System.Drawing.Size(29, 37);
             this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnEdit.TabIndex = 0;
             this.btnEdit.TabStop = false;
@@ -188,12 +184,13 @@ namespace WindowsFormsApp1
             // 
             // TypeWork
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.backgroundcolor);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "TypeWork";
-            this.Size = new System.Drawing.Size(200, 200);
+            this.Size = new System.Drawing.Size(150, 175);
             this.Load += new System.EventHandler(this.TypeWork_Load);
             this.backgroundcolor.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

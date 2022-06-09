@@ -128,6 +128,7 @@ namespace WindowsFormsApp1
                 if(lstAllWork.Count == 0)
                 {
 
+                    
                     workTypeDao.delete(WorkTypeID,client);
                     workTypeReferenceForm.loadData();
                 }

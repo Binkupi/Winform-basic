@@ -136,7 +136,7 @@ namespace WindowsFormsApp1
 
         private void Home_Load(object sender, EventArgs e)
         {
-            panelUndoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 10, (panelUndoneWork.Parent.Height / 1) - 10);
+            panelUndoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 9, (panelUndoneWork.Parent.Height / 1) - 9);
             panelUndoneWork.Location = new Point(0, 0);
             //panelTool.Location = new Point(panelTool.Parent.Width - panelTool.Width - 5, 0);
             panelDoneWork.Size = new Size((panelUndoneWork.Parent.Width / 2) - 10, (panelUndoneWork.Parent.Height / 1) - 10);

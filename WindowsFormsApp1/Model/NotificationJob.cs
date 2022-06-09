@@ -22,12 +22,14 @@ namespace WindowsFormsApp1.Model
             string content = " Bạn không có công việc cần hoàn tất hôm nay!";
             if (dt != null && dt.Rows.Count > 0)
             {
-                content = "Hôm nay bạn cần hoàn tất những công việc sau: \n";
+                //content = "Hôm nay bạn cần hoàn tất những công việc sau: \n";
+                content = "Các công việc được báo thức trong hôm nay: \n";
                 lst = Helper.Helper.ConvertToList<WorkCustom>(dt);
             }
             foreach (WorkCustom work in lst)
             {
-                content += "Ngày " + work.workTypeName + ": " + work.workName + "\n";
+                //content += "Ngày " + work.workTypeName + ": " + work.workName + "\n";
+                content +=  work.workTypeName + ": " + work.workName + "\n";
             }
             if (dt != null && dt.Rows.Count > 0)
             {
