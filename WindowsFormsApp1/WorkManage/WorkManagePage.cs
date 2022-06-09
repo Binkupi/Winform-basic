@@ -205,6 +205,7 @@ namespace WindowsFormsApp1
                 {
                     workDao.insertExcel(work, client);
                 }
+                loadData(idWorkType);
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);

@@ -119,7 +119,7 @@ namespace WindowsFormsApp1.DAO
         public void insertExcel (Work work, ClientModel client)
         {
 
-            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`,`clientID`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + "'," + client.id + ")";
+            string query = "INSERT INTO `work` (`name`, `workType`, `isNotification`, `deadline`, `description`, `alarmDate`, `isFinished`,`clientID`) VALUES('" + work.Name + "', '" + work.WorkType + "', '" + work.IsNotification + "', '" + work.Deadline.ToString("yyyy-MM-dd HH:mm") + "', '" + work.Description + "', '" + work.AlarmDate.ToString("yyyy-MM-dd HH:mm") + "'," + work.IsFinished + "," + client.id + ")";
             bool result = sql.insert(query);
 
         }
